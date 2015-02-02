@@ -1,0 +1,153 @@
+/*
+************
+* =header
+************
+*/
+
+header {
+	width: 100%;
+	background-color: black;
+	position: relative;
+}
+
+.headerMain {
+	width: 70%;
+	overflow: hidden;
+	margin: auto;
+	position: relative;
+}
+.headerMain h1{
+	background: url(../img/sintefLogo.png) no-repeat;
+	text-indent: -99999px;
+	height: 41px;
+	width: 200px;
+	float: left;
+}
+
+
+/*
+************
+* =headerButton
+************
+*/
+
+header button{
+	position: relative;
+	width: 100px;
+	height: 35px;
+	font-size: 18px;
+	margin-top: 25px;
+	float: right;
+	border-style: none;
+	background-color: #D8D0C7;
+
+}
+
+header button:hover{
+	cursor: pointer;
+	color: rgb(236,0,140);
+}
+
+header button:hover, .buttonStandard:hover, .dropdown:hover{
+	cursor: pointer;
+	color: rgb(236,0,140);
+}
+
+
+/*
+************
+* =leftScreen
+************
+*/
+
+.infoLeft {
+
+	margin-top: 15px;
+	float: left;
+	height: 700px;
+	width: 200px;
+}
+.console {
+	height: 160px;
+	font-size: 13px; 
+}
+
+.settings {
+
+	height: 500px;
+	background-color: blue;
+}
+
+.settings ul {
+	list-style: none;
+	text-indent: 0;
+	margin: auto;
+}
+
+.settings ul li{
+	text-indent: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.buttonStandard {
+	width: 100px;
+	height: 30px;
+	margin: 0;
+	margin: auto;
+	background-color: #D8D0C7;
+}
+
+.dropdown {
+
+	width: 140px;
+	height: 30px;
+	margin-top: 20px;
+	margin.bottom: 20px;
+	background-color: #D8D0C7;
+
+}
+
+/*
+************
+* =rightScreen
+************
+*/
+
+.mouseInstructions {
+	width: 70%;
+	height: 95px;
+	background-color: #D8D0C7;
+	float: right;
+}
+
+.renderingCanvas{
+	height: 700px;
+	width: 70%;
+	margin-top: 15px;
+	background-color: #D8D0C7;
+	float: right;
+}
+
+.colorbar {
+	background-color: blue;
+}
+
+body {
+	margin: 0;
+	background-color: rgba(0,0,0,0.9);
+	font-family: sans-serif;
+}
+
+
+
+.main {
+	width: 70%;
+	overflow: hidden;
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-top: 25px;
+	margin: auto;
+	background-color: white;
+	
+}
