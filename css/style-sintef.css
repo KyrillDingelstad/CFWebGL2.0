@@ -6,6 +6,7 @@
 
 header {
 	width: 100%;
+	height: 70px;
 	background-color: black;
 	position: relative;
 }
@@ -14,11 +15,13 @@ header {
 	width: 70%;
 	overflow: hidden;
 	margin: auto;
+
 	position: relative;
 }
 .headerMain h1{
 	background: url(../img/sintefLogo.png) no-repeat;
 	text-indent: -99999px;
+	margin-top: 14.5px;
 	height: 41px;
 	width: 200px;
 	float: left;
@@ -34,18 +37,14 @@ header {
 header button{
 	position: relative;
 	width: 100px;
-	height: 35px;
+	height: 44px;
 	font-size: 18px;
-	margin-top: 25px;
+	margin-top: 13px;
+
 	float: right;
 	border-style: none;
 	background-color: #D8D0C7;
 
-}
-
-header button:hover{
-	cursor: pointer;
-	color: rgb(236,0,140);
 }
 
 header button:hover, .buttonStandard:hover, .dropdown:hover{
@@ -53,6 +52,10 @@ header button:hover, .buttonStandard:hover, .dropdown:hover{
 	color: rgb(236,0,140);
 }
 
+.checkBox:hover{
+	cursor: pointer;
+	border-color: rgb(236,0,140);
+}
 
 /*
 ************
@@ -62,50 +65,76 @@ header button:hover, .buttonStandard:hover, .dropdown:hover{
 
 .infoLeft {
 
-	margin-top: 15px;
 	float: left;
 	height: 700px;
-	width: 200px;
+	width: 300px;
 }
 .console {
 	height: 160px;
+	background: #D8D0C7;
+	text-align: left;
 	font-size: 13px; 
 }
 
-.settings {
-
-	height: 500px;
-	background-color: blue;
+.console ul{
+	padding-top: 10px;
+	padding-left: 20px;
 }
 
-.settings ul {
-	list-style: none;
-	text-indent: 0;
+.console ul li {
+	margin-bottom: 5px;
+}
+.settings {
 	margin: auto;
+	margin-top: 20px;
+}
+
+ul {
+	list-style: none;
 }
 
 .settings ul li{
-	text-indent: 0;
-	margin: 0;
-	padding: 0;
+
+
 }
 
 .buttonStandard {
-	width: 100px;
+
 	height: 30px;
-	margin: 0;
-	margin: auto;
+	width: 110px;
+	border-width: 0.8px;
 	background-color: #D8D0C7;
+
 }
 
 .dropdown {
-
-	width: 140px;
+	width: 150px;
 	height: 30px;
-	margin-top: 20px;
-	margin.bottom: 20px;
+	border-width: 0.8px;
 	background-color: #D8D0C7;
+}
 
+.checkBox {
+	width: 30px;
+	height: 30px;
+
+}
+
+.checkBox {
+	-webkit-appearance: none;
+	background-color: white;
+	border-style: solid;
+	border-width: 1.5px;
+	border-color: #00ADEF;
+	display: inline-block;
+	position: relative;
+}
+
+.checkBox:checked {
+
+}
+
+input[type="checkbox"] {
 }
 
 /*
@@ -129,8 +158,32 @@ header button:hover, .buttonStandard:hover, .dropdown:hover{
 	float: right;
 }
 
-.colorbar {
-	background-color: blue;
+.colorBar {
+
+	float: left;
+	margin-top: 20px;
+	margin-left: 100px;
+	height: 100px;
+	position: relative;
+
+}
+
+.colorBarIMG {
+	background: url(../img/colorBar.png);
+	height: 70px;
+	width: 1152px;
+}
+
+.colorBarInfoMax {
+	position: absolute;
+	top: 60px;
+	right: 4px;
+}
+
+.colorBarInfoMin {
+	position: absolute;
+	top: 60px;
+	left: 4px;
 }
 
 body {

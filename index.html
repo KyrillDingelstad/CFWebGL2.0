@@ -3,6 +3,8 @@
 	<head>
 		<title>Cloud Flow WebGL</title>
 		<meta charset="utf-8" />
+		
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/style-sintef.css" />
 
 	</head>
@@ -33,9 +35,17 @@
 
 					<div class="settings">
 						<ul>
-							<li><button class="buttonStandard" type="button"> Show CAD</button></li>
-							<li><button class="buttonStandard" type="button"> Show points</button></li>
-							<li><button class="dropdown" type="button"> All points</button></li>
+							<li>
+								<button class="buttonStandard" type="button"> Show CAD</button> 
+								<input type="checkbox" class="checkBox">
+							</li>
+							<li>
+								<button class="buttonStandard" type="button"> Show points</button>
+								<input type="checkbox" class="checkBox">
+							</li>
+							<li>
+								<button class="dropdown" type="button"> All points</button>
+							</li>
 						</ul>						
 
 						<div class="slider">
@@ -45,7 +55,7 @@
 				</div>
 
 				<div class="mouseInstructions">  
-					<img src="#"> </img>
+
 				</div>
 
 				<div class="renderingCanvas">
@@ -53,9 +63,10 @@
 				</div>
 
 				<div class="colorBar">
-					<img src="#"></img>
-					<p>min</p>
-					<p>max</p>
+					<div class="colorBarIMG"> 
+					</div>
+					<p class="colorBarInfoMin">min</p>
+					<p class="colorBarInfoMax">max</p>
 				</div>
 
 			</div>
