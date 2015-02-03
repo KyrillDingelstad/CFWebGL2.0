@@ -15,6 +15,7 @@ header {
 .headerMain {
 	min-width: 940px;
 	width: 70%;
+	height: 100%;
 	overflow: hidden;
 	margin: auto;
 
@@ -23,33 +24,28 @@ header {
 .headerMain h1{
 	background: url(../img/sintefLogo.png) no-repeat;
 	text-indent: -99999px;
-	margin-top: 14.5px;
-	height: 41px;
-	width: 200px;
+	margin-top: 22.5px;
+	height: 25px;
+	width: 123px;
 	float: left;
 }
 
 
-/*
-************
-* =headerButton
-************
-*/
+
 
 header button{
 	position: relative;
 	width: 100px;
-	height: 44px;
+	height: 40px;
 	font-size: 18px;
-	margin-top: 13px;
-
+	margin-top: 15px;
 	float: right;
 	border-style: none;
 	background-color: #D8D0C7;
 
 }
 
-header button:hover, .buttonStandard:hover, .dropdown:hover{
+header button:hover, .dropdown:hover{
 	cursor: pointer;
 	color: rgb(236,0,140);
 }
@@ -59,166 +55,12 @@ header button:hover, .buttonStandard:hover, .dropdown:hover{
 	border-color: rgb(236,0,140);
 }
 
-/*
-************
-* =leftScreen
-************
-*/
-
-.infoLeft {
-	position: absolute;
-	float: left;
-	min-width: 220px;
-	height: 700px;
-}
-.console {
-	min-width: 300px;
-	height: 160px;
-	text-align: left;
-	border-color: #A19589;
-	border-width: 1px;
-	border-style: solid;
-	font-size: 13px; 
-}
-
-.console ul{
-	padding-left: 20px;
-	padding-top: 40px;
-}
-
-.console ul li {
-	margin-bottom: 5px;
-}
-.settings {
-	margin: auto;
-	padding-top: 20px;
-	width: 190px;
-	overflow: hidden;
-	position: relative;
-	left: 0;
-	right:0;
-	margin: auto;
-}
-
-ul {
-	list-style: none;
-}
-
-.buttonStandard {
-	float: left; 
-	height: 40px;
-	width: 130px;
-	margin-top: 8px;
-	border-width: 0.8px;
-	background-color: #D8D0C7;
-	border-style: solid;
-	border-color: #A19589;
-	border-width: 1px;
-	border-radius: 5px;
-
-}
-
-.checkbox {
-	float: right;
-	margin: 0;
-	margin-top: 8px;
-	padding: 0;
-	width: 40px;
-	height: 40px;
-
-}
-
-.checkbox {
-	-webkit-appearance: none;
-	background-color: white;
-	border-style: solid;
-	border-width: 1.5px;
-	border-color: #00ADEF;
-	display: inline-block;
-	position: relative;
-}
-
-.checkBox:checked {
-
-}
-
-input[type="checkbox"] {
-}
-
-.dropdown {
-	width: 190px;
-	height: 40px;
-	border-width: 0.8px;
-	background-color: #D8D0C7;
-	position: relative;
-	left: 0;
-	right:0;
-	margin: auto;
-	margin-top: 15px;
-	border-style: solid;
-	border-color: #A19589;
-	border-width: 1px;
-	border-radius: 5px;
-}
-
-
 
 /*
 ************
-* =rightScreen
+* =main
 ************
 */
-
-.mouseInstructions {
-
-	min-width: 500px;
-	width: 70%;
-	height: 95px;
-	border-width: 1px;
-	background-color: #D8D0C7;
-	float: right;
-}
-
-.renderingCanvas{
-	height: 500px;
-	min-width: 500px;
-	width: 70%;
-	margin-top: 15px;
-	border-style: solid;
-	border-color: #A19589;
-	border-width: 1px;
-	float: right;
-}
-
-.colorBar {
-	width: 70%;
-	position: relative;
-	height: 95px;
-	margin-top: 20px;
-	border-color: #A19589;
-	border-style: solid;
-	border-width: 1px;
-	float: right;
-}
-
-.colorBarIMG {
-	float: right;	
-	height: auto;
-	width: 100%;
-}
-
-.colorBarInfoMax {
-	position: absolute;
-	top: 68px;
-	right: 5px;
-}
-
-.colorBarInfoMin {
-	position: absolute;
-	top: 68px;
-	left: 5px;
-}
-
 body {
 	margin: 0;
 	background-color: rgba(0,0,0,0.9);
@@ -239,3 +81,183 @@ body {
 	background-color: white;
 	
 }
+
+/*
+************
+* =leftScreen
+************
+*/
+
+.infoLeft {
+	position: absolute;
+	float: left;
+	min-width: 220px;
+	width: 15%;
+	height: 700px;
+}
+.console {
+	min-width: 220px;
+	height: 160px;
+	text-align: left;
+	color: rgba(1, 1, 1, 0.8);
+	border-color: rgba(1, 1, 1, 0.8);;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	font-size: 13px; 
+}
+
+.console ul{
+	padding-left: 20px;
+	padding-top: 40px;
+}
+
+.console ul li {
+	margin-bottom: 7px;
+}
+
+.settings {
+	margin: auto;
+	padding-top: 20px;
+	width: 190px;
+	overflow: hidden;
+	position: relative;
+	left: 0;
+	right:0;
+	margin: auto;
+}
+
+ul {
+	list-style: none;
+}
+
+.buttonStandard {
+	float: left; 
+	height: 40px;
+	width: 130px;
+	margin-top: 8px;
+	text-align: center;
+	line-height: 39px;
+	font-size: 17px;
+	color: rgba(1, 1, 1, 0.7);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-color: rgba(1, 1, 1, 0.8);
+
+}
+
+/*
+************
+* =checkbox
+************
+*/
+.checkbox {
+	float: right;
+	margin: 0;
+	margin-top: 8px;
+	padding: 0;
+	width: 40px;
+	height: 40px;
+
+}
+
+.checkbox {
+	-webkit-appearance: none;
+	background-color: white;
+	border-style: solid;
+	border-width: 1.5px;
+	border-color: #00ADEF;
+	display: inline-block;
+	position: relative;
+}
+
+.checkbox:checked:after {
+    content:'\2714';
+    font-size: 30px;
+    top: 3px;
+    left: 7px;
+    border-style: none;
+    position: absolute;
+    color: #00ADEF;
+}
+
+
+/*
+************
+* =dropdown
+************
+*/
+.dropdown {
+	width: 190px;
+	height: 40px;
+	border-width: 0.8px;
+	background-color: rgba(1, 1, 1, 0.8);
+	position: relative;
+	font-size: 17px;
+	color: white;
+	border: none;
+	left: 0;
+	right:0;
+	margin: auto;
+	margin-top: 15px;
+}
+
+
+
+/*
+************
+* =rightScreen
+************
+*/
+
+.mouseInstructions {
+
+	min-width: 500px;
+	width: 70%;
+	height: 95px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: rgba(1, 1, 1, 0.8);;
+	float: right;
+}
+
+.renderingCanvas{
+	min-width: 500px;
+	min-height: 500px;
+	height: 700px;
+	width: 70%;
+	margin-top: 15px;
+	border-style: solid;
+	border-color: rgba(1, 1, 1, 0.8);
+	border-width: 1px;
+	float: right;
+}
+
+.colorBar {
+	width: 70%;
+	position: relative;
+	height: 95px;
+	margin-top: 20px;
+	float: right;
+}
+
+.colorBarIMG {
+	float: right;	
+	height: auto;
+	width: 100%;
+}
+
+.colorBarInfoMax {
+	position: absolute;
+	color: rgba(1, 1, 1, 0.8);
+	top: 68px;
+	right: 5px;
+}
+
+.colorBarInfoMin {
+	position: absolute;
+	color: rgba(1, 1, 1, 0.8);
+	top: 68px;
+	left: 5px;
+}
+
+
