@@ -63,7 +63,7 @@ header button:hover, .dropdown:hover{
 */
 body {
 	margin: 0;
-	background-color: rgba(0,0,0,0.9);
+	background-color: #1E1E1E;
 	font-family: sans-serif;
 }
 
@@ -99,8 +99,8 @@ body {
 	min-width: 220px;
 	height: 160px;
 	text-align: left;
-	color: rgba(1, 1, 1, 0.8);
-	border-color: rgba(1, 1, 1, 0.8);;
+	color: #3E3E3E;
+	border-color: #3E3E3E;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	font-size: 13px; 
@@ -138,10 +138,10 @@ ul {
 	text-align: center;
 	line-height: 39px;
 	font-size: 17px;
-	color: rgba(1, 1, 1, 0.7);
+	color: #3E3E3E;
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
-	border-color: rgba(1, 1, 1, 0.8);
+	border-color: #3E3E3E;
 
 }
 
@@ -190,7 +190,7 @@ ul {
 	width: 190px;
 	height: 40px;
 	border-width: 0.8px;
-	background-color: rgba(1, 1, 1, 0.8);
+	background-color: #3E3E3E;
 	position: relative;
 	font-size: 17px;
 	color: white;
@@ -201,7 +201,38 @@ ul {
 	margin-top: 15px;
 }
 
+#slider {
+	height: 350px;
+	margin: auto;
+	margin-top:  70px;
+	margin-bottom: 50px;
+	border-radius: 0px;
+	border-color: #3E3E3E;
+	background-color: white;
+}
 
+.ui-slider-range {
+	background-color: #00ADEF;
+}
+
+.ui-slider-handle, .updated-handle, .ui-state-default, {
+	background-color: black;
+	border-width: 10px;
+}
+
+.ui-slider-vertical .ui-slider-handle {
+	margin-left: -1px;
+	width: 25px;
+	height: 25px;
+	border-radius: 0;
+    background-color: white;
+    border-color: #00ADEF;
+}
+
+.ui-slider-vertical .ui-slider-handle:hover {
+	cursor: pointer;
+	border-color: rgb(236,0,140);
+}
 
 /*
 ************
@@ -216,7 +247,7 @@ ul {
 	height: 95px;
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
-	border-bottom-color: rgba(1, 1, 1, 0.8);;
+	border-bottom-color: #3E3E3E;
 	float: right;
 }
 
@@ -227,7 +258,7 @@ ul {
 	width: 70%;
 	margin-top: 15px;
 	border-style: solid;
-	border-color: rgba(1, 1, 1, 0.8);
+	border-color: #3E3E3E;
 	border-width: 1px;
 	float: right;
 }
@@ -248,7 +279,7 @@ ul {
 
 .colorBarInfoMax {
 	position: absolute;
-	color: rgba(1, 1, 1, 0.8);
+	color: #3E3E3E;
 	top: 68px;
 	right: 5px;
 }

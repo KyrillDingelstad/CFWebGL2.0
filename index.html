@@ -3,8 +3,9 @@
 	<head>
 		<title>Cloud Flow WebGL</title>
 		<meta charset="utf-8" />
-		
-		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />	
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" href="css/style-sintef.css" />
 
 	</head>
@@ -33,8 +34,6 @@
 						</ul>
 					</div>
 
-					<div class="lineBreak"></div>
-
 					<div class="settings">
 						<ul>
 							<li>
@@ -46,13 +45,18 @@
 								<input type="checkbox" class="checkbox">
 							</li>
 							<li>
-								<button class="dropdown" type="button"> All points</button>
+										<select name="dropdown" class="dropdown">
+      									<option value="black">Black</option>
+      									<option value="red">Red</option>
+     								 	<option value="yellow" selected="selected">Yellow</option>
+      									<option value="blue">Blue</option>
+      									<option value="green">Green</option>
+    								</select>
 							</li>
 						</ul>						
 					
-						<div class="slider">
+						<div id="slider"></div>
 						
-						</div>
 					</div>
 				</div>
 
@@ -74,5 +78,11 @@
 				</div>
 			</div>
 		</div> 
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+		<script type="js/jquery-min.js"></script>
+		<script src="js/slider.js"></script>
+		<script src="js/dropdown.js"></script>
 	</body>
 </html>
