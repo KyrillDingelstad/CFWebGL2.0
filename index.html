@@ -65,15 +65,25 @@
 
 					</div>
 
-					<div class="renderingCanvas">
+					<canvas id="renderingCanvas">
 						
-					</div>
+					</canvas>
 
 					<div class="colorBar">
 						<img src="img/colorBar.png" class="colorBarIMG">  
 						</img>
-						<p class="colorBarInfoMin">min</p>
-						<p class="colorBarInfoMax">max</p>
+
+						<p>
+  							<input type="text" class="colorBarInfoMin" readonly>
+						</p>
+
+						<p>
+  							<input type="text" class="colorBarInfoMid" readonly>
+						</p>
+
+						<p>
+  							<input type="text" class="colorBarInfoMax" readonly>
+						</p>
 					</div>
 				</div>
 			</div>
@@ -83,6 +93,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 		<script type="js/jquery-min.js"></script>
 		<script src="js/slider.js"></script>
-		<script src="js/dropdown.js"></script>
+		<script src="js/renderingCanvas.js"></script>
 	</body>
 </html>

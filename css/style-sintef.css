@@ -45,12 +45,12 @@ header button{
 
 }
 
-header button:hover, .dropdown:hover{
+header button:hover{
 	cursor: pointer;
 	color: rgb(236,0,140);
 }
 
-.checkbox:hover{
+.checkbox:hover, .dropdown:hover{
 	cursor: pointer;
 	border-color: rgb(236,0,140);
 }
@@ -190,15 +190,22 @@ ul {
 	width: 190px;
 	height: 40px;
 	border-width: 0.8px;
-	background-color: #3E3E3E;
+	border-color: #00ADEF;
+	border-width: 1px;
+	background-color: white;
 	position: relative;
+	padding-left: 33px;
 	font-size: 17px;
-	color: white;
-	border: none;
+	color: #3E3E3E;
 	left: 0;
 	right:0;
 	margin: auto;
-	margin-top: 15px;
+	margin-top: 20px;
+}
+
+.ui-state-default, .dropdown .ui-state-default
+{
+	right: 500px;
 }
 
 #slider {
@@ -251,7 +258,7 @@ ul {
 	float: right;
 }
 
-.renderingCanvas{
+#renderingCanvas{
 	min-width: 500px;
 	min-height: 500px;
 	height: 700px;
@@ -264,6 +271,7 @@ ul {
 }
 
 .colorBar {
+	overflow: hidden;
 	width: 70%;
 	position: relative;
 	height: 95px;
@@ -271,24 +279,52 @@ ul {
 	float: right;
 }
 
+.colorBarText {
+	width: 70%;
+	margin-top: 2px;
+	position: absolute;
+	float: right;
+}
+
+
 .colorBarIMG {
 	float: right;	
-	height: auto;
+	height: 50px;
 	width: 100%;
 }
 
 .colorBarInfoMax {
 	position: absolute;
 	color: #3E3E3E;
-	top: 68px;
+	text-align: right;
+	border: none;
+	width: 100px;
 	right: 5px;
+	bottom: 15px;
 }
 
 .colorBarInfoMin {
 	position: absolute;
-	color: rgba(1, 1, 1, 0.8);
-	top: 68px;
+	color: #3E3E3E;
+	text-align: middle;
+	border: none;
+	width: 100px;
 	left: 5px;
+	bottom: 15px;
+	
 }
+
+.colorBarInfoMid {
+	position: absolute;
+	left: 0;
+	right: 0;
+	border: none;
+	width: 100px;
+	bottom: 15px;
+	text-align: center;
+	color: #3E3E3E;
+	margin: auto;
+}
+
 
 
