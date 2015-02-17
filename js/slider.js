@@ -1,4 +1,10 @@
 $(function() {
+    var windowWidth=$(window).width();
+    var windowHeight=$(window).height();
+    var canvasHeight=windowHeight/1.7;
+    var sliderHeight=windowHeight/3;
+
+
     $( "#slider" ).removeClass('ui-widget').slider({
     	orientation: "vertical",
     	range: true,
@@ -13,6 +19,9 @@ $(function() {
 
       	}
     });
-
-
+$(document).ready(function(){
+    
+    $("#slider").css('height', sliderHeight);
+    $("#renderingCanvas").css('height', canvasHeight);
+});
 });
