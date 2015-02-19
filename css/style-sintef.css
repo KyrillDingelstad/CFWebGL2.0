@@ -106,28 +106,46 @@ body {
 	font-size: 13px; 
 }
 
+#consoleInfoWrapper {
+	width: 220px;
+	margin: auto;
+}
+
 .console ul{
-	padding-left: 20px;
+	list-style: none;
 	padding-top: 40px;
 }
 
 .console ul li {
 	margin-bottom: 7px;
 }
+#consoleStaticInfo {
+	float: left;
+	min-width: 80px;
+	margin-right: 10px;
+}
+#consoleVarInfo {
+	float: left;
+	min-width: 80px;
+}
 
 .settings {
-	margin: auto;
 	padding-top: 20px;
-	width: 190px;
+	padding-bottom: 28px;
 	overflow: hidden;
 	position: relative;
+	border-color: #3E3E3E;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
 	left: 0;
 	right:0;
 	margin: auto;
 }
 
-ul {
+.settings ul {
 	list-style: none;
+	width: 220px;
+	margin: auto;
 }
 
 .buttonStandard {
@@ -187,7 +205,7 @@ ul {
 ************
 */
 .dropdown {
-	width: 190px;
+	width: 220px;
 	height: 40px;
 	border-width: 0.8px;
 	border-color: #00ADEF;
@@ -208,14 +226,35 @@ ul {
 	right: 500px;
 }
 
-#slider {
-	height: 350px;
+/*
+************
+* =slider
+************
+*/
+
+.sliderAndHistogram {
+	width: 290px;
 	margin: auto;
+	overflow: hidden;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#slider {
+	margin-left: 6px;
 	margin-top:  70px;
 	margin-bottom: 50px;
 	border-radius: 0px;
 	border-color: #3E3E3E;
 	background-color: white;
+	float: left;
 }
 
 .ui-slider-range {
@@ -239,6 +278,25 @@ ul {
 .ui-slider-vertical .ui-slider-handle:hover {
 	cursor: pointer;
 	border-color: rgb(236,0,140);
+}
+
+/*
+************
+* =histogram
+***********
+*/
+
+#histogram {
+margin-left: 15px;
+margin-top:  61px;
+min-width: 200px;
+width: 85%;
+padding: 0;
+float: left;
+}
+
+.jqplot-event-canvas {
+	background-color: rgba(0,0,0,0);
 }
 
 /*
