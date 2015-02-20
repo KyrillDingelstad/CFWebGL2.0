@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://localhost:8383/CFWebGL2/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Cloud Flow WebGL</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="./Cloud Flow WebGL_files/reset.css">	
+		<link rel="stylesheet" type="text/css" href="./Cloud Flow WebGL_files/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="./Cloud Flow WebGL_files/style-sintef.css">
+		<link rel="stylesheet" type="text/css" href="./Cloud Flow WebGL_files/jquery.jqplot.css">
+
+	<style type="text/css"></style></head>
+
+	<body>
+		<div class="container">
+			
+			<header>
+				<div class="headerMain">
+					<h1>Sintef</h1>
+					<button type="button">Done</button>
+				</div>
+			</header>
+		
+		
+			<div class="main">
+				
+				<div class="infoLeft">
+					
+					<div class="console">
+						<div id="consoleInfoWrapper">
+							<ul id="consoleStaticInfo">
+								<li>#Points:</li>
+								<li>Max deviation:</li>
+								<li>Mean L1 error:</li>
+								<li>Mean L2 error:</li>
+							</ul>
+
+							<ul id="consoleVarInfo">
+								<li id="consolePoints">loading</li>
+								<li id="consoleDeviation">loading</li>
+								<li id="LOneNorm">loading</li>
+								<li id="LTwoNorm">loading</li>
+							</ul>
+						</div>
+
+					</div>
+
+					
+						<div class="settings">
+							<ul>
+								<li>
+									<label class="buttonStandard"> CAD scan:</label> 
+									<input type="checkbox" class="checkbox">
+								</li>
+								<li>
+									<label class="buttonStandard"> Point scan:</label>
+									<input type="checkbox" class="checkbox">
+								</li>
+								<li>
+											<select name="dropdown" class="dropdown">
+	      									<option value="black">All points</option>
+	      									<option value="red">Only outside</option>
+	     								 	<option value="yellow" selected="selected">Only inside</option>
+	      									<option value="blue">Signed dist.</option>
+	    								</select>
+								</li>
+							</ul>	
+											
+						</div>
+						<div class="sliderAndHistogram">
+								<div id="slider" class="ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all" style="height: 436.4px;"><div class="ui-slider-range ui-widget-header ui-corner-all" style="bottom: 0%; height: 100%;"></div><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="bottom: 0%;"></span><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="bottom: 100%;"></span></div>
+							
+								<div id="histogram" class="jqplot-target" style="height: 466.4px; position: relative;"><canvas width="247" height="466" class="jqplot-base-canvas" style="position: absolute; left: 0px; top: 0px;"></canvas><div class="jqplot-title" style="height: 0px; width: 0px;"></div><div class="jqplot-axis jqplot-xaxis" style="position: absolute; width: 247px; height: 12px; left: 0px; bottom: 0px;"><div class="jqplot-xaxis-tick" style="position: absolute; left: 23.5px;">0</div><div class="jqplot-xaxis-tick" style="position: absolute; left: 49px;">100000</div><div class="jqplot-xaxis-tick" style="position: absolute; left: 91px;">200000</div><div class="jqplot-xaxis-tick" style="position: absolute; left: 133px;">300000</div><div class="jqplot-xaxis-tick" style="position: absolute; left: 175px;">400000</div><div class="jqplot-xaxis-tick" style="position: absolute; left: 217px;">500000</div></div><div class="jqplot-axis jqplot-yaxis" style="position: absolute; height: 466px; width: 17px; left: 0px; top: 0px;"><div class="jqplot-yaxis-tick" style="position: absolute; top: 438px;">-15</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 423.533333333333px;">-14</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 409.066666666667px;">-13</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 394.6px;">-12</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 380.133333333333px;">-11</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 365.666666666667px;">-10</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 351.2px;">-9</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 336.733333333333px;">-8</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 322.266666666667px;">-7</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 307.8px;">-6</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 293.333333333333px;">-5</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 278.866666666667px;">-4</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 264.4px;">-3</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 249.933333333333px;">-2</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 235.466666666667px;">-1</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 221px;">0</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 206.533333333333px;">1</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 192.066666666667px;">2</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 177.6px;">3</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 163.133333333333px;">4</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 148.666666666667px;">5</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 134.2px;">6</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 119.733333333333px;">7</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 105.266666666667px;">8</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 90.8px;">9</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 76.3333333333333px;">10</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 61.8666666666667px;">11</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 47.4px;">12</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 32.9333333333333px;">13</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 18.4666666666666px;">14</div><div class="jqplot-yaxis-tick" style="position: absolute; top: 4px;">15</div></div><canvas width="247" height="466" class="jqplot-grid-canvas" style="position: absolute; left: 0px; top: 0px;"></canvas><canvas width="210" height="434" class="jqplot-series-shadowCanvas" style="position: absolute; left: 27px; top: 10px;"></canvas><canvas width="210" height="434" class="jqplot-series-shadowCanvas" style="position: absolute; left: 27px; top: 10px;"></canvas><canvas width="210" height="434" class="jqplot-series-shadowCanvas" style="position: absolute; left: 27px; top: 10px;"></canvas><canvas width="210" height="434" class="jqplot-series-canvas" style="position: absolute; left: 27px; top: 10px;"></canvas><canvas width="210" height="434" class="jqplot-series-canvas" style="position: absolute; left: 27px; top: 10px;"></canvas><canvas width="210" height="434" class="jqplot-series-canvas" style="position: absolute; left: 27px; top: 10px;"></canvas><canvas width="210" height="434" class="jqplot-barRenderer-highlight-canvas" style="position: absolute; left: 27px; top: 10px;"></canvas><canvas width="210" height="434" class="jqplot-event-canvas" style="position: absolute; left: 27px; top: 10px;"></canvas></div>
+						</div>	
+						
+					</div>
+			
+
+				<div class="rightScreen">
+					<div class="mouseInstructions">  
+
+					</div>
+
+					<canvas id="renderingCanvas" style="height: 727.333333333333px;">
+						
+					</canvas>
+
+					<div class="colorBar">
+						<img src="./Cloud Flow WebGL_files/colorBar.png" class="colorBarIMG">  
+						
+
+						<p>
+  							<input type="text" class="colorBarInfoMin" readonly="">
+						</p>
+
+						<p>
+  							<input type="text" class="colorBarInfoMid" readonly="">
+						</p>
+
+						<p>
+  							<input type="text" class="colorBarInfoMax" readonly="">
+						</p>
+					</div>
+				</div>
+			</div>
+		</div> 
+
+		<script src="./Cloud Flow WebGL_files/jquery.js"></script>
+		<script src="./Cloud Flow WebGL_files/jquery-ui.min.js"></script>
+		<script src="./Cloud Flow WebGL_files/jquery-migrate-1.2.1.min.js"></script>
+		<script src="./Cloud Flow WebGL_files/jquery.jqplot.js"></script>
+		<script type="text/javascript" src="./Cloud Flow WebGL_files/jqplot.canvasTextRenderer.min.js"></script>
+		<script type="text/javascript" src="./Cloud Flow WebGL_files/jqplot.canvasAxisLabelRenderer.min.js"></script>
+		<script type="text/javascript" src="./Cloud Flow WebGL_files/jqplot.barRenderer.min.js"></script>
+		<script type="text/javascript" src="./Cloud Flow WebGL_files/jqplot.pointLabels.min.js"></script>
+		<script type="text/javascript" src="./Cloud Flow WebGL_files/jqplot.json2.min.js"></script>
+		
+		<script src="./Cloud Flow WebGL_files/scripts.js"></script>
+	
+</body></html>

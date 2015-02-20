@@ -22,25 +22,17 @@ $(function() {
     //list of points pulled out of the txt into array
 
             function downloadPoints(){
-                    request.get(pointUrl, {
-                        handleAs: 'text',
-                        headers: {"SessionToken" : sessionToken} 
-                   }).then(function(p) {
-                        points = p;
-                        pointsDownloaded = true;
-                        
-                    });
-                    //request.get("data/clp_distances.txt", {handleAs: 'text'}).then(function(diff_p) {
-                    request.get(distanceUrl, {
-                        handleAs: 'text',
-                        headers: {"SessionToken" : sessionToken} 
-                    }).then(function(diff_p) {
-                        diff_points = diff_p;
-                        distDownloaded = true;
-                    });
-              }
+                   $.ajax({
+                      url: "data/autoAlign.txt", // path to file
+                      dataType: 'text', // type of file (text, json, xml, etc)
+                      success: function(data) { // callback for successful completion
+                      }
+                    })
+
+            }
               downloadPoints();
-  /*
+
+  /*  
     =slider
   */
 

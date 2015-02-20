@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Cloud Flow WebGL</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />	
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/style-sintef.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.jqplot.css" />
+
+	</head>
+
+	<body>
+		<div class="container">
+			
+			<header>
+				<div class="headerMain">
+					<h1>Sintef</h1>
+					<button type="button">Done</button>
+				</div>
+			</header>
+		
+		
+			<div class="main">
+				
+				<div class="infoLeft">
+					
+					<div class="console">
+						<div id="consoleInfoWrapper">
+							<ul id="consoleStaticInfo">
+								<li>#Points:</li>
+								<li>Max deviation:</li>
+								<li>Mean L1 error:</li>
+								<li>Mean L2 error:</li>
+							</ul>
+
+							<ul id="consoleVarInfo">
+								<li id="consolePoints">loading</li>
+								<li id="consoleDeviation">loading</li>
+								<li id="LOneNorm">loading</li>
+								<li id="LTwoNorm">loading</li>
+							</ul>
+						</div>
+
+					</div>
+
+					
+						<div class="settings">
+							<ul>
+								<li>
+									<label class="buttonStandard"> CAD scan:</label> 
+									<input type="checkbox" class="checkbox">
+								</li>
+								<li>
+									<label class="buttonStandard"> Point scan:</label>
+									<input type="checkbox" class="checkbox">
+								</li>
+								<li>
+											<select name="dropdown" class="dropdown">
+	      									<option value="black">All points</option>
+	      									<option value="red">Only outside</option>
+	     								 	<option value="yellow" selected="selected">Only inside</option>
+	      									<option value="blue">Signed dist.</option>
+	    								</select>
+								</li>
+							</ul>	
+											
+						</div>
+						<div class="sliderAndHistogram">
+								<div id="slider"></div>
+							
+								<div id="histogram"></div>
+						</div>	
+						
+					</div>
+			
+
+				<div class="rightScreen">
+					<div class="mouseInstructions">  
+
+					</div>
+
+					<canvas id="renderingCanvas">
+						
+					</canvas>
+
+					<div class="colorBar">
+						<img src="img/colorBar.png" class="colorBarIMG">  
+						</img>
+
+						<p>
+  							<input type="text" class="colorBarInfoMin" readonly>
+						</p>
+
+						<p>
+  							<input type="text" class="colorBarInfoMid" readonly>
+						</p>
+
+						<p>
+  							<input type="text" class="colorBarInfoMax" readonly>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div> 
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script src="js/jquery.jqplot.js"></script>
+		<script type="text/javascript" src="js/jqplot.canvasTextRenderer.min.js"></script>
+		<script type="text/javascript" src="js/jqplot.canvasAxisLabelRenderer.min.js"></script>
+		<script type="text/javascript" src="js/jqplot.barRenderer.min.js"></script>
+		<script type="text/javascript" src="js/jqplot.pointLabels.min.js"></script>
+		<script type="text/javascript" src="js/jqplot.json2.min.js"></script>
+		
+		<script src="js/scripts.js"></script>
+	</body>
+</html>

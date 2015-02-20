@@ -1,0 +1,385 @@
+/*
+************
+* =header
+************
+*/
+
+header {
+	
+	width: 100%;
+	height: 70px;
+	background-color: black;
+	position: relative;
+}
+
+.headerMain {
+	min-width: 940px;
+	width: 70%;
+	height: 100%;
+	overflow: hidden;
+	margin: auto;
+
+	position: relative;
+}
+.headerMain h1{
+	background: url(../img/sintefLogo.png) no-repeat;
+	text-indent: -99999px;
+	margin-top: 22.5px;
+	height: 25px;
+	width: 123px;
+	float: left;
+}
+
+header button{
+	position: relative;
+	width: 100px;
+	height: 40px;
+	font-size: 18px;
+	margin-top: 15px;
+	float: right;
+	border-style: none;
+	background-color: #D8D0C7;
+
+}
+
+header button:hover{
+	cursor: pointer;
+	color: rgb(236,0,140);
+}
+
+.checkbox:hover, .dropdown:hover{
+	cursor: pointer;
+	border-color: rgb(236,0,140);
+}
+
+
+/*
+************
+* =main
+************
+*/
+body {
+	margin: 0;
+	background-color: #1E1E1E;
+	font-family: sans-serif;
+}
+
+
+
+.main {
+	min-width: 940px;
+	min-height: 768px;
+	width: 70%;
+	overflow: hidden;
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-top: 25px;
+	margin: auto;
+	background-color: white;
+	
+}
+
+/*
+************
+* =leftScreen
+************
+*/
+
+.infoLeft {
+	position: absolute;
+	float: left;
+	min-width: 220px;
+	width: 15%;
+	height: 700px;
+}
+.console {
+	min-width: 220px;
+	height: 160px;
+	text-align: left;
+	color: #3E3E3E;
+	border-color: #3E3E3E;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	font-size: 13px; 
+}
+
+#consoleInfoWrapper {
+	width: 220px;
+	margin: auto;
+}
+
+.console ul{
+	list-style: none;
+	padding-top: 40px;
+}
+
+.console ul li {
+	margin-bottom: 7px;
+}
+#consoleStaticInfo {
+	float: left;
+	min-width: 80px;
+	margin-right: 10px;
+}
+#consoleVarInfo {
+	float: left;
+	min-width: 80px;
+}
+
+.settings {
+	padding-top: 20px;
+	padding-bottom: 28px;
+	overflow: hidden;
+	position: relative;
+	border-color: #3E3E3E;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	left: 0;
+	right:0;
+	margin: auto;
+}
+
+.settings ul {
+	list-style: none;
+	width: 220px;
+	margin: auto;
+}
+
+.buttonStandard {
+	float: left; 
+	height: 40px;
+	width: 130px;
+	margin-top: 8px;
+	text-align: center;
+	line-height: 39px;
+	font-size: 17px;
+	color: #3E3E3E;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-color: #3E3E3E;
+
+}
+
+/*
+************
+* =checkbox
+************
+*/
+.checkbox {
+	float: right;
+	margin: 0;
+	margin-top: 8px;
+	padding: 0;
+	width: 40px;
+	height: 40px;
+
+}
+
+.checkbox {
+	-webkit-appearance: none;
+	background-color: white;
+	border-style: solid;
+	border-width: 1.5px;
+	border-color: #00ADEF;
+	display: inline-block;
+	position: relative;
+}
+
+.checkbox:checked:after {
+    content:'\2714';
+    font-size: 30px;
+    top: 3px;
+    left: 7px;
+    border-style: none;
+    position: absolute;
+    color: #00ADEF;
+}
+
+
+/*
+************
+* =dropdown
+************
+*/
+.dropdown {
+	width: 220px;
+	height: 40px;
+	border-width: 0.8px;
+	border-color: #00ADEF;
+	border-width: 1px;
+	background-color: white;
+	position: relative;
+	padding-left: 33px;
+	font-size: 17px;
+	color: #3E3E3E;
+	left: 0;
+	right:0;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.ui-state-default, .dropdown .ui-state-default
+{
+	right: 500px;
+}
+
+/*
+************
+* =slider
+************
+*/
+
+.sliderAndHistogram {
+	width: 290px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#slider {
+	margin-left: 6px;
+	margin-top:  70px;
+	margin-bottom: 50px;
+	border-radius: 0px;
+	border-color: #3E3E3E;
+	background-color: white;
+	float: left;
+}
+
+.ui-slider-range {
+	background-color: #00ADEF;
+}
+
+.ui-slider-handle, .updated-handle, .ui-state-default {
+	background-color: black;
+	border-width: 10px;
+}
+
+.ui-slider-vertical .ui-slider-handle {
+	margin-left: -1px;
+	width: 25px;
+	height: 25px;
+	border-radius: 0;
+    background-color: white;
+    border-color: #00ADEF;
+}
+
+.ui-slider-vertical .ui-slider-handle:hover {
+	cursor: pointer;
+	border-color: rgb(236,0,140);
+}
+
+/*
+************
+* =histogram
+***********
+*/
+
+#histogram {
+margin-left: 15px;
+margin-top:  61px;
+min-width: 200px;
+width: 85%;
+padding: 0;
+float: left;
+}
+
+.jqplot-event-canvas {
+	background-color: rgba(0,0,0,0);
+}
+
+/*
+************
+* =rightScreen
+************
+*/
+
+.mouseInstructions {
+
+	min-width: 500px;
+	width: 70%;
+	height: 95px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #3E3E3E;
+	float: right;
+}
+
+#renderingCanvas{
+	min-width: 500px;
+	min-height: 500px;
+	height: 700px;
+	width: 70%;
+	margin-top: 15px;
+	border-style: solid;
+	border-color: #3E3E3E;
+	border-width: 1px;
+	float: right;
+}
+
+.colorBar {
+	overflow: hidden;
+	width: 70%;
+	position: relative;
+	height: 95px;
+	margin-top: 20px;
+	float: right;
+}
+
+.colorBarText {
+	width: 70%;
+	margin-top: 2px;
+	position: absolute;
+	float: right;
+}
+
+
+.colorBarIMG {
+	float: right;	
+	height: 50px;
+	width: 100%;
+}
+
+.colorBarInfoMax {
+	position: absolute;
+	color: #3E3E3E;
+	text-align: right;
+	border: none;
+	width: 100px;
+	right: 5px;
+	bottom: 15px;
+}
+
+.colorBarInfoMin {
+	position: absolute;
+	color: #3E3E3E;
+	text-align: middle;
+	border: none;
+	width: 100px;
+	left: 5px;
+	bottom: 15px;
+	
+}
+
+.colorBarInfoMid {
+	position: absolute;
+	left: 0;
+	right: 0;
+	border: none;
+	width: 100px;
+	bottom: 15px;
+	text-align: center;
+	color: #3E3E3E;
+	margin: auto;
+}
+
+
+
