@@ -125,7 +125,6 @@ $(function() {
     
     function setHistogramData() {
         
-        
         var histogramArray = new Array();
        
         var plusTwenty_Higher = 0;
@@ -333,6 +332,7 @@ $(function() {
       axes:{
         yaxis:{tickInterval: "2", min: -20, max: 20},
         xaxis:{tickInterval: "1000", max: 200000},
+        
 
         renderer:$.jqplot.AxisTickRenderer,
         rendererOptions: {
@@ -361,6 +361,9 @@ $(function() {
     */
     var sliderHeight=windowHeight/2.5;
     var slider = $("#slider");
+    var sliderMinValue = -20;
+    var sliderMaxValue = 20;
+    var sliderAverageValue = (sliderMaxValue + sliderMinValue) / 2;
 
     /*
       slider style attributes
@@ -371,7 +374,7 @@ $(function() {
     slider.removeClass('ui-widget').slider({
     	orientation: "vertical",
     	range: true,
-      	values: [ -15, 15 ],
+      	values: [ sliderMinValue, sliderMaxValue ],
       	min: -20, 
       	max: 20,
 
@@ -382,6 +385,12 @@ $(function() {
 
       	}
     }); 
+    
+    $( ".colorBarInfoMin" ).val( sliderMinValue);
+    $( ".colorBarInfoMax" ).val( sliderMaxValue);
+    $( ".colorBarInfoMid" ).val( sliderAverageValue);
+    
+   
     }   
    /*
     var histoDict;
