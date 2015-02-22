@@ -6,9 +6,8 @@ var windowHeight=$(window).height();
 
 var pointUrl = "data/transformed_points.txt";
 
-
 $(function() {
-
+    
   /*
     =data
   */
@@ -121,6 +120,11 @@ $(function() {
         }
         var res = m/distances.length;
         return res;
+    }
+    
+    function doneLoading(){
+        $("#loadingOverlay").hide();
+        console.log("hide overlay");
     }
     
     function setHistogramData() {
@@ -390,7 +394,7 @@ $(function() {
     $( ".colorBarInfoMax" ).val( sliderMaxValue);
     $( ".colorBarInfoMid" ).val( sliderAverageValue);
     
-   
+    doneLoading();
     }   
    /*
     var histoDict;

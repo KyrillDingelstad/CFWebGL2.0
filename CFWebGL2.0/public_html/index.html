@@ -20,92 +20,93 @@
 				</div>
 			</header>
 		
-		
-			<div class="main">
-				
-				<div class="infoLeft">
-					
-					<div class="console">
-						<div id="consoleInfoWrapper">
-							<ul id="consoleStaticInfo">
-								<li>#Points:</li>
-								<li>Max deviation:</li>
-								<li>Mean L1 error:</li>
-								<li>Mean L2 error:</li>
-							</ul>
+                    <div id="loadingOverlay"> <div id="loading"><p> Loading...</p></div> </div>
+                            <div class="main">
 
-							<ul id="consoleVarInfo">
-								<li id="consolePoints">loading</li>
-								<li id="consoleDeviation">loading</li>
-								<li id="LOneNorm">loading</li>
-								<li id="LTwoNorm">loading</li>
-							</ul>
-						</div>
+                                    <div class="infoLeft">
 
-					</div>
+                                            <div class="console">
+                                                    <div id="consoleInfoWrapper">
+                                                            <ul id="consoleStaticInfo">
+                                                                    <li>#Points:</li>
+                                                                    <li>Max deviation:</li>
+                                                                    <li>Mean L1 error:</li>
+                                                                    <li>Mean L2 error:</li>
+                                                            </ul>
 
-					
-						<div class="settings">
-							<ul>
-								<li>
-									<label class="buttonStandard"> CAD scan:</label> 
-									<input type="checkbox" class="checkbox">
-								</li>
-								<li>
-									<label class="buttonStandard"> Point scan:</label>
-									<input type="checkbox" class="checkbox">
-								</li>
-								<li>
-											<select name="dropdown" class="dropdown">
-	      									<option value="black">All points</option>
-	      									<option value="red">Only outside</option>
-	     								 	<option value="yellow" selected="selected">Only inside</option>
-	      									<option value="blue">Signed dist.</option>
-	    								</select>
-								</li>
-							</ul>	
-											
-						</div>
-						<div class="sliderAndHistogram">
-								<div id="slider"></div>
-							
-								<div id="histogram"></div>
-						</div>	
-						
-					</div>
-			
+                                                            <ul id="consoleVarInfo">
+                                                                    <li id="consolePoints">loading</li>
+                                                                    <li id="consoleDeviation">loading</li>
+                                                                    <li id="LOneNorm">loading</li>
+                                                                    <li id="LTwoNorm">loading</li>
+                                                            </ul>
+                                                    </div>
 
-				<div class="rightScreen">
-					<div class="mouseInstructions">  
-                                            <ul>
-                                                <li> <strong>Rotate:</strong> <br> Left-click and drag </li>
-                                                <li> <strong>Zoom: </strong> <br> Scroll &nbsp</li>
-                                                <li> <strong>Move:</strong> <br> Right-click and drag </li>
-                                            </ul>
-					</div>
+                                            </div>
 
-					<canvas id="renderingCanvas">
-						
-					</canvas>
 
-					<div class="colorBar">
-						<img src="img/colorBar.png" class="colorBarIMG">  
-						</img>
+                                                    <div class="settings">
+                                                            <ul>
+                                                                    <li>
+                                                                            <label class="buttonStandard"> CAD scan:</label> 
+                                                                            <input type="checkbox" class="checkbox">
+                                                                    </li>
+                                                                    <li>
+                                                                            <label class="buttonStandard"> Point scan:</label>
+                                                                            <input type="checkbox" class="checkbox">
+                                                                    </li>
+                                                                    <li>
+                                                                                            <select name="dropdown" class="dropdown">
+                                                                                    <option value="black">All points</option>
+                                                                                    <option value="red">Only outside</option>
+                                                                                    <option value="yellow" selected="selected">Only inside</option>
+                                                                                    <option value="blue">Signed dist.</option>
+                                                                            </select>
+                                                                    </li>
+                                                            </ul>	
 
-						<p>
-  							<input type="text" class="colorBarInfoMin" readonly>
-						</p>
+                                                    </div>
+                                                    <div class="sliderAndHistogram">
+                                                                    <div id="slider"></div>
 
-						<p>
-  							<input type="text" class="colorBarInfoMid" readonly>
-						</p>
+                                                                    <div id="histogram"></div>
+                                                    </div>	
 
-						<p>
-  							<input type="text" class="colorBarInfoMax" readonly>
-						</p>
-					</div>
-				</div>
-			</div>
+                                            </div>
+
+
+                                    <div class="rightScreen">
+                                            <div class="mouseInstructions">  
+                                                <ul>
+                                                    <li> <strong>Rotate:</strong> <br> Left-click and drag </li>
+                                                    <li> <strong>Zoom: </strong> <br> Scroll &nbsp</li>
+                                                    <li> <strong>Move:</strong> <br> Right-click and drag </li>
+                                                </ul>
+                                            </div>
+
+                                            <canvas id="renderingCanvas">
+
+                                            </canvas>
+
+                                            <div class="colorBar">
+                                                    <img src="img/colorBar.png" class="colorBarIMG">  
+                                                    </img>
+
+                                                    <p>
+                                                            <input type="text" class="colorBarInfoMin" readonly>
+                                                    </p>
+
+                                                    <p>
+                                                            <input type="text" class="colorBarInfoMid" readonly>
+                                                    </p>
+
+                                                    <p>
+                                                            <input type="text" class="colorBarInfoMax" readonly>
+                                                    </p>
+                                            </div>
+                                    </div>
+                            </div>
+                    
 		</div> 
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
