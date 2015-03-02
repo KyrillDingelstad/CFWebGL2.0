@@ -5,11 +5,13 @@
 */
 
 header {
-	z-index:201;
+	z-index:11;
 	width: 100%;
-	height: 70px;
-	background-color: black;
+	background-color: white;
 	position: relative;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        border-color: #808080;
 }
 
 .headerMain {
@@ -22,34 +24,34 @@ header {
 	position: relative;
 }
 .headerMain h1{
-	background: url(../img/sintefLogo.png) no-repeat;
+	background: url(../img/cloudflowLogo.png) no-repeat;
 	text-indent: -99999px;
-	margin-top: 22.5px;
-	height: 25px;
-	width: 123px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+	height: 69px;
+	width: 160px;
 	float: left;
 }
 
 header button{
 	position: relative;
-	width: 100px;
-	height: 40px;
+	width: 120px;
+	height: 50px;
 	font-size: 18px;
-	margin-top: 15px;
+	margin-top: 17px;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 3px;
+        border-color: #5f5e5e;
 	float: right;
-	border-style: none;
-	background-color: #D8D0C7;
+	background-color: white;
 
 }
 
-header button:hover{
-	cursor: pointer;
-	color: rgb(236,0,140);
-}
 
-.checkbox:hover, .dropdown:hover{
+.checkbox:hover, .dropdown:hover, header button:hover{
 	cursor: pointer;
-	border-color: rgb(236,0,140);
+	border-color: #5184c4;
 }
 
 
@@ -60,7 +62,7 @@ header button:hover{
 */
 body {
 	margin: 0;
-	background-color: #1E1E1E;
+	background-color: white;
 	font-family: sans-serif;
 }
 
@@ -82,8 +84,8 @@ body {
 #loadingOverlay{
     
    opacity: 1;
-   background-color: #1E1E1E;
-   z-index:     200;
+   background-color: white;
+   z-index: 10;
    color: black;
    width:      100%;
    height:     100%; 
@@ -100,12 +102,12 @@ body {
     right: 0;
     height:     200px;
     width:      200px;
-    z-index: 201;
+    z-index: 12;
     margin: auto;
 }
 
 #loading p {
-    color: white;
+    color: #5f5e5e;
     font-size: 26px;
     
 }
@@ -126,12 +128,12 @@ body {
 .console {
 	min-width: 220px;
 	height: 160px;
-	color: #3E3E3E;
-	border-color: #3E3E3E;
-	border-bottom-width: 1px;
+	color: #5f5e5e;
+	border-color: #808080;
+	border-bottom-width: 2px;
 	border-bottom-style: solid;
         padding: auto;
-	font-size: 11px; 
+	font-size: 12px; 
 }
 
 .console ul{
@@ -154,7 +156,7 @@ body {
 }
 
 .settings {
-	padding-top: 20px;
+	padding-top: 40px;
 	padding-bottom: 28px;
 	overflow: hidden;
 	position: relative;
@@ -177,10 +179,10 @@ body {
 	text-align: center;
 	line-height: 39px;
 	font-size: 17px;
-	color: #3E3E3E;
+	color: #5f5e5e;
 	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-color: #3E3E3E;
+	border-bottom-width: 2px;
+	border-color: #808080;
 
 }
 
@@ -200,14 +202,12 @@ body {
 }
 
 .checkbox {
-        -moz-appearance: none;
 	-webkit-appearance: none;
-        appearance: none;
 	background-color: white;
-        border-style: none;
 	border-style: solid;
-	border-width: 1.5px;
-	border-color: #00ADEF;
+	border-width: 1.7px;
+        border-radius: 3px;
+	border-color: #5f5e5e;
 	display: inline-block;
 	position: relative;
 }
@@ -217,9 +217,9 @@ body {
     font-size: 30px;
     top: 3px;
     left: 7px;
-    border-style: solid;
+    border-style: none;
     position: absolute;
-    color: #00ADEF;
+    color: #5184c4;
 }
 
 
@@ -228,29 +228,33 @@ body {
 * =dropdown
 ************
 */
-/* General dropdown styles */       
-.dropdown dd { position:relative;
-               z-index: 201;
-}
-/* DT styles for sliding doors */
-.dropdown dt a {background: no-repeat scroll right white;
-    display:block; border-width: 1px; border-style: solid; border-color: #d4ca9a; width:220px; height: 40px}
-.dropdown dt a span {cursor:pointer; display:block; padding:5px;}
-/* UL styles */
-.dropdown dd ul { background:#e4dfcb none repeat scroll 0 0; display:none;
-    list-style:none; padding:5px 0px; position:absolute; 
-    left:0px; top:2px; width:auto; min-width:220px;}
-.dropdown span.value { display:none;}
-.dropdown dd ul li a { padding:5px; display:block;}
 
+#dropdownWrap {
+    
+    overflow: hidden;
+}
 .dropdown {
-    width: 220px;
-        margin-top: 120px;
-        z-index: 120;
+	width: 220px;
+	height: 40px;
+	border-width: 0.8px;
+	border-color: #5f5e5e;
+	border-width: 1px;
+        border-radius: 3px;
+	background-color: white;
+	position: relative;
+	padding-left: 33px;
+	font-size: 17px;
+	color: #5f5e5e;
+	left: 0;
+	right:0;
+	margin: auto;
+	margin-top: 20px;
 }
 
-
-
+.ui-state-default, .dropdown .ui-state-default
+{
+	right: 500px;
+}
 
 /*
 ************
@@ -270,13 +274,13 @@ body {
 	margin-bottom: 50px;
         margin-top: 29px;
 	border-radius: 0px;
-	border-color: #3E3E3E;
+	border-color: #5f5e5e;
 	background-color: white;
 	float: left;
 }
 
 .ui-slider-range {
-	background-color: #00ADEF;
+	background-color: #5184c4;
 }
 
 .ui-slider-handle, .updated-handle, .ui-state-default {
@@ -288,14 +292,14 @@ body {
     margin-left: -1px;
     width: 25px;
     height: 25px;
-    border-radius: 0;
+    border-radius: 3px;
     background-color: white;
-    border-color: #00ADEF;
+    border-color: #5f5e5e;
 }
 
 .ui-slider-vertical .ui-slider-handle:hover {
     cursor: pointer;
-    border-color: rgb(236,0,140);
+    border-color: #5184c4;
 }
 
 /*
@@ -329,9 +333,9 @@ float: left;
 	width: 70%;
 	height: 95px;
 	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-color: #3E3E3E;
-        color: #3E3E3E;
+	border-bottom-width: 2px;
+        color: #5f5e5e;
+	border-bottom-color: #808080;
 	float: right;
 }
 
@@ -340,6 +344,7 @@ float: left;
     min-width: 500px;
     width: 70%;
     margin: auto;
+    
     text-align: center;
 }
 .mouseInstructions ul li{
@@ -355,37 +360,24 @@ float: left;
     margin-right: 15px;
 }
 
+
 #renderingCanvas{
-        overflow: hidden;
 	min-width: 500px;
 	min-height: 500px;
 	height: 700px;
 	width: 70%;
 	margin-top: 15px;
 	border-style: solid;
-	border-color: #3E3E3E;
+	border-color: #5f5e5e;
+        border-radius: 3px;
 	border-width: 1px;
-        position: relative;
 	float: right;
 }
-canvas { 
-        position: absolute; 
-        z-index: 1; 
-}
 
-#fullscreenButton {
-    width: 70px;
-    height: 50px;
-    z-index: 2;
-    bottom: 100px;
-    left: 300px;
-    top: 30px;
-    position: relative;
-}
+
 .colorBar {
 	overflow: hidden;
 	width: 70%;
-        z-index: 20;
 	position: relative;
 	height: 95px;
 	margin-top: 20px;
@@ -408,7 +400,7 @@ canvas {
 
 .colorBarInfoMax {
 	position: absolute;
-	color: #3E3E3E;
+	color: #5f5e5e;
 	text-align: right;
 	border: none;
 	width: 100px;
@@ -418,8 +410,8 @@ canvas {
 
 .colorBarInfoMin {
 	position: absolute;
-	color: #3E3E3E;
-	text-align: middle;
+	color: #5f5e5e;
+	text-align: center;
 	border: none;
 	width: 100px;
 	left: 5px;
@@ -435,7 +427,7 @@ canvas {
 	width: 100px;
 	bottom: 15px;
 	text-align: center;
-	color: #3E3E3E;
+	color: #5f5e5e;
 	margin: auto;
 }
 

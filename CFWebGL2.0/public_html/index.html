@@ -45,33 +45,36 @@
                                             </div>
 
 
-                                                    <div class="settings">
-                                                            <ul>
-                                                                    <li>
-                                                                            <label class="buttonStandard"> CAD scan:</label> 
-                                                                            <input type="checkbox" class="checkbox">
-                                                                    </li>
-                                                                    <li>
-                                                                            <label class="buttonStandard"> Point scan:</label>
-                                                                            <input type="checkbox" class="checkbox">
-                                                                    </li>
-                                                                    <li>
-                                                                                            <select name="dropdown" class="dropdown">
-                                                                                    <option value="black">All points</option>
-                                                                                    <option value="red">Only outside</option>
-                                                                                    <option value="yellow" selected="selected">Only inside</option>
-                                                                                    <option value="blue">Signed dist.</option>
-                                                                            </select>
-                                                                    </li>
-                                                            </ul>	
+                                                <div class="settings">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="buttonStandard"> CAD model</label> 
+                                                            <input type="checkbox" class="checkbox">
+                                                        </li>
+                                                        <li>
+                                                            <label class="buttonStandard"> Point scan:</label>
+                                                            <input type="checkbox" class="checkbox">
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                            <dl class="dropdown">
+                                                                <dt><a href="#"><span>Value</span></a></dt>
+                                                                <dd>
+                                                                    <ul>
+                                                                        <li><a href="#">All points</a></li>
+                                                                        <li><a href="#">Only inside</a></li>
+                                                                        <li><a href="#">Only outside</a></li>
+                                                                        <li><a href="#">Signed dist.</a></li>
+                                                                    </ul>
+                                                                </dd>
+                                                            </dl>
+                                                </div>
 
-                                                    </div>
-                                                    <div class="sliderAndHistogram">
-                                                                    <div id="slider"></div>
+                                                <div class="sliderAndHistogram">
+                                                    <div id="slider"></div>
 
-                                                                    <div id="histogram"></div>
-                                                    </div>	
-
+                                                    <div id="histogram"></div>
+                                                </div>	
                                             </div>
 
 
@@ -85,9 +88,11 @@
                                             </div>
 
                                             <canvas id="renderingCanvas">
-
+                                                <button id="fullscreenButton">Full Screen</button>
                                             </canvas>
-
+                                             
+                                        
+                                            
                                             <div class="colorBar">
                                                     <img src="img/colorBar.png" class="colorBarIMG">  
                                                     </img>
