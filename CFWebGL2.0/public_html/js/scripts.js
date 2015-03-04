@@ -67,7 +67,7 @@ $(function() {
     }
     
     function setDistanceData() {
-        
+        console.log(distances);
         distances = distances.trim();
         distances = distances.split(/\s+/g);
         numberOfPoints = distances.length;
@@ -82,10 +82,7 @@ $(function() {
             if(distances[i] > maxDev)
                maxDev = distances[i];
         }
-                    
-        minDeviation = minDev;
-        maxDeviation = maxDev;
-        
+                
         //set number of points console text
         consoleNumberOfPoints.text(""+ numberOfPoints);
         //set maximum deviation console text
@@ -134,6 +131,9 @@ $(function() {
             histogram info
         */
    
+    minDeviation = Math.floor(minDev);
+    maxDeviation = Math.floor(maxDev);
+    
     var histoDict = [];
     
     for ( var i = 0; i < 41; i++) {    
@@ -200,7 +200,7 @@ $(function() {
       },
 
       axes:{
-        yaxis:{tickInterval: "2", min: -20, max: 20},
+        yaxis:{tickInterval: "1", min: -minDeviation, max: minDeviation},
         xaxis:{tickInterval: "1000", max: 200000},
         
 
@@ -231,9 +231,7 @@ $(function() {
     */
     var sliderHeight=windowHeight/2.5;
     var slider = $("#slider");
-    var sliderMinValue = -20;
-    var sliderMaxValue = 20;
-    var sliderAverageValue = (sliderMaxValue + sliderMinValue) / 2;
+    var sliderAverageValue = (maxDeviation + minDeviation) / 2;
 
     /*
       slider style attributes
@@ -244,9 +242,9 @@ $(function() {
     slider.removeClass('ui-widget').slider({
     	orientation: "vertical",
     	range: true,
-      	values: [ sliderMinValue, sliderMaxValue ],
-      	min: -20, 
-      	max: 20,
+      	values: [ minDeviation, maxDeviation ],
+      	min: minDeviation, 
+      	max: maxDeviation,
 
       	slide: function( event, ui) {
       		$( ".colorBarInfoMin" ).val( ui.values[ 0 ]);
@@ -256,17 +254,35 @@ $(function() {
       	}
     }); 
     
-    $( ".colorBarInfoMin" ).val( sliderMinValue);
-    $( ".colorBarInfoMax" ).val( sliderMaxValue);
+    $( ".colorBarInfoMin" ).val( minDeviation);
+    $( ".colorBarInfoMax" ).val( maxDeviation);
     $( ".colorBarInfoMid" ).val( sliderAverageValue);
     
     doneLoading();
-    
+    } 
+
     $(".dropdown dt a").click(function() {
         $(".dropdown dd ul").toggle();
     });
-    } 
-
+    
+    $(".dropdown dd ul li a").click(function() {
+        var text = $(this).html();
+        $(".dropdown dt a span").html(text);
+        $(".dropdown dd ul").hide();
+    }); 
+    
+    $(document).bind('click', function(e) {
+        var $clicked = $(e.target);
+        if (! $clicked.parents().hasClass("dropdown"))
+            $(".dropdown dd ul").hide();
+    });
+    
+    var text = $(this).html();
+    $(".dropdown dt a span").html(text);
+    
+    function getSelectedValue(id) {
+        return $("#" + id).find("dt a span.value").html();
+    }
   /*
   =canvas
   */
@@ -277,6 +293,7 @@ $(function() {
     var canvasHeight=windowHeight/1.5;
     var canvas = $("#renderingCanvas");
 
+    
     /*
       glcanvas webgl
     */

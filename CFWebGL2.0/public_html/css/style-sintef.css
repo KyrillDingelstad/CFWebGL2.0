@@ -61,7 +61,7 @@ header button:hover{
 body {
 	margin: 0;
 	background-color: #1E1E1E;
-	font-family: sans-serif;
+	font-family: helvetica, arial;
 }
 
 
@@ -132,6 +132,7 @@ body {
 	border-bottom-style: solid;
         padding: auto;
 	font-size: 11px; 
+        
 }
 
 .console ul{
@@ -217,7 +218,7 @@ body {
     font-size: 30px;
     top: 3px;
     left: 7px;
-    border-style: solid;
+    border-style: none;
     position: absolute;
     color: #00ADEF;
 }
@@ -229,24 +230,74 @@ body {
 ************
 */
 /* General dropdown styles */       
-.dropdown dd { position:relative;
-               z-index: 201;
+.dropdown dd { 
+    position:relative;
+    z-index: 201;
 }
 /* DT styles for sliding doors */
-.dropdown dt a {background: no-repeat scroll right white;
-    display:block; border-width: 1px; border-style: solid; border-color: #d4ca9a; width:220px; height: 40px}
-.dropdown dt a span {cursor:pointer; display:block; padding:5px;}
+.dropdown dt a {
+    background: url('../img/dropdownArrow.png') no-repeat right white;
+    display:block; 
+    border-width: 1px; 
+    border-style: solid; 
+    border-color: #00ADEF;
+    text-decoration: none;
+    color: #3E3E3E;
+    width:218px; 
+    height: 40px
+}
+
+.dropdown dt a:hover {
+    border-color: rgb(236,0,140);
+}
+
+.dropdown dt a span {
+    cursor:pointer; 
+    display:block; 
+    padding:5px;
+    padding-top: 13px;
+    padding-left: 33px;
+}
+
 /* UL styles */
-.dropdown dd ul { background:#e4dfcb none repeat scroll 0 0; display:none;
-    list-style:none; padding:5px 0px; position:absolute; 
-    left:0px; top:2px; width:auto; min-width:220px;}
-.dropdown span.value { display:none;}
-.dropdown dd ul li a { padding:5px; display:block;}
+.dropdown dd ul { 
+    background:white none repeat scroll 0 0; 
+    display:none;
+    list-style:none; 
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00ADEF;
+    padding:5px 0px; 
+    position:absolute; 
+    left:0px; 
+    top:2px; 
+    width:auto; 
+    min-width:218px;
+}
+
+.dropdown dd ul li a:hover {
+    background: #00ADEF;
+    color: white;
+}
+.dropdown span.value { 
+    display:none;
+}
+
+.dropdown dd ul li a { 
+    padding:5px; 
+    display:block;
+    text-decoration: none;
+    color: #3E3E3E;
+    padding-left: 33px;
+}
 
 .dropdown {
-    width: 220px;
-        margin-top: 120px;
+        width: 220px;
+        
         z-index: 120;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 30px;
 }
 
 

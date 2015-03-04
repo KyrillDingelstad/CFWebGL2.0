@@ -251,11 +251,9 @@ body {
 	margin-top: 20px;
 }
 
-.ui-state-default, .dropdown .ui-state-default
-{
-	right: 500px;
+.dropdown span.value { 
+    display:none;
 }
-
 /*
 ************
 * =slider
