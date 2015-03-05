@@ -67,17 +67,22 @@ $(function() {
     }
     
     function setDistanceData() {
-        console.log(distances);
         distances = distances.trim();
         distances = distances.split(/\s+/g);
+        
+        for(var i = 0; i < 13; i++) {
+            distances.shift();
+        }
+    
         numberOfPoints = distances.length;
         
         //calculating the minimum and maximum distances
         minDev = distances[0];
         maxDev = distances[0];
         for (var i = 0; i < distances.length; i++) {
+            distances[i] = distances[i] - 0.0;
             if( distances[i] < minDev)
-                minDev = distances[i];
+               minDev = distances[i];
             
             if(distances[i] > maxDev)
                maxDev = distances[i];
@@ -130,9 +135,24 @@ $(function() {
         /*
             histogram info
         */
-   
-    minDeviation = Math.floor(minDev);
-    maxDeviation = Math.floor(maxDev);
+    
+    minDeviation = Math.ceil(minDev*10)/10;
+    maxDeviation = Math.ceil(maxDev*10)/10;
+    
+    if(minDeviation < -20)
+        minDeviation = -20;
+        else {
+            minDeviation = minDev;
+        }
+    
+    if(maxDeviation > 20)
+        maxDeviation = 20;
+        else {
+            maxDeviation = maxDev;
+        }
+    
+    console.log(maxDev);
+    console.log(minDev);
     
     var histoDict = [];
     
@@ -150,29 +170,29 @@ $(function() {
         if(rounded > 20)
             rounded = 20;
         
-        histoDict[rounded +20]++;
-    }
-       
+        histoDict[rounded + 20]++;
+    }    
+    
     var histogramDiv = $("#histogram");
     var histogramHeight = windowHeight/2.5;
     var histogram;
     
     //filling the histogram with the sorted data
     var histogramAray = [
-        [[histoDict[0], -19.5], [histoDict[1], -18.5], [histoDict[2], -17.5], 
-         [histoDict[3], -17], [histoDict[4], -16], [histoDict[5], -14.5],
-         [histoDict[6], -14], [histoDict[7], -13], [histoDict[8], -11.5],
-         [histoDict[9], -11], [histoDict[10], -10], [histoDict[11], -8.5],
-         [histoDict[12], -8], [histoDict[13], -7], [histoDict[14], -5.5],
-         [histoDict[15], -5], [histoDict[16], -4], [histoDict[17], -2.5],
-         [histoDict[18], -2], [histoDict[19], -1], [histoDict[20], 0],
-         [histoDict[21], 1], [histoDict[22], 2], [histoDict[23], 3],
-         [histoDict[24], 4], [histoDict[25], 5], [histoDict[26], 6],
-         [histoDict[27], 7], [histoDict[28], 8], [histoDict[29], 9],
-         [histoDict[30], 10], [histoDict[31], 11], [histoDict[32], 12],
-         [histoDict[33], 13], [histoDict[34], 14], [histoDict[35], 15],
-         [histoDict[36], 16], [histoDict[37], 17], [histoDict[38], 18], 
-         [histoDict[39], 19], [histoDict[40], 20], [histoDict[41],21]]];
+        [[histoDict[0], -20.5], [histoDict[1], -19.5], [histoDict[2], -18.5], 
+         [histoDict[3], -17.5], [histoDict[4], -16.5], [histoDict[5], -15.5],
+         [histoDict[6], -14.5], [histoDict[7], -13.5], [histoDict[8], -12.5],
+         [histoDict[9], -11.5], [histoDict[10], -10.5], [histoDict[11], -9.5],
+         [histoDict[12], -8.5], [histoDict[13], -7.5], [histoDict[14], -6.5],
+         [histoDict[15], -5.5], [histoDict[16], -4.5], [histoDict[17], -3.5],
+         [histoDict[18], -2.5], [histoDict[19], -1.5], [histoDict[20], -0.5],
+         [histoDict[21], 0.5], [histoDict[22], 1.5], [histoDict[23], 2.5],
+         [histoDict[24], 3.5], [histoDict[25], 4.5], [histoDict[26], 5.5],
+         [histoDict[27], 6.5], [histoDict[28], 7.5], [histoDict[29], 8.5],
+         [histoDict[30], 9.5], [histoDict[31], 10.5], [histoDict[32], 11.5],
+         [histoDict[33], 12.5], [histoDict[34], 13.5], [histoDict[35], 14.5],
+         [histoDict[36], 15.5], [histoDict[37], 16.5], [histoDict[38], 17.5], 
+         [histoDict[39], 18.5], [histoDict[40], 19.5], [histoDict[41],20.5]]];
 
     var histogramOptions = {
       seriesDefaults: {
@@ -183,7 +203,7 @@ $(function() {
         //renderingoptions for the bars
         rendererOptions: {
           barDirection: "horizontal",
-          barWidth: 2,
+          barWidth: 3,
           color: "#00ADEF"
           //color: "#5184c4"
         }
@@ -200,7 +220,7 @@ $(function() {
       },
 
       axes:{
-        yaxis:{tickInterval: "1", min: -minDeviation, max: minDeviation},
+        yaxis:{tickInterval: "1", min: minDeviation, max: maxDeviation},
         xaxis:{tickInterval: "1000", max: 200000},
         
 
@@ -269,6 +289,7 @@ $(function() {
         var text = $(this).html();
         $(".dropdown dt a span").html(text);
         $(".dropdown dd ul").hide();
+        console.log(getSelectedValue("sample"));
     }); 
     
     $(document).bind('click', function(e) {
@@ -283,8 +304,9 @@ $(function() {
     function getSelectedValue(id) {
         return $("#" + id).find("dt a span.value").html();
     }
+    
   /*
-  =canvas
+    =canvas
   */
 
     /*
