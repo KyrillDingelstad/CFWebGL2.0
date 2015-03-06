@@ -135,175 +135,181 @@ $(function() {
         /*
             histogram info
         */
-    
-    minDeviation = Math.ceil(minDev*10)/10;
-    maxDeviation = Math.ceil(maxDev*10)/10;
-    
-    if(minDeviation < -20)
-        minDeviation = -20;
-        else {
-            minDeviation = minDev;
-        }
-    
-    if(maxDeviation > 20)
-        maxDeviation = 20;
-        else {
-            maxDeviation = maxDev;
-        }
-    
-    console.log(maxDev);
-    console.log(minDev);
-    
-    var histoDict = [];
-    
-    for ( var i = 0; i < 41; i++) {    
-        histoDict[i] = 0; 
-    }
-    
-    for (var i = 0; i < distances.length; i++) {
+       
         
-        var rounded = Math.floor(distances[i]);
+        minDeviation = Math.ceil(minDev);
+        maxDeviation = Math.ceil(maxDev);
         
-        if(rounded < -20)
-            rounded= -20;
-
-        if(rounded > 20)
-            rounded = 20;
-        
-        histoDict[rounded + 20]++;
-    }    
-    
-    var histogramDiv = $("#histogram");
-    var histogramHeight = windowHeight/2.5;
-    var histogram;
-    
-    //filling the histogram with the sorted data
-    var histogramAray = [
-        [[histoDict[0], -20.5], [histoDict[1], -19.5], [histoDict[2], -18.5], 
-         [histoDict[3], -17.5], [histoDict[4], -16.5], [histoDict[5], -15.5],
-         [histoDict[6], -14.5], [histoDict[7], -13.5], [histoDict[8], -12.5],
-         [histoDict[9], -11.5], [histoDict[10], -10.5], [histoDict[11], -9.5],
-         [histoDict[12], -8.5], [histoDict[13], -7.5], [histoDict[14], -6.5],
-         [histoDict[15], -5.5], [histoDict[16], -4.5], [histoDict[17], -3.5],
-         [histoDict[18], -2.5], [histoDict[19], -1.5], [histoDict[20], -0.5],
-         [histoDict[21], 0.5], [histoDict[22], 1.5], [histoDict[23], 2.5],
-         [histoDict[24], 3.5], [histoDict[25], 4.5], [histoDict[26], 5.5],
-         [histoDict[27], 6.5], [histoDict[28], 7.5], [histoDict[29], 8.5],
-         [histoDict[30], 9.5], [histoDict[31], 10.5], [histoDict[32], 11.5],
-         [histoDict[33], 12.5], [histoDict[34], 13.5], [histoDict[35], 14.5],
-         [histoDict[36], 15.5], [histoDict[37], 16.5], [histoDict[38], 17.5], 
-         [histoDict[39], 18.5], [histoDict[40], 19.5], [histoDict[41],20.5]]];
-
-    var histogramOptions = {
-      seriesDefaults: {
-        //making it a bargraph
-        renderer:$.jqplot.BarRenderer,
-
-          
-        //renderingoptions for the bars
-        rendererOptions: {
-          barDirection: "horizontal",
-          barWidth: 3,
-          color: "#00ADEF"
-          //color: "#5184c4"
+        if(minDeviation <= -20) {
+            minDeviation = -20;
         }
-      },
+        
+        if(maxDeviation >= 20) {
+            maxDeviation = 20;
+        }
+        
 
-      grid:{
-        renderer:$.jqplot.CanvasGridRenderer,
+        var tickInterval = (maxDeviation - minDeviation)/2;
+    
+    
+        console.log(maxDev);
+        console.log(minDev);
 
-        rendererOptions: {
-              gridLineColor: "#9E9E9E",
-              drawBorder: false,
-              background: "white"
+        var histoDict = [];
+
+        for ( var i = 0; i < 41; i++) {    
+            histoDict[i] = 0; 
+        }
+
+        for (var i = 0; i < distances.length; i++) {
+
+            var rounded = Math.floor(distances[i]);
+
+            if(rounded < -20)
+                rounded= -20;
+
+            if(rounded > 20)
+                rounded = 20;
+
+            histoDict[rounded + 20]++;
+        }    
+    
+        var histogramDiv = $("#histogram");
+        var histogramHeight = windowHeight/2.5;
+        var histogram;
+
+        //filling the histogram with the sorted data
+        var histogramAray = [
+            [[histoDict[0], -20.5], [histoDict[1], -19.5], [histoDict[2], -18.5], 
+             [histoDict[3], -17.5], [histoDict[4], -16.5], [histoDict[5], -15.5],
+             [histoDict[6], -14.5], [histoDict[7], -13.5], [histoDict[8], -12.5],
+             [histoDict[9], -11.5], [histoDict[10], -10.5], [histoDict[11], -9.5],
+             [histoDict[12], -8.5], [histoDict[13], -7.5], [histoDict[14], -6.5],
+             [histoDict[15], -5.5], [histoDict[16], -4.5], [histoDict[17], -3.5],
+             [histoDict[18], -2.5], [histoDict[19], -1.5], [histoDict[20], -0.5],
+             [histoDict[21], 0.5], [histoDict[22], 1.5], [histoDict[23], 2.5],
+             [histoDict[24], 3.5], [histoDict[25], 4.5], [histoDict[26], 5.5],
+             [histoDict[27], 6.5], [histoDict[28], 7.5], [histoDict[29], 8.5],
+             [histoDict[30], 9.5], [histoDict[31], 10.5], [histoDict[32], 11.5],
+             [histoDict[33], 12.5], [histoDict[34], 13.5], [histoDict[35], 14.5],
+             [histoDict[36], 15.5], [histoDict[37], 16.5], [histoDict[38], 17.5], 
+             [histoDict[39], 18.5], [histoDict[40], 19.5], [histoDict[41],20.5]]];
+
+        var histogramOptions = {
+          seriesDefaults: {
+            //making it a bargraph
+            renderer:$.jqplot.BarRenderer,
+
+
+            //renderingoptions for the bars
+            rendererOptions: {
+              barDirection: "horizontal",
+              barWidth: 3,
+              shadow: false,
+              color: "#00ADEF"
+              //color: "#5184c4"
             }
-      },
+          },
 
-      axes:{
-        yaxis:{tickInterval: "1", min: minDeviation, max: maxDeviation},
-        xaxis:{tickInterval: "1000", max: 200000},
-        
+          grid:{
+            renderer:$.jqplot.CanvasGridRenderer,
 
-        renderer:$.jqplot.AxisTickRenderer,
-        rendererOptions: {
+            rendererOptions: {
+                  gridLineColor: "#9E9E9E",
+                  drawBorder: false,
+                  background: "white"
+                }
+          },
 
-        }
-      }
-    };
-
-    /*
-      histogram style attributes
-    */  
-      histogramDiv.css('height', histogramHeight + 30);
+          axes:{
+            yaxis:{tickInterval: "1", min: minDeviation, max: maxDeviation},
+            xaxis:{tickInterval: "1000", max: 200000},
 
 
-      //Filling the histogram with the data set above (location, data, visualisationOptions);
-      histogram = $.jqplot('histogram', histogramAray, histogramOptions);
-        
-      console.log("done")
-    
+            renderer:$.jqplot.AxisTickRenderer,
+            rendererOptions: {
+
+            }
+          }
+        };
+
+        /*
+          histogram style attributes
+        */  
+        histogramDiv.css('height', histogramHeight + 30);
+
+
+        //Filling the histogram with the data set above (location, data, visualisationOptions);
+        histogram = $.jqplot('histogram', histogramAray, histogramOptions);
+
+        console.log("done");
+
     /*        
     =slider
     */
 
-    /*
-      slider variables
-    */
-    var sliderHeight=windowHeight/2.5;
-    var slider = $("#slider");
-    var sliderAverageValue = (maxDeviation + minDeviation) / 2;
+        /*
+          slider variables
+        */
+        var sliderHeight=windowHeight/2.5;
+        var slider = $("#slider");
+        var sliderAverageValue = (maxDeviation + minDeviation) / 2;
 
-    /*
-      slider style attributes
-    */  
-    slider.css('height', sliderHeight);
-    
+        Math.ceil(sliderAverageValue);
 
-    slider.removeClass('ui-widget').slider({
-    	orientation: "vertical",
-    	range: true,
-      	values: [ minDeviation, maxDeviation ],
-      	min: minDeviation, 
-      	max: maxDeviation,
+        /*
+          slider style attributes
+        */  
+        slider.css('height', sliderHeight);
 
-      	slide: function( event, ui) {
-      		$( ".colorBarInfoMin" ).val( ui.values[ 0 ]);
-      		$( ".colorBarInfoMax" ).val( ui.values[ 1 ]);
-      		$( ".colorBarInfoMid" ).val( (ui.values[ 0 ] + ui.values[ 1 ])/2);
 
-      	}
-    }); 
-    
-    $( ".colorBarInfoMin" ).val( minDeviation);
-    $( ".colorBarInfoMax" ).val( maxDeviation);
-    $( ".colorBarInfoMid" ).val( sliderAverageValue);
-    
-    doneLoading();
-    } 
+        slider.removeClass('ui-widget').slider({
+            orientation: "vertical",
+            range: true,
+            values: [ minDeviation, maxDeviation ],
+            min: minDeviation, 
+            max: maxDeviation,
 
-    $(".dropdown dt a").click(function() {
-        $(".dropdown dd ul").toggle();
-    });
-    
-    $(".dropdown dd ul li a").click(function() {
-        var text = $(this).html();
-        $(".dropdown dt a span").html(text);
-        $(".dropdown dd ul").hide();
-        console.log(getSelectedValue("sample"));
-    }); 
-    
-    $(document).bind('click', function(e) {
-        var $clicked = $(e.target);
-        if (! $clicked.parents().hasClass("dropdown"))
+            slide: function( event, ui) {
+                $( ".colorBarInfoMin" ).val( ui.values[ 0 ]);
+                $( ".colorBarInfoMax" ).val( ui.values[ 1 ]);
+                $( ".colorBarInfoMid" ).val( (ui.values[ 0 ] + ui.values[ 1 ])/2);
+            }
+        }); 
+
+        $( ".colorBarInfoMin" ).val( minDeviation);
+        $( ".colorBarInfoMax" ).val( maxDeviation);
+        $( ".colorBarInfoMid" ).val( sliderAverageValue);
+
+        doneLoading();
+        } 
+
+        $(".dropdown dt a").click(function() {
+            $(".dropdown dd ul").toggle();
+        });
+
+        $(".dropdown dd ul li a").click(function() {
+            var text = $(this).html();
+            $(".dropdown dt a span").html(text);
             $(".dropdown dd ul").hide();
-    });
-    
-    var text = $(this).html();
-    $(".dropdown dt a span").html(text);
-    
-    function getSelectedValue(id) {
-        return $("#" + id).find("dt a span.value").html();
-    }
+            
+            if($(this).text === "allPoints")
+                console.log("hoihoi");
+            
+        }); 
+
+        $(document).bind('click', function(e) {
+            var $clicked = $(e.target);
+            if (!$clicked.parents().hasClass("dropdown"))
+                $(".dropdown dd ul").hide();
+        });
+        
+        
+        
+        
+        
+        
+        
     
   /*
     =canvas
