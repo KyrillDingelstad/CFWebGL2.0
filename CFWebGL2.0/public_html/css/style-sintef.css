@@ -406,7 +406,7 @@ float: left;
     margin-right: 15px;
 }
 
-#renderingCanvas{
+#canvasWrap {
         overflow: hidden;
 	min-width: 500px;
 	min-height: 500px;
@@ -418,21 +418,23 @@ float: left;
 	border-width: 1px;
         position: relative;
 	float: right;
+        z-index: 0;
 }
-canvas { 
-        position: absolute; 
-        z-index: 1; 
+#renderingCanvas{
+	
+        z-index: 1;
 }
 
 #fullscreenButton {
     width: 70px;
     height: 50px;
-    z-index: 2;
-    bottom: 100px;
-    left: 300px;
-    top: 30px;
-    position: relative;
+    z-index: 100;
+    bottom: 10px;
+    right: 10px;
+    position: absolute;
 }
+
+
 .colorBar {
 	overflow: hidden;
 	width: 70%;
