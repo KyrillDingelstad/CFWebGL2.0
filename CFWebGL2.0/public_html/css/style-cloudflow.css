@@ -62,7 +62,7 @@ header button{
 */
 body {
 	margin: 0;
-	background-color: white;
+	background-color: #808080;
 	font-family: sans-serif;
 }
 
@@ -202,6 +202,7 @@ body {
 }
 
 .checkbox {
+        -moz-appearance: none;
 	-webkit-appearance: none;
 	background-color: white;
 	border-style: solid;
@@ -229,31 +230,78 @@ body {
 ************
 */
 
-#dropdownWrap {
-    
-    overflow: hidden;
+.dropdown dd { 
+    position:relative;
+    z-index: 201;
 }
-.dropdown {
-	width: 220px;
-	height: 40px;
-	border-width: 0.8px;
-	border-color: #5f5e5e;
-	border-width: 1px;
-        border-radius: 3px;
-	background-color: white;
-	position: relative;
-	padding-left: 33px;
-	font-size: 17px;
-	color: #5f5e5e;
-	left: 0;
-	right:0;
-	margin: auto;
-	margin-top: 20px;
+/* DT styles for sliding doors */
+.dropdown dt a {
+    background: url('../img/dropdownArrow.png') no-repeat right white;
+    display:block; 
+    border-width: 1px; 
+    border-style: solid; 
+    border-radius: 3px;
+    border-color: #5f5e5e;
+    text-decoration: none;
+    color: #5f5e5e;
+    width:218px; 
+    height: 40px
 }
 
+.dropdown dt a:hover {
+    border-color: #5184c4;
+}
+
+.dropdown dt a span {
+    cursor:pointer; 
+    display:block; 
+    padding:5px;
+    padding-top: 13px;
+    padding-left: 33px;
+}
+
+/* UL styles */
+.dropdown dd ul { 
+    background:white none repeat scroll 0 0; 
+    display:none;
+    list-style:none; 
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: #5184c4;
+    padding:5px 0px; 
+    position:absolute; 
+    left:0px; 
+    top:2px; 
+    width:auto; 
+    min-width:218px;
+}
+
+.dropdown dd ul li a:hover {
+    background: #5184c4;
+    color: white;
+}
 .dropdown span.value { 
     display:none;
 }
+
+.dropdown dd ul li a { 
+    padding:5px; 
+    display:block;
+    text-decoration: none;
+    color: #5f5e5e;
+    padding-left: 33px;
+}
+
+.dropdown {
+        width: 220px;
+        
+        z-index: 120;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 30px;
+}
+
 /*
 ************
 * =slider
@@ -358,8 +406,8 @@ float: left;
     margin-right: 15px;
 }
 
-
-#renderingCanvas{
+#canvasWrap {
+        overflow: hidden;
 	min-width: 500px;
 	min-height: 500px;
 	height: 700px;
@@ -369,9 +417,23 @@ float: left;
 	border-color: #5f5e5e;
         border-radius: 3px;
 	border-width: 1px;
+        position: relative;
 	float: right;
+        z-index: 0;
 }
 
+#renderingCanvas{
+	z-index: 1;
+}
+
+#fullscreenButton {
+    width: 70px;
+    height: 50px;
+    z-index: 100;
+    bottom: 10px;
+    right: 10px;
+    position: absolute;
+}
 
 .colorBar {
 	overflow: hidden;

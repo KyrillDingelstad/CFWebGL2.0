@@ -140,16 +140,9 @@ $(function() {
         minDeviation = Math.ceil(minDev);
         maxDeviation = Math.ceil(maxDev);
         
-        if(minDeviation <= -20) {
-            minDeviation = -20;
-        }
-        
-        if(maxDeviation >= 20) {
-            maxDeviation = 20;
-        }
         
 
-        var tickInterval = (maxDeviation - minDeviation)/2;
+        
     
     
         console.log(maxDev);
@@ -173,6 +166,8 @@ $(function() {
 
             histoDict[rounded + 20]++;
         }    
+        
+        var tickInterval = Math.round((maxDeviation - minDeviation)/histoDict.length);
     
         var histogramDiv = $("#histogram");
         var histogramHeight = windowHeight/2.5;
@@ -206,8 +201,8 @@ $(function() {
               barDirection: "horizontal",
               barWidth: 3,
               shadow: false,
-              color: "#00ADEF"
-              //color: "#5184c4"
+              //color: "#00ADEF"
+              color: "#5184c4"
             }
           },
 
@@ -222,7 +217,7 @@ $(function() {
           },
 
           axes:{
-            yaxis:{tickInterval: "1", min: minDeviation, max: maxDeviation},
+            yaxis:{tickInterval: tickInterval, min: minDeviation, max: maxDeviation},
             xaxis:{tickInterval: "1000", max: 200000},
 
 
@@ -284,11 +279,13 @@ $(function() {
         doneLoading();
         } 
 
-        $(".dropdown dt a").click(function() {
+        $(".dropdown dt a").click(function(e) {
+            e.preventDefault();
             $(".dropdown dd ul").toggle();
         });
 
-        $(".dropdown dd ul li a").click(function() {
+        $(".dropdown dd ul li a").click(function(e) {
+            e.preventDefault();
             var text = $(this).html();
             $(".dropdown dt a span").html(text);
             $(".dropdown dd ul").hide();
@@ -299,7 +296,6 @@ $(function() {
         }); 
 
         $(document).bind('click', function(e) {
-            e.preventDefault();
             var $clicked = $(e.target);
             if (!$clicked.parents().hasClass("dropdown"))
                 $(".dropdown dd ul").hide();
