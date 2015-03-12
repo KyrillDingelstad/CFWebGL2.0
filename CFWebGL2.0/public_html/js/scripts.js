@@ -299,6 +299,7 @@ $(function() {
         }); 
 
         $(document).bind('click', function(e) {
+            e.preventDefault();
             var $clicked = $(e.target);
             if (!$clicked.parents().hasClass("dropdown"))
                 $(".dropdown dd ul").hide();
