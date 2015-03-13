@@ -16,7 +16,7 @@ header {
 
 .headerMain {
 	min-width: 940px;
-	width: 70%;
+	width: 80%;
 	height: 100%;
 	overflow: hidden;
 	margin: auto;
@@ -62,7 +62,7 @@ header button{
 */
 body {
 	margin: 0;
-	background-color: #808080;
+	background-color: white;
 	font-family: sans-serif;
 }
 
@@ -71,7 +71,7 @@ body {
 .main {   
 	min-width: 940px;
 	min-height: 768px;
-	width: 70%;
+	width: 80%;
 	overflow: hidden;
 	padding-left: 100px;
 	padding-right: 100px;
@@ -471,7 +471,7 @@ float: left;
 .colorBarInfoMin {
 	position: absolute;
 	color: #5f5e5e;
-	text-align: center;
+	text-align: left;
 	border: none;
 	width: 100px;
 	left: 5px;

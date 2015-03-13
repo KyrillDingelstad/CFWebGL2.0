@@ -201,8 +201,8 @@ $(function() {
               barDirection: "horizontal",
               barWidth: 3,
               shadow: false,
-              //color: "#00ADEF"
-              color: "#5184c4"
+              color: "#00ADEF"
+              //color: "#5184c4"
             }
           },
 
@@ -300,27 +300,7 @@ $(function() {
             if (!$clicked.parents().hasClass("dropdown"))
                 $(".dropdown dd ul").hide();
         });
-        
-        
-        
-        $("#fullscreenButton").click(function(){
-           console.log("make fullscreen");
-           $('#canvasWrap').requestFullscreen();
-           $('#canvasWrap').msRequestFullscreen();
-           
-        });
-        
-        
-        var elem = document.getElementById("#canvasWrap");
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.msRequestFullscreen) {
-                elem.msRequestFullscreen();
-            } else if (elem.mozRequestFullScreen) {
-                elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) {
-                elem.webkitRequestFullscreen();
-            }
+              
             
   /*
     =canvas
@@ -331,13 +311,20 @@ $(function() {
     */
     var canvasHeight=windowHeight/1.5;
     var canvas = $("#renderingCanvas");
-
     
     /*
-      glcanvas webgl
+      canvas full screen
     */
 
-
+        $("#fullscreenButton").click(function(){
+           console.log("make fullscreen");
+           var canvas = $("#renderingCanvas");
+           canvas.width = document.body.clientWidth; //document.width is obsolete
+            canvas.height = document.body.clientHeight; //document.height is obsolete
+        });
+        
+        
+       
     /*
       glcanvas style attributes
     */
