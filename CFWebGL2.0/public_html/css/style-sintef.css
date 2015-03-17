@@ -47,7 +47,7 @@ header button:hover{
 	color: rgb(236,0,140);
 }
 
-.checkbox:hover, .dropdown:hover{
+.checkbox:hover, .dropdown:hover .dropdownInfo:hover, .dropdown dt a:hover{
 	cursor: pointer;
 	border-color: rgb(236,0,140);
 }
@@ -244,17 +244,13 @@ body {
     text-decoration: none;
     color: #3E3E3E;
     width:218px; 
+    margin-top: 0;
     height: 40px
-}
-
-.dropdown dt a:hover {
-    border-color: rgb(236,0,140);
 }
 
 .dropdown dt a span {
     cursor:pointer; 
     display:block; 
-    padding:5px;
     padding-top: 13px;
     padding-left: 33px;
 }
@@ -293,16 +289,42 @@ body {
 
 .dropdown {
         width: 220px;
-        
         z-index: 120;
         margin: auto;
         margin-top: 10px;
         margin-bottom: 30px;
 }
 
+.dropdownInfo{
+    background: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00ADEF;
+    position: relative;
+    left: 5px;
+    margin-right: 10px;
+    top: 3px;
+    width: 25px;
+    bottom: 0;
+    float: left;
+}
 
+#dropdownInfoDiv {
+    position: absolute;
+    height: 200px;
+    width: 220px;
+    bottom: 350px;
+    left: 0;
+    right: 0;
+    background: green;
+    z-index: 150;
+    margin: auto;
+    display: none;
+}
 
-
+.dropwdownInfo:hover + #dropdownInfoDiv {
+    display: block;
+}
 /*
 ************
 * =slider
