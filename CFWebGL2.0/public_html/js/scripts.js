@@ -279,11 +279,21 @@ $(function() {
         doneLoading();
         } 
 
+/*
+    =dropdown
+*/
+    
+        /*
+            dropdown functions
+        */
+       
+        //making the dropdown appear when clicked
         $(".dropdown dt a").click(function(e) {
             e.preventDefault();
             $(".dropdown dd ul").toggle();
         });
-
+        
+        //selecting the right button
         $(".dropdown dd ul li a").click(function(e) {
             e.preventDefault();
             var text = $(this).html();
@@ -295,11 +305,55 @@ $(function() {
             
         }); 
 
+        //if clicked outside the dropbox then hide it
         $(document).bind('click', function(e) {
             var $clicked = $(e.target);
             if (!$clicked.parents().hasClass("dropdown"))
                 $(".dropdown dd ul").hide();
         });
+        
+        //hoveroptions for info
+        hoverInfoDiv = $("#dropdownInfoDiv");
+        hoverInfo1 = $("#dropdownInfo1");
+        hoverInfo2 = $("#dropdownInfo2");
+        hoverInfo3 = $("#dropdownInfo3");
+        hoverInfo4 = $("#dropdownInfo4");
+        hoverInfoDivP = $("#dropdownInfoDiv p");
+        
+        hoverInfoDiv.hide();
+        
+        hoverInfo1.hover(function(){
+            hoverInfoDiv.show();
+            hoverInfoDivP.text("Shows all the points");
+        });
+        hoverInfo2.hover(function(){
+            hoverInfoDiv.show();
+            hoverInfoDivP.text("Shows all the points that fall inside of the CAD model");
+        });
+        hoverInfo3.hover(function(){
+            hoverInfoDiv.show();
+            hoverInfoDivP.text("Shows all the points that fall outside of the CAD model");
+        });
+        hoverInfo4.hover(function(){
+            hoverInfoDiv.show();
+            hoverInfoDivP.text("??");
+        });
+            
+        hoverInfo1.mouseleave(function(){
+            hoverInfoDiv.hide();
+        });
+        hoverInfo2.mouseleave(function(){
+            hoverInfoDiv.hide();
+        });
+        hoverInfo3.mouseleave(function(){
+            hoverInfoDiv.hide();
+        });
+        hoverInfo4.mouseleave(function(){
+            hoverInfoDiv.hide();
+        });
+        
+            
+        
               
             
   /*
@@ -320,7 +374,7 @@ $(function() {
            console.log("make fullscreen");
            var canvas = $("#renderingCanvas");
            canvas.width = document.body.clientWidth; //document.width is obsolete
-            canvas.height = document.body.clientHeight; //document.height is obsolete
+           canvas.height = document.body.clientHeight; //document.height is obsolete
         });
         
         
