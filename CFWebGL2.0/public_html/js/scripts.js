@@ -140,55 +140,174 @@ $(function() {
         minDeviation = Math.ceil(minDev);
         maxDeviation = Math.ceil(maxDev);
         
-        
-
-        
-    
-    
-        console.log(maxDev);
-        console.log(minDev);
-
         var histoDict = [];
-
+        
+        
         for ( var i = 0; i < 41; i++) {    
             histoDict[i] = 0; 
         }
-
+        //setting the tickinterval for the histogram
+        var tickInterval = Math.round((maxDeviation - minDeviation)/histoDict.length);
+        
+        //looping through the file and sorting the data into each histogram tick
         for (var i = 0; i < distances.length; i++) {
 
+            if(distances[i] > minDeviation && distances[i] < minDeviation + tickInterval ){
+                histoDict[0] += 1;
+            } 
+            else if(distances[i] > minDeviation + tickInterval && distances[i] < minDeviation + tickInterval*2){
+                histoDict[1] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval && distances[i] < minDeviation + tickInterval*3){
+                histoDict[3] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*3 && distances[i] < minDeviation + tickInterval*4){
+                histoDict[4] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*4 && distances[i] < minDeviation + tickInterval*5){
+                histoDict[5] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*5 && distances[i] < minDeviation + tickInterval*6){
+                histoDict[6] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*6 && distances[i] < minDeviation + tickInterval*7){
+                histoDict[7] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*7 && distances[i] < minDeviation + tickInterval*8){
+                histoDict[8] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*8 && distances[i] < minDeviation + tickInterval*9){
+                histoDict[9] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*9 && distances[i] < minDeviation + tickInterval*10){
+                histoDict[10] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*10 && distances[i] < minDeviation + tickInterval*11){
+                histoDict[11] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*11 && distances[i] < minDeviation + tickInterval*12){
+                histoDict[12] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*12 && distances[i] < minDeviation + tickInterval*13){
+                histoDict[13] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*13 && distances[i] < minDeviation + tickInterval*14){
+                histoDict[14] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*14 && distances[i] < minDeviation + tickInterval*15){
+                histoDict[15] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*15 && distances[i] < minDeviation + tickInterval*16){
+                histoDict[16] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*16 && distances[i] < minDeviation + tickInterval*17){
+                histoDict[17] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*17 && distances[i] < minDeviation + tickInterval*18){
+                histoDict[18] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*18 && distances[i] < minDeviation + tickInterval*19){
+                histoDict[19] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*19 && distances[i] < minDeviation + tickInterval*20){
+                histoDict[20] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*20 && distances[i] < minDeviation + tickInterval*21){
+                histoDict[21] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*21 && distances[i] < minDeviation + tickInterval*22){
+                histoDict[22] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*22 && distances[i] < minDeviation + tickInterval*23){
+                histoDict[23] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*23 && distances[i] < minDeviation + tickInterval*24){
+                histoDict[24] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*24 && distances[i] < minDeviation + tickInterval*25){
+                histoDict[25] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*25 && distances[i] < minDeviation + tickInterval*26){
+                histoDict[26] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*26 && distances[i] < minDeviation + tickInterval*27){
+                histoDict[27] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*27 && distances[i] < minDeviation + tickInterval*28){
+                histoDict[28] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*28 && distances[i] < minDeviation + tickInterval*29){
+                histoDict[29] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*29 && distances[i] < minDeviation + tickInterval*30){
+                histoDict[30] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*30 && distances[i] < minDeviation + tickInterval*31){
+                histoDict[31] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*31 && distances[i] < minDeviation + tickInterval*32){
+                histoDict[32] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*32 && distances[i] < minDeviation + tickInterval*33){
+                histoDict[33] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*33 && distances[i] < minDeviation + tickInterval*34){
+                histoDict[34] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*34 && distances[i] < minDeviation + tickInterval*35){
+                histoDict[35] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*35 && distances[i] < minDeviation + tickInterval*36){
+                histoDict[36] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*36 && distances[i] < minDeviation + tickInterval*37){
+                histoDict[37] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*37 && distances[i] < minDeviation + tickInterval*38){
+                histoDict[38] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*38 && distances[i] < minDeviation + tickInterval*39){
+                histoDict[39] += 1;
+            }
+            else if(distances[i] > minDeviation + tickInterval*39 && distances[i] < minDeviation + tickInterval*40){
+                histoDict[40] += 1;
+            }
+            
+            /*
             var rounded = Math.floor(distances[i]);
 
-            if(rounded < -20)
-                rounded= -20;
+            if(rounded < minDeviation)
+                rounded= minDeviation;
 
-            if(rounded > 20)
-                rounded = 20;
+            if(rounded > maxDeviation)
+                rounded = maxDeviation;
 
             histoDict[rounded + 20]++;
+            */
         }    
         
-        var tickInterval = Math.round((maxDeviation - minDeviation)/histoDict.length);
+        console.log("after filling " + histoDict[16]);
     
         var histogramDiv = $("#histogram");
         var histogramHeight = windowHeight/2.5;
         var histogram;
-
+        console.log(maxDeviation-tickInterval *2);
         //filling the histogram with the sorted data
         var histogramAray = [
-            [[histoDict[0], -20.5], [histoDict[1], -19.5], [histoDict[2], -18.5], 
-             [histoDict[3], -17.5], [histoDict[4], -16.5], [histoDict[5], -15.5],
-             [histoDict[6], -14.5], [histoDict[7], -13.5], [histoDict[8], -12.5],
-             [histoDict[9], -11.5], [histoDict[10], -10.5], [histoDict[11], -9.5],
-             [histoDict[12], -8.5], [histoDict[13], -7.5], [histoDict[14], -6.5],
-             [histoDict[15], -5.5], [histoDict[16], -4.5], [histoDict[17], -3.5],
-             [histoDict[18], -2.5], [histoDict[19], -1.5], [histoDict[20], -0.5],
-             [histoDict[21], 0.5], [histoDict[22], 1.5], [histoDict[23], 2.5],
-             [histoDict[24], 3.5], [histoDict[25], 4.5], [histoDict[26], 5.5],
-             [histoDict[27], 6.5], [histoDict[28], 7.5], [histoDict[29], 8.5],
-             [histoDict[30], 9.5], [histoDict[31], 10.5], [histoDict[32], 11.5],
-             [histoDict[33], 12.5], [histoDict[34], 13.5], [histoDict[35], 14.5],
-             [histoDict[36], 15.5], [histoDict[37], 16.5], [histoDict[38], 17.5], 
-             [histoDict[39], 18.5], [histoDict[40], 19.5], [histoDict[41],20.5]]];
+            [[histoDict[0],  minDeviation], [histoDict[1],  minDeviation + tickInterval], [histoDict[2], minDeviation + tickInterval*2], 
+             [histoDict[3], minDeviation + tickInterval*3], [histoDict[4], minDeviation + tickInterval*4], [histoDict[5], minDeviation + tickInterval*5],
+             [histoDict[6], minDeviation + tickInterval*6], [histoDict[7], minDeviation + tickInterval*7], [histoDict[8], minDeviation + tickInterval*8],
+             [histoDict[9], minDeviation + tickInterval*9], [histoDict[10], minDeviation + tickInterval*10], [histoDict[11], minDeviation + tickInterval*11],
+             [histoDict[12], minDeviation + tickInterval*12], [histoDict[13], minDeviation + tickInterval*13], [histoDict[14], minDeviation + tickInterval*14],
+             [histoDict[15], minDeviation + tickInterval*15], [histoDict[16], minDeviation + tickInterval*16], [histoDict[17], minDeviation + tickInterval*17],
+             [histoDict[18], minDeviation + tickInterval*18], [histoDict[19], minDeviation + tickInterval*19], [histoDict[20], minDeviation + tickInterval*20],
+             [histoDict[21], minDeviation + tickInterval*21], [histoDict[22], minDeviation + tickInterval*22], [histoDict[23], minDeviation + tickInterval*23],
+             [histoDict[24], minDeviation + tickInterval*24], [histoDict[25], minDeviation + tickInterval*25], [histoDict[26], minDeviation + tickInterval*26],
+             [histoDict[27], minDeviation + tickInterval*27], [histoDict[28], minDeviation + tickInterval*28], [histoDict[29], minDeviation + tickInterval*29],
+             [histoDict[30], minDeviation + tickInterval*30], [histoDict[31], minDeviation + tickInterval*31], [histoDict[32], minDeviation + tickInterval*32],
+             [histoDict[33], minDeviation + tickInterval*33], [histoDict[34], minDeviation + tickInterval*34], [histoDict[35], minDeviation + tickInterval*35],
+             [histoDict[36], minDeviation + tickInterval*36], [histoDict[37], minDeviation + tickInterval*37], [histoDict[38], minDeviation + tickInterval*38], 
+             [histoDict[39], minDeviation + tickInterval*39], [histoDict[40], minDeviation + tickInterval*40], [histoDict[41],minDeviation + tickInterval*41]]];
 
         var histogramOptions = {
           seriesDefaults: {
@@ -199,7 +318,7 @@ $(function() {
             //renderingoptions for the bars
             rendererOptions: {
               barDirection: "horizontal",
-              barWidth: 3,
+              barWidth: 4,
               shadow: false,
               color: "#00ADEF"
               //color: "#5184c4"
@@ -218,7 +337,7 @@ $(function() {
 
           axes:{
             yaxis:{tickInterval: tickInterval, min: minDeviation, max: maxDeviation},
-            xaxis:{tickInterval: "1000", max: 200000},
+            xaxis:{tickInterval: "1", max: 300000},
 
 
             renderer:$.jqplot.AxisTickRenderer,
