@@ -121,6 +121,10 @@ $(function() {
         return res;
     }
     
+    function loadOnlyInside(){
+        
+    }
+    
     function doneLoading(){
         $("#loadingOverlay").hide();
         console.log("hide overlay");
@@ -337,7 +341,7 @@ $(function() {
 
           axes:{
             yaxis:{tickInterval: tickInterval, min: minDeviation, max: maxDeviation},
-            xaxis:{tickInterval: "1", max: 300000},
+            xaxis:{tickInterval: "1000", max: 300000},
 
 
             renderer:$.jqplot.AxisTickRenderer,
@@ -406,6 +410,7 @@ $(function() {
             dropdown functions
         */
        
+       
         //making the dropdown appear when clicked
         $(".dropdown dt a").click(function(e) {
             e.preventDefault();
@@ -417,13 +422,12 @@ $(function() {
             e.preventDefault();
             var text = $(this).html();
             $(".dropdown dt a span").html(text);
+            
             $(".dropdown dd ul").hide();
-            
-            if($(this).text === "allPoints")
-                console.log("hoihoi");
-            
+                       
         }); 
 
+        
         //if clicked outside the dropbox then hide it
         $(document).bind('click', function(e) {
             var $clicked = $(e.target);
@@ -437,6 +441,7 @@ $(function() {
         hoverInfo2 = $("#dropdownInfo2");
         hoverInfo3 = $("#dropdownInfo3");
         hoverInfo4 = $("#dropdownInfo4");
+        infoButton = $(".infoButton");
         hoverInfoDivP = $("#dropdownInfoDiv p");
         
         hoverInfoDiv.hide();
@@ -458,16 +463,7 @@ $(function() {
             hoverInfoDivP.text("??");
         });
             
-        hoverInfo1.mouseleave(function(){
-            hoverInfoDiv.hide();
-        });
-        hoverInfo2.mouseleave(function(){
-            hoverInfoDiv.hide();
-        });
-        hoverInfo3.mouseleave(function(){
-            hoverInfoDiv.hide();
-        });
-        hoverInfo4.mouseleave(function(){
+        infoButton.mouseleave(function(){
             hoverInfoDiv.hide();
         });
         
@@ -491,9 +487,6 @@ $(function() {
 
         $("#fullscreenButton").click(function(){
            console.log("make fullscreen");
-           var canvas = $("#renderingCanvas");
-           canvas.width = document.body.clientWidth; //document.width is obsolete
-           canvas.height = document.body.clientHeight; //document.height is obsolete
         });
         
         
