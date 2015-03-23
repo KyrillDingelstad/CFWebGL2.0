@@ -155,140 +155,16 @@ $(function() {
         
         //looping through the file and sorting the data into each histogram tick
         for (var i = 0; i < distances.length; i++) {
-
-            if(distances[i] > minDeviation && distances[i] < minDeviation + tickInterval ){
-                histoDict[0] += 1;
-            } 
-            else if(distances[i] > minDeviation + tickInterval && distances[i] < minDeviation + tickInterval*2){
-                histoDict[1] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval && distances[i] < minDeviation + tickInterval*3){
-                histoDict[3] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*3 && distances[i] < minDeviation + tickInterval*4){
-                histoDict[4] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*4 && distances[i] < minDeviation + tickInterval*5){
-                histoDict[5] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*5 && distances[i] < minDeviation + tickInterval*6){
-                histoDict[6] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*6 && distances[i] < minDeviation + tickInterval*7){
-                histoDict[7] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*7 && distances[i] < minDeviation + tickInterval*8){
-                histoDict[8] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*8 && distances[i] < minDeviation + tickInterval*9){
-                histoDict[9] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*9 && distances[i] < minDeviation + tickInterval*10){
-                histoDict[10] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*10 && distances[i] < minDeviation + tickInterval*11){
-                histoDict[11] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*11 && distances[i] < minDeviation + tickInterval*12){
-                histoDict[12] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*12 && distances[i] < minDeviation + tickInterval*13){
-                histoDict[13] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*13 && distances[i] < minDeviation + tickInterval*14){
-                histoDict[14] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*14 && distances[i] < minDeviation + tickInterval*15){
-                histoDict[15] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*15 && distances[i] < minDeviation + tickInterval*16){
-                histoDict[16] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*16 && distances[i] < minDeviation + tickInterval*17){
-                histoDict[17] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*17 && distances[i] < minDeviation + tickInterval*18){
-                histoDict[18] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*18 && distances[i] < minDeviation + tickInterval*19){
-                histoDict[19] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*19 && distances[i] < minDeviation + tickInterval*20){
-                histoDict[20] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*20 && distances[i] < minDeviation + tickInterval*21){
-                histoDict[21] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*21 && distances[i] < minDeviation + tickInterval*22){
-                histoDict[22] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*22 && distances[i] < minDeviation + tickInterval*23){
-                histoDict[23] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*23 && distances[i] < minDeviation + tickInterval*24){
-                histoDict[24] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*24 && distances[i] < minDeviation + tickInterval*25){
-                histoDict[25] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*25 && distances[i] < minDeviation + tickInterval*26){
-                histoDict[26] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*26 && distances[i] < minDeviation + tickInterval*27){
-                histoDict[27] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*27 && distances[i] < minDeviation + tickInterval*28){
-                histoDict[28] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*28 && distances[i] < minDeviation + tickInterval*29){
-                histoDict[29] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*29 && distances[i] < minDeviation + tickInterval*30){
-                histoDict[30] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*30 && distances[i] < minDeviation + tickInterval*31){
-                histoDict[31] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*31 && distances[i] < minDeviation + tickInterval*32){
-                histoDict[32] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*32 && distances[i] < minDeviation + tickInterval*33){
-                histoDict[33] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*33 && distances[i] < minDeviation + tickInterval*34){
-                histoDict[34] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*34 && distances[i] < minDeviation + tickInterval*35){
-                histoDict[35] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*35 && distances[i] < minDeviation + tickInterval*36){
-                histoDict[36] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*36 && distances[i] < minDeviation + tickInterval*37){
-                histoDict[37] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*37 && distances[i] < minDeviation + tickInterval*38){
-                histoDict[38] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*38 && distances[i] < minDeviation + tickInterval*39){
-                histoDict[39] += 1;
-            }
-            else if(distances[i] > minDeviation + tickInterval*39 && distances[i] < minDeviation + tickInterval*40){
-                histoDict[40] += 1;
-            }
             
-            /*
-            var rounded = Math.floor(distances[i]);
+            for (var j = 0; j < histoDict.length; j++) {
 
-            if(rounded < minDeviation)
-                rounded= minDeviation;
-
-            if(rounded > maxDeviation)
-                rounded = maxDeviation;
-
-            histoDict[rounded + 20]++;
-            */
-        }    
+                if(distances[i] > minDeviation + tickInterval * (j) && distances[i] < minDeviation + tickInterval * (j+1) ){
+                    histoDict[j] += 1;
+                    break;
+                } 
+            }
+        }
+            
         
         console.log("after filling " + histoDict[16]);
     
