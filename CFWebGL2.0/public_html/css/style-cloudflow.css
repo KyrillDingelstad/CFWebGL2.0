@@ -49,7 +49,7 @@ header button{
 }
 
 
-.checkbox:hover, .dropdown:hover, header button:hover{
+.checkbox:hover, .dropdown:hover, header button:hover .infoButton:hover{
 	cursor: pointer;
 	border-color: #5184c4;
 }

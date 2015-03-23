@@ -47,7 +47,7 @@ header button:hover{
 	color: rgb(236,0,140);
 }
 
-.checkbox:hover, .dropdown a:hover, #dropdownInfo1:hover, #dropdownInfo2:hover, #dropdownInfo3:hover, #dropdownInfo4:hover .dropdown dt a:hover{
+.checkbox:hover, .dropdown a:hover, .infoButton:hover, .dropdown dt a:hover{
 	cursor: pointer;
 	border-color: rgb(236,0,140);
 }
@@ -296,7 +296,7 @@ body {
         margin-bottom: 30px;
 }
 
-#dropdownInfo1, #dropdownInfo2, #dropdownInfo3, #dropdownInfo4{
+.infoButton{
     background: white;
     border-style: solid;
     border-width: 1px;
