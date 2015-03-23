@@ -3,7 +3,7 @@
 */
 var windowWidth=$(window).width();
 var windowHeight=$(window).height();
-
+var loadingOverlay = $("#loadingOverlay");
 var pointUrl = "data/transformed_points.txt";
 
 $(function() {
@@ -122,11 +122,13 @@ $(function() {
     }
     
     function loadOnlyInside(){
+        loadingOverlay.show();
+        setHistogramData();
         
     }
     
     function doneLoading(){
-        $("#loadingOverlay").hide();
+        loadingOverlay.hide();
         console.log("hide overlay");
     }
     
@@ -295,6 +297,30 @@ $(function() {
             $(".dropdown dd ul").hide();
                        
         }); 
+        
+        allPointsButton = $("#allPoints");
+        onlyInsideButton = $("#onlyInside");
+        onlyOutsideButton = $("#onlyOutside");
+        signedDistButton = $("#signedDist");
+        
+        
+        
+        allPointsButton.click(function(){
+           console.log("All points clicked"); 
+        });
+        
+        onlyInsideButton.click(function(){
+           console.log("Only inside clicked"); 
+           loadOnlyInside();
+        });
+        
+        onlyOutsideButton.click(function(){
+           console.log("Only outside clicked"); 
+        });
+        
+        signedDistButton.click(function(){
+           console.log("Signed dist. clicked"); 
+        });
 
         
         //if clicked outside the dropbox then hide it
