@@ -23,7 +23,8 @@ $(function() {
     var maxDev;
     var minDev;
     var numberOfPoints;
-    
+    var absoluteVal = true;
+    var invertSign = false;
     
     var consoleNumberOfPoints = $("#consolePoints");
     var consoleMaxDeviation = $("#consoleDeviation");
@@ -51,8 +52,7 @@ $(function() {
            success: function(p) { // callback for successful completion
                points = p;
                setPointData();
-               setHistogramData();
-               
+               loadAllPoints();
            }
          });
     }
@@ -110,6 +110,7 @@ $(function() {
         var res = Math.sqrt(l2)/distances.length;
         return res;
     }
+    
     //calculating the l1 norm
     function computeL1Norm() {
         var m = 0;
@@ -122,9 +123,45 @@ $(function() {
     }
     
     function loadOnlyInside(){
-        loadingOverlay.show();
-        setHistogramData();
+        absoluteVal = false;
+        invertSign = true;
+        var min = Math.max(0.0,-maxDev);
+        var max = Math.max(0.0,-minDev);
+        Math.ceil(min);
+        Math.ceil(max);
+            
+        setHistogramData(min, max);
         
+    }
+    
+    function loadAllPoints(){
+        absoluteVal = true;
+        invertSign = false;
+        var min = 0;
+        if (minDev>0) {
+            min = minDev;
+        }
+        var max = Math.max(Math.abs(maxDev), Math.abs(minDev));
+         setHistogramData(min, max);
+         
+    }
+    
+    function loadOnlyOutside(){
+        absoluteVal = false;
+        invertSign = false;
+        var min = 0;
+        var max = maxDev;
+        if (minDev>0) {
+            min = minDev;
+        }
+
+         setHistogramData(min, max);
+    }
+    
+    function loadSignedDist() {
+        absoluteVal = false;
+        invertSign = false;
+        setHistogramData(minDev, maxDev);
     }
     
     function doneLoading(){
@@ -132,7 +169,8 @@ $(function() {
         console.log("hide overlay");
     }
     
-    function setHistogramData() {
+    function setHistogramData(minDeviation, maxDeviation) {
+        
         
     /*
       =histogram
@@ -141,15 +179,17 @@ $(function() {
         /*
             histogram info
         */
-       
-        
-        minDeviation = Math.ceil(minDev);
-        maxDeviation = Math.ceil(maxDev);
+      
         
         var histoDict = [];
         var bucketSize = 40;
+        var invert = 1.0;
         
+        if(invertSign) {
+            invert = -1;
+        }
         
+        //creating an array that will be filled with the buckets
         for ( var i = 0; i < bucketSize; i++) {    
             histoDict[i] = 0; 
         }
@@ -159,9 +199,19 @@ $(function() {
         //looping through the file and sorting the data into each histogram tick
         for (var i = 0; i < distances.length; i++) {
             
+            var v = invert*distances[i];
+            
+            if(absoluteVal){
+                v = Math.abs(v);
+            }
+            
+            if (v < minDeviation || v > maxDeviation) {
+                continue;
+            }
+            
             for (var j = 0; j < bucketSize; j++) {
 
-                if(distances[i] > minDeviation + tickInterval * (j) && distances[i] < minDeviation + tickInterval * (j+1) ){
+                if(v > minDeviation + tickInterval * (j) && v < minDeviation + tickInterval * (j+1) ){
                     histoDict[j] += 1;
                     break;
                 } 
@@ -173,15 +223,13 @@ $(function() {
         var histogramDiv = $("#histogram");
         var histogramHeight = windowHeight/2.5;
         var histogram;
+        
         //filling the histogram with the sorted data
-        
-        
-        
-       var histogramArray = [[]];
+        var histogramArray = [[]];
         
         for (var k = 0; k < histoDict.length; k++) {
+            
             histogramArray[0].push([histoDict[k], minDeviation + (tickInterval * k)]);
-            console.log(histogramArray[k]);
         }
         
         var histogramOptions = {
@@ -226,11 +274,15 @@ $(function() {
           histogram style attributes
         */  
         histogramDiv.css('height', histogramHeight + 30);
-
+        
+   
+            
+        
 
         //Filling the histogram with the data set above (location, data, visualisationOptions);
+        
         histogram = $.jqplot('histogram', histogramArray, histogramOptions);
-
+        histogram.replot();
         console.log("done");
 
     /*        
@@ -271,12 +323,33 @@ $(function() {
         $( ".colorBarInfoMid" ).val( sliderAverageValue);
 
         doneLoading();
-        } 
+    } 
 
 /*
     =dropdown
 */
     
+    
+        /*
+            dropdown variables
+        */
+        
+        
+        //clickable options
+        allPointsButton = $("#allPoints");
+        onlyInsideButton = $("#onlyInside");
+        onlyOutsideButton = $("#onlyOutside");
+        signedDistButton = $("#signedDist");
+        
+        //hover options
+        hoverInfoDiv = $("#dropdownInfoDiv");
+        hoverInfo1 = $("#dropdownInfo1");
+        hoverInfo2 = $("#dropdownInfo2");
+        hoverInfo3 = $("#dropdownInfo3");
+        hoverInfo4 = $("#dropdownInfo4");
+        infoButton = $(".infoButton");
+        hoverInfoDivP = $("#dropdownInfoDiv p");
+        
         /*
             dropdown functions
         */
@@ -298,15 +371,9 @@ $(function() {
                        
         }); 
         
-        allPointsButton = $("#allPoints");
-        onlyInsideButton = $("#onlyInside");
-        onlyOutsideButton = $("#onlyOutside");
-        signedDistButton = $("#signedDist");
-        
-        
-        
         allPointsButton.click(function(){
-           console.log("All points clicked"); 
+           console.log("All points clicked");
+           loadAllPoints();
         });
         
         onlyInsideButton.click(function(){
@@ -315,10 +382,12 @@ $(function() {
         });
         
         onlyOutsideButton.click(function(){
+            loadOnlyOutside();
            console.log("Only outside clicked"); 
         });
         
         signedDistButton.click(function(){
+            loadSignedDist();
            console.log("Signed dist. clicked"); 
         });
 
@@ -330,14 +399,7 @@ $(function() {
                 $(".dropdown dd ul").hide();
         });
         
-        //hoveroptions for info
-        hoverInfoDiv = $("#dropdownInfoDiv");
-        hoverInfo1 = $("#dropdownInfo1");
-        hoverInfo2 = $("#dropdownInfo2");
-        hoverInfo3 = $("#dropdownInfo3");
-        hoverInfo4 = $("#dropdownInfo4");
-        infoButton = $(".infoButton");
-        hoverInfoDivP = $("#dropdownInfoDiv p");
+        
         
         hoverInfoDiv.hide();
         
