@@ -127,8 +127,6 @@ $(function() {
         invertSign = true;
         var min = Math.max(0.0,-maxDev);
         var max = Math.max(0.0,-minDev);
-        Math.ceil(min);
-        Math.ceil(max);
             
         setHistogramData(min, max);
         
@@ -441,8 +439,43 @@ $(function() {
     /*
       canvas full screen
     */
+   
+           infoLeft = $(".infoLeft");
+           mouseInstructions = $(".mouseInstructions");
+        
+    function toggleFullScreen() {
+        if (!document.fullscreenElement &&    // alternative standard method
+            !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) { 
+          infoLeft.hide();
+          mouseInstructions.hide();
+            
+          if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+          } else if (document.documentElement.msRequestFullscreen) {
+            document.documentElement.msRequestFullscreen();
+          } else if (document.documentElement.mozRequestFullScreen) {
+            document.documentElement.mozRequestFullScreen();
+          } else if (document.documentElement.webkitRequestFullscreen) {
+            document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+          }
+        } else {
+            
+            infoLeft.show();
+            mouseInstructions.show();
+            if (document.exitFullscreen) {
+              document.exitFullscreen();
+            } else if (document.msExitFullscreen) {
+              document.msExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+              document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) {
+              document.webkitExitFullscreen();
+            }
+        }
+    }
 
         $("#fullscreenButton").click(function(){
+           toggleFullScreen();
            console.log("make fullscreen");
         });
         
