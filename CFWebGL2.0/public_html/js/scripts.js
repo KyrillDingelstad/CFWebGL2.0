@@ -433,7 +433,6 @@ $(function() {
     /*
       glcanvas variables
     */
-    var canvasHeight=windowHeight/1.5;
     var canvas = $("#renderingCanvas");
     
     /*
@@ -442,12 +441,14 @@ $(function() {
    
            infoLeft = $(".infoLeft");
            mouseInstructions = $(".mouseInstructions");
+           header = $("header");
         
     function toggleFullScreen() {
         if (!document.fullscreenElement &&    // alternative standard method
             !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) { 
           infoLeft.hide();
           mouseInstructions.hide();
+          header.hide();
             
           if (document.documentElement.requestFullscreen) {
             document.documentElement.requestFullscreen();
@@ -461,6 +462,7 @@ $(function() {
         } else {
             
             infoLeft.show();
+            header.show();
             mouseInstructions.show();
             if (document.exitFullscreen) {
               document.exitFullscreen();
@@ -484,7 +486,6 @@ $(function() {
     /*
       glcanvas style attributes
     */
-    canvas.css('height', canvasHeight);
 
   /*
   =dropdown

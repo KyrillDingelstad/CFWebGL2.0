@@ -59,7 +59,7 @@ header button:hover{
 ************
 */
 body {
-	margin: 0;
+	margin: auto;
 	background-color: #1E1E1E;
 	font-family: helvetica, arial;
 }
@@ -499,7 +499,7 @@ float: left;
 .colorBarInfoMax {
 	position: absolute;
 	color: #3E3E3E;
-	text-align: right;
+	text-align: center;
 	border: none;
 	width: 100px;
 	right: 5px;
@@ -509,7 +509,7 @@ float: left;
 .colorBarInfoMin {
 	position: absolute;
 	color: #3E3E3E;
-	text-align: left;
+	text-align: center;
 	border: none;
 	width: 100px;
 	left: 5px;
@@ -537,15 +537,32 @@ float: left;
 ***********
 */
 
-:-webkit-full-screen  #canvasWrap{
-        width: 100%;
-        height:100%;
-        background: yellow;
+ :-webkit-full-screen  .rightScreen,  :-webkit-full-screen  #canvasWrap, :-webkit-full-screen  body, :-webkit-full-screen  .container, :-webkit-full-screen  .main, :-webkit-full-screen  #renderingCanvas {
+     
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     margin: auto;
+     width: 100%;
+     height:100%;
+     float: none;
+        
     }
+
+
+:-webkit-full-screen .colorBar{
     
-:-webkit-full-screen  mouseInstructions{
-        background: green;
-    }
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    float: none;
+}    
+
+
 
 #fullscreenButton {
     width: 70px;
