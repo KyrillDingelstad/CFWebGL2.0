@@ -120,11 +120,11 @@ body {
 	position: absolute;
 	float: left;
 	min-width: 220px;
-	width: 15%;
-	height: 700px;
+        width: 15%;
+        margin: auto;
 }
+
 .console {
-	min-width: 220px;
 	height: 160px;
 	color: #3E3E3E;
 	border-color: #3E3E3E;
@@ -132,26 +132,33 @@ body {
 	border-bottom-style: solid;
         padding: auto;
 	font-size: 11px; 
+        margin: auto;
         
 }
-
+#consoleInfoWrap {
+        min-width: 220px;
+        height: 160px;
+        margin: auto;
+        display: table;
+}
 .console ul{
 	list-style: none;
-	padding-top: 40px;
+	padding-top: 45px;
 }
 
 .console ul li {
 	margin-bottom: 7px;
 }
 #consoleStaticInfo {
-	float: left;
+	
 	margin-right: 10px;
         margin-left: 5px;
+        display: table-cell;
 }
 
 #consoleVarInfo {
-	float: right;
         margin-right: 5px;
+        display: table-cell;
 }
 
 .settings {
@@ -214,6 +221,8 @@ body {
 }
 
 .checkbox:checked:after {
+    -moz-appearance: none;
+    -webkit-appearance: none;
     content:'\2714';
     font-size: 30px;
     top: 3px;
@@ -294,8 +303,13 @@ body {
         margin: auto;
         margin-top: 10px;
         margin-bottom: 30px;
+        background: green;
 }
 
+#dropdownWrap {
+    position: relative;
+    background: blue;
+}
 .infoButton{
     background: white;
     border-style: solid;
@@ -319,13 +333,12 @@ body {
     height: 120px;
     width: 220px;
     top: 0;
-    bottom: 210px;
     border-style: solid;
-    border-color: #00ADEF;
+    border-color: rgb(236,0,140);
     border-width: 1px;
-    box-shadow: 10px 10px 5px #E3E3E3;
-    left: 0;
-    right: 0;
+    box-shadow: 5px 5px 5px #E3E3E3;
+    left: 190px;
+    right:0;
     background: white;
     margin: auto;
     display: table;
@@ -333,10 +346,24 @@ body {
 
 #dropdownInfoDiv p {
     padding: 20px;
-    font-size: 15px;
-    text-align: center;
+    font-size: 13px;
+    text-align: left;
     vertical-align: middle;
     display: table-cell;
+}
+
+#dropdownInfoDiv:after 
+{
+content: "";
+position: absolute;
+top: 50%;
+left: -15px;
+border-style: solid;
+border-width: 3px;
+border-color: rgb(236,0,140);
+display: block;
+width: 0;
+z-index: 1;
 }
 
 

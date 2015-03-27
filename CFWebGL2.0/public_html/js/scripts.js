@@ -7,7 +7,6 @@ var loadingOverlay = $("#loadingOverlay");
 var pointUrl = "data/transformed_points.txt";
 
 $(function() {
-    
   /*
     =data
   */
@@ -346,6 +345,7 @@ $(function() {
         hoverInfo3 = $("#dropdownInfo3");
         hoverInfo4 = $("#dropdownInfo4");
         infoButton = $(".infoButton");
+        hoverInfoDiv = $("#dropdownInfoDiv");
         hoverInfoDivP = $("#dropdownInfoDiv p");
         
         /*
@@ -357,6 +357,7 @@ $(function() {
         $(".dropdown dt a").click(function(e) {
             e.preventDefault();
             $(".dropdown dd ul").toggle();
+            hoverInfoDiv.css('z-index', '2000');
         });
         
         //selecting the right button
@@ -403,19 +404,23 @@ $(function() {
         
         hoverInfo1.hover(function(){
             hoverInfoDiv.show();
-            hoverInfoDivP.text("Shows all the points");
+            hoverInfoDiv.css('top', '45.1%');
+            hoverInfoDivP.text("Show all points with deviation from the CAD model within the selected range. The sign of the deviation is ignored.");
         });
         hoverInfo2.hover(function(){
             hoverInfoDiv.show();
-            hoverInfoDivP.text("Shows all the points that fall inside of the CAD model");
+            hoverInfoDiv.css('top', '48.8%');
+            hoverInfoDivP.text("Show all points that lie outside the CAD model (positive deviation), within the selected range");
         });
         hoverInfo3.hover(function(){
             hoverInfoDiv.show();
-            hoverInfoDivP.text("Shows all the points that fall outside of the CAD model");
+            hoverInfoDiv.css('top', '52.5%');
+            hoverInfoDivP.text("Show all points that lie inside the CAD model (negative deviation), within the selected range");
         });
         hoverInfo4.hover(function(){
             hoverInfoDiv.show();
-            hoverInfoDivP.text("??");
+            hoverInfoDiv.css('top', '55.2%');
+            hoverInfoDivP.text("Show all points with deviation from the CAD model within the selected range.  The sign of the deviation determines if a point is inside or outside the CAD model (negative for inside and positive for outside).");
         });
             
         infoButton.mouseleave(function(){
