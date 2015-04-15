@@ -7,6 +7,8 @@ var loadingOverlay = $("#loadingOverlay");
 var pointUrl = "data/transformed_points.txt";
 
 $(function() {
+    
+  document.oncontextmenu = function() {return false;};
   /*
     =data
   */
@@ -438,6 +440,14 @@ $(function() {
     /*
       glcanvas variables
     */
+   
+    var canvasWrap = $("#canvasWrap");
+    var canvasWidth = canvasWrap.width();
+    var canvasHeight = canvasWrap.height();
+    var container = $("#container");
+    
+    var mouseX = 0;
+    var mouseY = 0;    
     
     /*
       canvas full screen
@@ -481,18 +491,15 @@ $(function() {
 
         $("#fullscreenButton").click(function(){
            toggleFullScreen();
-           console.log("make fullscreen"); 
         });
         
         
        
     /*
-      glcanvas style attributes
+      glcanvas WebGL
     */
    
-    var canvasWidth = $("#canvasWrap").width();
-    var canvasHeight = $("#canvasWrap").height();
-    var container = $("#container");
+    
     var renderer = new THREE.WebGLRenderer({antialias: true });
     renderer.setSize(canvasWidth, canvasHeight);
     container.append(renderer.domElement);
@@ -530,10 +537,10 @@ $(function() {
             requestAnimationFrame(render);
 
             cube.rotation.y -= clock.getDelta();
-
             renderer.render(scene, camera);
     }
 
+    //changing the size of the canvas when the window gets rescaled;
     function onWindowResize() {
 
             camera.aspect = $("#canvasWrap").width() / $("#canvasWrap").height();
@@ -541,7 +548,30 @@ $(function() {
             renderer.setSize( $("#canvasWrap").width(), $("#canvasWrap").height());
       
        }
-    
+       
+    canvasWrap.mousedown(function(event) {
+    switch (event.which) {
+        case 1:
+            break;
+        case 2:
+            alert('Middle Mouse button pressed.');
+            break;
+        case 3:
+            alert('Right Mouse button pressed.');
+            break;
+        default:
+            alert('You have a strange Mouse!');
+    }
+    });
+        
+    canvasWrap.bind('mousewheel', function(e) {
+    if(e.originalEvent.wheelDelta / 120 > 0) {
+        camera.position.z -= 20;
+    } else {
+        camera.position.z += 20;
+    }
+});
+    //call on windowresize when the screen gets resized;
     window.addEventListener( 'resize', onWindowResize, false );
     render();
 
