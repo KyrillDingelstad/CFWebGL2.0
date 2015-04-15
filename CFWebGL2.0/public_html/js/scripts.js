@@ -453,7 +453,6 @@ $(function() {
           infoLeft.hide();
           mouseInstructions.hide();
           header.hide();
-            
           if (document.documentElement.requestFullscreen) {
             document.documentElement.requestFullscreen();
           } else if (document.documentElement.msRequestFullscreen) {
@@ -483,8 +482,7 @@ $(function() {
         $("#fullscreenButton").click(function(){
            toggleFullScreen();
            console.log("make fullscreen"); 
-           onWindowResize();
-       });
+        });
         
         
        
@@ -515,7 +513,7 @@ $(function() {
     scene.add(camera);
 
     var skyboxGeometry = new THREE.BoxGeometry(10000, 10000, 10000);
-    var skyboxMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.BackSide });
+    var skyboxMaterial = new THREE.MeshBasicMaterial({ color: 0x0000000, side: THREE.BackSide });
     var skybox = new THREE.Mesh(skyboxGeometry, skyboxMaterial);
 
     scene.add(skybox);
@@ -538,12 +536,13 @@ $(function() {
 
     function onWindowResize() {
 
-            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.aspect = $("#canvasWrap").width() / $("#canvasWrap").height();
             camera.updateProjectionMatrix();
-            renderer.setSize( window.innerWidth, window.innerHeight );
-            render(); 
+            renderer.setSize( $("#canvasWrap").width(), $("#canvasWrap").height());
+      
        }
-        
+    
+    window.addEventListener( 'resize', onWindowResize, false );
     render();
 
   /*
