@@ -493,6 +493,17 @@ float: left;
     height: 100%;
 }
 
+#axesContainer {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    border-color: #3E3E3E;
+    border-width: 1px;
+}
+
 #fullscreenButton {
     width: 70px;
     height: 50px;

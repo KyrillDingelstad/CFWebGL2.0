@@ -447,20 +447,8 @@ $(function() {
     var canvasWidth = canvasWrap.width();
     var canvasHeight = canvasWrap.height();
     var container = $("#container");
+    var axesContainer = $("#axesContainer");
     
-    var mouseX = 0;
-    var mouseY = 0;
-    var onMouseDownX = 0;
-    var onMouseDownY = 0;
-    var rotationX = 0;
-    var rotationY = 0;
-    var rotationOnMouseDownX = 0;
-    var rotationOnMouseDownY = 0;
-    
-    var finalRotation;
-    
-    var canvasHalfX = canvasWidth/ 2;
-    var canvasHalfY = canvasHeight / 2;
     
     /*
       canvas full screen
@@ -512,45 +500,86 @@ $(function() {
       glcanvas WebGL
     */
    
+    var renderer, axesRenderer, camera, controls, scene, light, clock, cube, bbox, axesScene, axesCamera, axesHelper;
     
-    var renderer = new THREE.WebGLRenderer({antialias: true });
+    function init() {
+     
+    scene = new THREE.Scene();
+    
+    renderer = new THREE.WebGLRenderer({antialias: true });
     renderer.setSize(canvasWidth, canvasHeight);
     container.append(renderer.domElement);
-
-    var scene = new THREE.Scene;
-
-    var cubeGeometry = new THREE.BoxGeometry(100, 100, 100);
-    var cubeMaterial = new THREE.MeshLambertMaterial({ color: 0x1ec876 });
-    var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cube.rotation.y = Math.PI * 45 / 180;
-    scene.add(cube);
-
-    var camera = new THREE.PerspectiveCamera(45, canvasWidth / canvasHeight, 0.1, 10000);
+    
+    camera = new THREE.PerspectiveCamera(45, canvasWidth / canvasHeight, 0.1, 10000);
     camera.position.y = 160;
     camera.position.z = 400;
-    camera.lookAt(cube.position);
-
     scene.add(camera);
-
+    
+    controls = new THREE.OrbitControls( camera );
+    controls.damping = 0.2;
+    controls.addEventListener( 'change', render );
+    
+    light = new THREE.PointLight(0xffff00ff);
+    light.position.set(0, 300, 200);
+    scene.add(light);
+    
     var skyboxGeometry = new THREE.BoxGeometry(10000, 10000, 10000);
     var skyboxMaterial = new THREE.MeshBasicMaterial({ color: 0xfffffff, side: THREE.BackSide });
     var skybox = new THREE.Mesh(skyboxGeometry, skyboxMaterial);
-
     scene.add(skybox);
-
-    var pointLight = new THREE.PointLight(0xffff00ff);
-    pointLight.position.set(0, 300, 200);
-
-    scene.add(pointLight);
-
-    var clock = new THREE.Clock;
     
+    var cubeGeometry = new THREE.BoxGeometry(100, 100, 100);
+    var cubeMaterial = new THREE.MeshLambertMaterial({ color: 0x1ec876 });
+    cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+    cube.rotation.y = Math.PI * 45 / 180;
+    scene.add(cube);    
+    
+    clock = new THREE.Clock;
+ 
+ 
+    //AxisScene
+    
+    axesRenderer = new THREE.WebGLRenderer();
+    axesRenderer.setSize( axesContainer.width(), axesContainer.height() );
+    axesRenderer.setClearColor( 0xffffffff);
+    axesContainer.append( axesRenderer.domElement );
+    
+    axesScene = new THREE.Scene();
+        
+    axesHelper = new THREE.AxisHelper(100);
+    
+    axesScene.add( axesHelper );
+    
+    axesCamera = new THREE.PerspectiveCamera( 50, axesContainer.height() / axesContainer.width(), 1, 1000 );
+    axesCamera.up = camera.up;
+    axesCamera.position.copy( camera.position );
+    axesCamera.position.sub( controls.target );
+    axesCamera.position.setLength( 200 );
+    axesCamera.lookAt( axesScene.position );
+    
+    }
+    
+    function animate() {
+          //takes over from renderer for requesting new frame render
+          requestAnimationFrame(animate);
+          controls.update();
+    
+	axesCamera.position.copy( camera.position );
+	axesCamera.position.sub( controls.target ); // added by @libe
+	axesCamera.position.setLength( 300 );
+
+    axesCamera.lookAt( axesScene.position );
+    render();
+    }
     
     function render() {
-            requestAnimationFrame(render);
             renderer.render(scene, camera);
+            axesRenderer.render(axesScene, axesCamera);
     }
-
+    
+    function setCamera() {
+        
+    }
     //changing the size of the canvas when the window gets rescaled;
     function onWindowResize() {
 
@@ -558,82 +587,24 @@ $(function() {
             camera.updateProjectionMatrix();
             renderer.setSize( $("#canvasWrap").width(), $("#canvasWrap").height());
       
-       }
-    function onDocumentMouseMove(event) {
-        console.log("moving");
-        mouseX = event.clientX - canvasHalfX;
-        mouseY = event.clientY - canvasHalfY;
-        
-        
- 
-        rotationY = rotationOnMouseDownY + (mouseY - onMouseDownY) * 0.005;
-        rotationX = rotationOnMouseDownX + (mouseX - onMouseDownX) * 0.005;
-        
-        cube.rotation.x = rotationY;
-        cube.rotation.y = rotationX;
     }
-    canvasWrap.mousedown(function(event) {
-        
-        event.preventDefault();
-        switch (event.which) {
-            case 1:
-                document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-                
-                onMouseDownX = event.clientX - canvasHalfX;
-                rotationOnMouseDownX = rotationX;
-
-                onMouseDownY = event.clientY - canvasHalfY;
-                rotationOnMouseDownY = rotationY;
-                break;
-            case 2:
-                alert('Middle Mouse button pressed.');
-                break;
-            case 3:
-                alert('Right Mouse button pressed.');
-                break;
-            default:
-                alert('You have a strange Mouse!');
-        }
-    });
     
-    body.mouseup(function(event) {
-        switch (event.which) {
-            case 1:
-            document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-                break;
-            case 2:
-                alert('Middle Mouse button pressed.');
-                break;
-            case 3:
-                alert('Right Mouse button pressed.');
-                break;
-            default:
-                alert('You have a strange Mouse!');
-        }
-    });
+    //called when the mouse is clicked on the canvas. 
+   
+    
+    //called when mouse is clicked on the canvas.
+    
+    
+    //called when the mouse is realesed anywhere on the page.
+    
         
-    canvasWrap.bind('mousewheel', function(e) {
-    if(e.originalEvent.wheelDelta / 120 > 0) {
-        camera.position.z -= 20;
-        camera.lookAt(cube.position);
-    } else {
-        camera.position.z += 20;
-        camera.lookAt(cube.position);
-    }
-});
+    //called when scroll wheel is scrolled.  
     //call on windowresize when the screen gets resized;
     window.addEventListener( 'resize', onWindowResize, false );
+
+    
+    init();
     render();
-
-  /*
-  =dropdown
-  */
-
-    /*
-      dropdown variables
-    */
-    
-    
-
+    animate();
     
 }); //end bracket
