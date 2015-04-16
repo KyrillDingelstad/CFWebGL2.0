@@ -7,8 +7,10 @@ var loadingOverlay = $("#loadingOverlay");
 var pointUrl = "data/transformed_points.txt";
 
 $(function() {
-    
+  var body = $("body"); 
+  
   document.oncontextmenu = function() {return false;};
+  body.children().css({userSelect: 'none'});
   /*
     =data
   */
@@ -447,7 +449,18 @@ $(function() {
     var container = $("#container");
     
     var mouseX = 0;
-    var mouseY = 0;    
+    var mouseY = 0;
+    var onMouseDownX = 0;
+    var onMouseDownY = 0;
+    var rotationX = 0;
+    var rotationY = 0;
+    var rotationOnMouseDownX = 0;
+    var rotationOnMouseDownY = 0;
+    
+    var finalRotation;
+    
+    var canvasHalfX = canvasWidth/ 2;
+    var canvasHalfY = canvasHeight / 2;
     
     /*
       canvas full screen
@@ -520,7 +533,7 @@ $(function() {
     scene.add(camera);
 
     var skyboxGeometry = new THREE.BoxGeometry(10000, 10000, 10000);
-    var skyboxMaterial = new THREE.MeshBasicMaterial({ color: 0x0000000, side: THREE.BackSide });
+    var skyboxMaterial = new THREE.MeshBasicMaterial({ color: 0xfffffff, side: THREE.BackSide });
     var skybox = new THREE.Mesh(skyboxGeometry, skyboxMaterial);
 
     scene.add(skybox);
@@ -535,8 +548,6 @@ $(function() {
     
     function render() {
             requestAnimationFrame(render);
-
-            cube.rotation.y -= clock.getDelta();
             renderer.render(scene, camera);
     }
 
@@ -548,27 +559,66 @@ $(function() {
             renderer.setSize( $("#canvasWrap").width(), $("#canvasWrap").height());
       
        }
-       
-    canvasWrap.mousedown(function(event) {
-    switch (event.which) {
-        case 1:
-            break;
-        case 2:
-            alert('Middle Mouse button pressed.');
-            break;
-        case 3:
-            alert('Right Mouse button pressed.');
-            break;
-        default:
-            alert('You have a strange Mouse!');
+    function onDocumentMouseMove(event) {
+        console.log("moving");
+        mouseX = event.clientX - canvasHalfX;
+        mouseY = event.clientY - canvasHalfY;
+        
+        
+ 
+        rotationY = rotationOnMouseDownY + (mouseY - onMouseDownY) * 0.005;
+        rotationX = rotationOnMouseDownX + (mouseX - onMouseDownX) * 0.005;
+        
+        cube.rotation.x = rotationY;
+        cube.rotation.y = rotationX;
     }
+    canvasWrap.mousedown(function(event) {
+        
+        event.preventDefault();
+        switch (event.which) {
+            case 1:
+                document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+                
+                onMouseDownX = event.clientX - canvasHalfX;
+                rotationOnMouseDownX = rotationX;
+
+                onMouseDownY = event.clientY - canvasHalfY;
+                rotationOnMouseDownY = rotationY;
+                break;
+            case 2:
+                alert('Middle Mouse button pressed.');
+                break;
+            case 3:
+                alert('Right Mouse button pressed.');
+                break;
+            default:
+                alert('You have a strange Mouse!');
+        }
+    });
+    
+    body.mouseup(function(event) {
+        switch (event.which) {
+            case 1:
+            document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
+                break;
+            case 2:
+                alert('Middle Mouse button pressed.');
+                break;
+            case 3:
+                alert('Right Mouse button pressed.');
+                break;
+            default:
+                alert('You have a strange Mouse!');
+        }
     });
         
     canvasWrap.bind('mousewheel', function(e) {
     if(e.originalEvent.wheelDelta / 120 > 0) {
         camera.position.z -= 20;
+        camera.lookAt(cube.position);
     } else {
         camera.position.z += 20;
+        camera.lookAt(cube.position);
     }
 });
     //call on windowresize when the screen gets resized;
