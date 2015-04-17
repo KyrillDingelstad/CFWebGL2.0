@@ -499,6 +499,7 @@ float: left;
     bottom: 10px;
     width: 200px;
     height: 200px;
+    
 }
 
 #fullscreenButton {
@@ -508,7 +509,7 @@ float: left;
     bottom: 10px;
     right: 10px;
     position: absolute;
-    background-color: rgba(255, 255, 255, 0);
+    
 }
 
 
@@ -544,6 +545,7 @@ float: left;
 	width: 100px;
 	right: 5px;
 	bottom: 15px;
+        background-color: rgba(0,0,0,0);
 }
 
 .colorBarInfoMin {
@@ -554,6 +556,7 @@ float: left;
 	width: 100px;
 	left: 5px;
 	bottom: 15px;
+        background-color: rgba(0,0,0,0); 
 	
 }
 
@@ -567,6 +570,7 @@ float: left;
 	text-align: center;
 	color: #3E3E3E;
 	margin: auto;
+        background-color: rgba(0,0,0,0);
 }
 
 

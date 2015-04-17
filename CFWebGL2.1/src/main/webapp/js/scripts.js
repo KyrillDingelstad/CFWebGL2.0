@@ -515,7 +515,7 @@ $(function() {
     camera.position.z = 400;
     scene.add(camera);
     
-    controls = new THREE.OrbitControls( camera );
+    controls = new THREE.OrbitControls( camera, renderer.domElement );
     controls.damping = 0.2;
     controls.addEventListener( 'change', render );
     
@@ -531,7 +531,6 @@ $(function() {
     var cubeGeometry = new THREE.BoxGeometry(100, 100, 100);
     var cubeMaterial = new THREE.MeshLambertMaterial({ color: 0x1ec876 });
     cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cube.rotation.y = Math.PI * 45 / 180;
     scene.add(cube);    
     
     clock = new THREE.Clock;
