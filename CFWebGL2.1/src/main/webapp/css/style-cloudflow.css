@@ -1,0 +1,508 @@
+/*
+************
+* =header
+************
+*/
+
+header {
+	z-index:11;
+	width: 100%;
+	background-color: white;
+	position: relative;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        border-color: #808080;
+}
+
+.headerMain {
+	min-width: 940px;
+	width: 80%;
+	height: 100%;
+	overflow: hidden;
+	margin: auto;
+
+	position: relative;
+}
+.headerMain h1{
+	background: url(../img/cloudflowLogo.png) no-repeat;
+	text-indent: -99999px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+	height: 69px;
+	width: 160px;
+	float: left;
+}
+
+header button{
+	position: relative;
+	width: 120px;
+	height: 50px;
+	font-size: 18px;
+	margin-top: 17px;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 3px;
+        border-color: #5f5e5e;
+	float: right;
+	background-color: white;
+
+}
+
+
+.checkbox:hover, .dropdown:hover, header button:hover .infoButton:hover{
+	cursor: pointer;
+	border-color: #5184c4;
+}
+
+
+/*
+************
+* =main
+************
+*/
+body {
+	margin: 0;
+	background-color: white;
+	font-family: sans-serif;
+}
+
+
+
+.main {   
+	min-width: 940px;
+	min-height: 768px;
+	width: 80%;
+	overflow: hidden;
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-top: 25px;
+	margin: auto;
+	background-color: white;
+	
+}
+
+#loadingOverlay{
+    
+   opacity: 1;
+   background-color: white;
+   z-index: 10;
+   color: black;
+   width:      100%;
+   height:     100%; 
+   top:        0; 
+   left:       0; 
+   position:   fixed; 
+
+}
+#loading{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height:     200px;
+    width:      200px;
+    z-index: 12;
+    margin: auto;
+}
+
+#loading p {
+    color: #5f5e5e;
+    font-size: 26px;
+    
+}
+
+/*
+************
+* =leftScreen
+************
+*/
+
+.infoLeft {
+	position: absolute;
+	float: left;
+	min-width: 220px;
+	width: 15%;
+	height: 700px;
+}
+.console {
+	min-width: 220px;
+	height: 160px;
+	color: #5f5e5e;
+	border-color: #808080;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+        padding: auto;
+	font-size: 12px; 
+}
+
+.console ul{
+	list-style: none;
+	padding-top: 40px;
+}
+
+.console ul li {
+	margin-bottom: 7px;
+}
+#consoleStaticInfo {
+	float: left;
+	margin-right: 10px;
+        margin-left: 5px;
+}
+
+#consoleVarInfo {
+	float: right;
+        margin-right: 5px;
+}
+
+.settings {
+	padding-top: 40px;
+	padding-bottom: 28px;
+	overflow: hidden;
+	position: relative;
+	left: 0;
+	right:0;
+	margin: auto;
+}
+
+.settings ul {
+	list-style: none;
+	width: 220px;
+	margin: auto;
+}
+
+.buttonStandard {
+	float: left; 
+	height: 40px;
+	width: 130px;
+	margin-top: 8px;
+	text-align: center;
+	line-height: 39px;
+	font-size: 17px;
+	color: #5f5e5e;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-color: #808080;
+
+}
+
+/*
+************
+* =checkbox
+************
+*/
+.checkbox {
+	float: right;
+	margin: 0;
+	margin-top: 8px;
+	padding: 0;
+	width: 40px;
+	height: 40px;
+
+}
+
+.checkbox {
+        -moz-appearance: none;
+	-webkit-appearance: none;
+	background-color: white;
+	border-style: solid;
+	border-width: 1.7px;
+        border-radius: 3px;
+	border-color: #5f5e5e;
+	display: inline-block;
+	position: relative;
+}
+
+.checkbox:checked:after {
+    content:'\2714';
+    font-size: 30px;
+    top: 3px;
+    left: 7px;
+    border-style: none;
+    position: absolute;
+    color: #5184c4;
+}
+
+
+/*
+************
+* =dropdown
+************
+*/
+
+.dropdown dd { 
+    position:relative;
+    z-index: 201;
+}
+/* DT styles for sliding doors */
+.dropdown dt a {
+    background: url('../img/dropdownArrow.png') no-repeat right white;
+    display:block; 
+    border-width: 1px; 
+    border-style: solid; 
+    border-radius: 3px;
+    border-color: #5f5e5e;
+    text-decoration: none;
+    color: #5f5e5e;
+    width:218px; 
+    height: 40px
+}
+
+.dropdown dt a:hover {
+    border-color: #5184c4;
+}
+
+.dropdown dt a span {
+    cursor:pointer; 
+    display:block; 
+    padding:5px;
+    padding-top: 13px;
+    padding-left: 33px;
+}
+
+/* UL styles */
+.dropdown dd ul { 
+    background:white none repeat scroll 0 0; 
+    display:none;
+    list-style:none; 
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: #5184c4;
+    padding:5px 0px; 
+    position:absolute; 
+    left:0px; 
+    top:2px; 
+    width:auto; 
+    min-width:218px;
+}
+
+.dropdown dd ul li a:hover {
+    background: #5184c4;
+    color: white;
+}
+.dropdown span.value { 
+    display:none;
+}
+
+.dropdown dd ul li a { 
+    padding:5px; 
+    display:block;
+    text-decoration: none;
+    color: #5f5e5e;
+    padding-left: 33px;
+}
+
+.dropdown {
+        width: 220px;
+        
+        z-index: 120;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 30px;
+}
+
+/*
+************
+* =slider
+************
+*/
+
+.sliderAndHistogram {
+	width: 290px;
+	margin: auto;
+	overflow: hidden;
+}
+
+
+#slider {
+	margin-left: 6px;
+	margin-bottom: 50px;
+        margin-top: 29px;
+	border-radius: 0px;
+	border-color: #5f5e5e;
+	background-color: white;
+	float: left;
+}
+
+.ui-slider-range {
+	background-color: #5184c4;
+}
+
+.ui-slider-handle, .updated-handle, .ui-state-default {
+	background-color: black;
+	border-width: 10px;
+}
+
+.ui-slider-vertical .ui-slider-handle {
+    margin-left: -1px;
+    width: 25px;
+    height: 25px;
+    border-radius: 3px;
+    background-color: white;
+    border-color: #5f5e5e;
+}
+
+.ui-slider-vertical .ui-slider-handle:hover {
+    cursor: pointer;
+    border-color: #5184c4;
+}
+
+/*
+************
+* =histogram
+***********
+*/
+
+#histogram {
+margin-top: 20px;
+margin-left: 15px;
+width: 80%;
+min-width: 180px;
+padding: 0;
+float: left;
+}
+
+.jqplot-event-canvas {
+	background-color: rgba(0,0,0,0);
+}
+
+/*
+************
+* =rightScreen
+************
+*/
+
+.mouseInstructions {
+
+	min-width: 500px;
+	width: 70%;
+	height: 95px;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+        color: #5f5e5e;
+	border-bottom-color: #808080;
+	float: right;
+}
+
+
+.mouseInstructions ul {
+    min-width: 500px;
+    width: 70%;
+    margin: auto;
+    
+    text-align: center;
+}
+.mouseInstructions ul li{
+
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    line-height: 25px;
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#canvasWrap {
+        overflow: hidden;
+	min-width: 500px;
+	min-height: 500px;
+	height: 700px;
+	width: 70%;
+	margin-top: 15px;
+	border-style: solid;
+	border-color: #5f5e5e;
+        border-radius: 3px;
+	border-width: 1px;
+        position: relative;
+	float: right;
+        z-index: 0;
+}
+
+#renderingCanvas{
+	z-index: 1;
+}
+
+.colorBar {
+	overflow: hidden;
+	width: 70%;
+	position: relative;
+	height: 95px;
+	margin-top: 20px;
+	float: right;
+}
+
+.colorBarText {
+	width: 70%;
+	margin-top: 2px;
+	position: absolute;
+	float: right;
+}
+
+
+.colorBarIMG {
+	float: right;	
+	height: 50px;
+	width: 100%;
+}
+
+.colorBarInfoMax {
+	position: absolute;
+	color: #5f5e5e;
+	text-align: right;
+	border: none;
+	width: 100px;
+	right: 5px;
+	bottom: 15px;
+}
+
+.colorBarInfoMin {
+	position: absolute;
+	color: #5f5e5e;
+	text-align: left;
+	border: none;
+	width: 100px;
+	left: 5px;
+	bottom: 15px;
+	
+}
+
+.colorBarInfoMid {
+	position: absolute;
+	left: 0;
+	right: 0;
+	border: none;
+	width: 100px;
+	bottom: 15px;
+	text-align: center;
+	color: #5f5e5e;
+	margin: auto;
+}
+
+/*
+************
+* =fullscreen
+***********
+*/
+
+:-webkit-full-screen  #canvasWrap{
+        width: 100%;
+        height: 1200px;
+        background: black;
+    }
+    
+:-webkit-full-screen  #renderingCanvas{
+        height: 100%;
+    }
+
+#fullscreenButton {
+    width: 70px;
+    height: 50px;
+    z-index: 100;
+    bottom: 10px;
+    right: 10px;
+    position: absolute;
+}

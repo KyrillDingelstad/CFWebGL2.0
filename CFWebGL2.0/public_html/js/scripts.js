@@ -589,16 +589,6 @@ $(function() {
       
     }
     
-    //called when the mouse is clicked on the canvas. 
-   
-    
-    //called when mouse is clicked on the canvas.
-    
-    
-    //called when the mouse is realesed anywhere on the page.
-    
-        
-    //called when scroll wheel is scrolled.  
     //call on windowresize when the screen gets resized;
     window.addEventListener( 'resize', onWindowResize, false );
 
