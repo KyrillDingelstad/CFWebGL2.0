@@ -508,6 +508,7 @@ $(function() {
     
     renderer = new THREE.WebGLRenderer({antialias: true });
     renderer.setSize(canvasWidth, canvasHeight);
+    renderer.setClearColor( 0xffffffff);
     container.append(renderer.domElement);
     
     camera = new THREE.PerspectiveCamera(45, canvasWidth / canvasHeight, 0.1, 10000);
@@ -523,10 +524,6 @@ $(function() {
     light.position.set(0, 300, 200);
     scene.add(light);
     
-    var skyboxGeometry = new THREE.BoxGeometry(10000, 10000, 10000);
-    var skyboxMaterial = new THREE.MeshBasicMaterial({ color: 0xfffffff, side: THREE.BackSide });
-    var skybox = new THREE.Mesh(skyboxGeometry, skyboxMaterial);
-    scene.add(skybox);
     
     var cubeGeometry = new THREE.BoxGeometry(100, 100, 100);
     var cubeMaterial = new THREE.MeshLambertMaterial({ color: 0x1ec876 });
