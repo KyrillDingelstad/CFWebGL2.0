@@ -518,17 +518,42 @@ $(function() {
     
     controls = new THREE.OrbitControls( camera, renderer.domElement );
     controls.damping = 0.2;
+    controls.rotateSpeed = 1.0;
+    controls.zoomSpeed = 1.2;
+    controls.panSpeed = 0.8;
+
+    controls.noZoom = false;
+    controls.noPan = false;
+
+    controls.staticMoving = true;
+    controls.dynamicDampingFactor = 0.3;
+
+    controls.keys = [ 65, 83, 68 ];
+
     controls.addEventListener( 'change', render );
+    
+    //renderer.domElement.addEventListener("touchstart", function(e){e.preventDefault();});
     
     light = new THREE.PointLight(0xffff00ff);
     light.position.set(0, 300, 200);
     scene.add(light);
     
-    
-    var cubeGeometry = new THREE.BoxGeometry(100, 100, 100);
-    var cubeMaterial = new THREE.MeshLambertMaterial({ color: 0x1ec876 });
-    cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    scene.add(cube);    
+      
+    //loading the ply file
+    var loader = new THREE.PLYLoader();
+    loader.addEventListener( 'load', function ( event ) {
+
+            var geometry = event.content;
+            var material = new THREE.MeshPhongMaterial( { color: 0x0055ff, specular: 0x111111, shininess: 200 } );
+            var mesh = new THREE.Mesh( geometry, material );
+
+            mesh.scale.set( 0.1, 0.1, 0.1 );
+
+
+            scene.add( mesh );
+
+    } );
+    loader.load( 'img/dolphins_le.ply' );
     
     clock = new THREE.Clock;
  
@@ -569,6 +594,7 @@ $(function() {
     }
     
     function render() {
+        
             renderer.render(scene, camera);
             axesRenderer.render(axesScene, axesCamera);
     }
@@ -587,6 +613,7 @@ $(function() {
     
     //call on windowresize when the screen gets resized;
     window.addEventListener( 'resize', onWindowResize, false );
+    $(".main").css("height", "windowHeight");
 
     
     init();
