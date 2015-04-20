@@ -438,7 +438,7 @@ $(function() {
   /*
     =canvas
   */
-    renderingCanvas = $("#renderingCanvas");
+    var fullscreenBool = false;
     /*
       glcanvas variables
     */
@@ -454,16 +454,16 @@ $(function() {
       canvas full screen
     */
    
-           infoLeft = $(".infoLeft");
-           mouseInstructions = $(".mouseInstructions");
-           header = $("header");
+           var left = $("left");
+           var mouseInstructions = $(".mouseInstructions");
+           var header = $("header");
+           var fullscreenBtn = $("#fullscreenButton");
         
     function toggleFullScreen() {
         if (!document.fullscreenElement &&    // alternative standard method
             !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) { 
-          infoLeft.hide();
-          mouseInstructions.hide();
-          header.hide();
+          
+           fullscreenBool = true;
           if (document.documentElement.requestFullscreen) {
             document.documentElement.requestFullscreen();
           } else if (document.documentElement.msRequestFullscreen) {
@@ -475,9 +475,7 @@ $(function() {
           }
         } else {
             
-            infoLeft.show();
-            header.show();
-            mouseInstructions.show();
+           fullscreenBool = false;
             if (document.exitFullscreen) {
               document.exitFullscreen();
             } else if (document.msExitFullscreen) {
@@ -489,10 +487,32 @@ $(function() {
             }
         }
     }
-
-        $("#fullscreenButton").click(function(){
+    
+        fullscreenBtn.click(function(){
            toggleFullScreen();
         });
+        
+        var headerClicked = false;
+        $("header button").click(function(){
+            
+           if(headerClicked === false) {
+           $("#console").animate({left: "15px"});
+           headerClicked = true;
+            }
+            else {
+                $("#console").animate({left: "-300px"});
+                headerClicked = false;
+            }
+        }); 
+           
+        
+        
+            console.log(fullscreenBool);
+            
+        
+        
+        
+        
         
         
        

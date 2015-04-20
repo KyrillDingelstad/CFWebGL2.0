@@ -4,21 +4,19 @@
 ************
 */
 header {
-	z-index:201;
+	z-index:3;
         min-width: 940px;
-	width: 100%;
 	height: 70px;
+        padding-left: 50px;
+        padding-right: 50px;
 	background-color: black;
 	position: relative;
 }
 
 .headerMain {
 	min-width: 940px;
-	width: 80%;
-	height: 100%;
 	overflow: hidden;
 	margin: auto;
-
 	position: relative;
 }
 .headerMain h1{
@@ -42,6 +40,11 @@ header button{
 
 }
 
+/*
+************
+* =hover
+************
+*/
 header button:hover{
 	cursor: pointer;
 	color: rgb(236,0,140);
@@ -52,10 +55,22 @@ header button:hover{
 	border-color: rgb(236,0,140);
 }
 
-#canvasWrap:hover {
+#canvasWrap:hover{
+    cursor: crosshair;
+}
+#fullscreenButton:hover{
     cursor: pointer;
+    background: url('../img/fullscreenPink.png') no-repeat;
+    background-size: 60px 45px;
+    background-position: center; 
+    -webkit-animation: pulse 0.7s linear infinite;
+	animation: pulse 0.7s linear infinite;
+    
 }
 
+#fullscreenButton:focus, .dropdown:focus, .checkbox:focus, header button:focus {
+    outline:0;
+}
 /*
 ************
 * =main
@@ -63,7 +78,6 @@ header button:hover{
 */
 body {
         min-width: 1230px;
-        height: 100%;
 	margin: auto;
 	background-color: #1E1E1E;
 	font-family: helvetica, arial;
@@ -72,12 +86,10 @@ body {
 
 
 .main {   
-	min-width: 940px;
 	min-height: 768px;
-	width: 80%;
 	overflow: hidden;
-	padding-left: 100px;
-	padding-right: 100px;
+	padding-left: 50px;
+	padding-right: 50px;
 	padding-top: 25px;
 	margin: auto;
 	background-color: white;
@@ -88,7 +100,7 @@ body {
     
    opacity: 1;
    background-color: #1E1E1E;
-   z-index:     200;
+   z-index:     2;
    color: black;
    width:      100%;
    height:     100%; 
@@ -105,7 +117,6 @@ body {
     right: 0;
     height:     200px;
     width:      200px;
-    z-index: 201;
     margin: auto;
 }
 
@@ -117,11 +128,11 @@ body {
 
 /*
 ************
-* =leftScreen
+* =console
 ************
 */
 
-.infoLeft {
+#left {
 	position: absolute;
 	float: left;
 	min-width: 220px;
@@ -129,7 +140,12 @@ body {
         margin: auto;
 }
 
-.console {
+/*
+************
+* =console
+************
+*/
+#console {
 	height: 160px;
 	color: #3E3E3E;
 	border-color: #3E3E3E;
@@ -146,14 +162,15 @@ body {
         margin: auto;
         display: table;
 }
-.console ul{
+#console ul{
 	list-style: none;
 	padding-top: 45px;
 }
 
-.console ul li {
+#console ul li {
 	margin-bottom: 7px;
 }
+
 #consoleStaticInfo {
 	
 	margin-right: 10px;
@@ -169,6 +186,8 @@ body {
 .settings {
 	padding-top: 20px;
 	padding-bottom: 28px;
+        
+	width: 220px;
 	overflow: hidden;
 	position: relative;
 	left: 0;
@@ -178,7 +197,6 @@ body {
 
 .settings ul {
 	list-style: none;
-	width: 220px;
 	margin: auto;
 }
 
@@ -191,9 +209,6 @@ body {
 	line-height: 39px;
 	font-size: 17px;
 	color: #3E3E3E;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-color: #3E3E3E;
 
 }
 
@@ -203,31 +218,28 @@ body {
 ************
 */
 .checkbox {
-	float: right;
-	margin: 0;
-	margin-top: 8px;
-	padding: 0;
-	width: 40px;
-	height: 40px;
-
-}
-
-.checkbox {
-        -moz-appearance: none;
-	-webkit-appearance: none;
-        appearance: none;
-	background-color: white;
-        border-style: none;
-	border-style: solid;
-	border-width: 1.5px;
-	border-color: #00ADEF;
-	display: inline-block;
-	position: relative;
+    float: right;
+    margin: 0;
+    margin-top: 8px;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    border-style: none;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: #00ADEF;
+    display: inline-block;
+    position: relative;
 }
 
 .checkbox:checked:after {
     -moz-appearance: none;
     -webkit-appearance: none;
+    appearance: none;
     content:'\2714';
     font-size: 30px;
     top: 3px;
@@ -243,12 +255,11 @@ body {
 * =dropdown
 ************
 */
-/* General dropdown styles */       
+
 .dropdown dd { 
     position:relative;
     z-index: 201;
 }
-/* DT styles for sliding doors */
 .dropdown dt a {
     background: url('../img/dropdownArrow.png') no-repeat right white;
     display:block; 
@@ -269,7 +280,6 @@ body {
     padding-left: 33px;
 }
 
-/* UL styles */
 .dropdown dd ul { 
     background:white none repeat scroll 0 0; 
     display:none;
@@ -283,7 +293,6 @@ body {
     top:2px; 
     width:auto; 
     min-width:218px;
-    z-index: 100;
 }
 
 .dropdown dd ul li a:hover {
@@ -313,6 +322,7 @@ body {
 #dropdownWrap {
     position: relative;
 }
+
 .infoButton{
     background: white;
     border-style: solid;
@@ -334,7 +344,6 @@ body {
 #dropdownInfoDiv {
     position: absolute;
     height: 120px;
-    width: 220px;
     top: 0;
     border-style: solid;
     border-color: rgb(236,0,140);
@@ -366,7 +375,6 @@ border-width: 3px;
 border-color: rgb(236,0,140);
 display: block;
 width: 0;
-z-index: 1;
 }
 
 
@@ -435,28 +443,29 @@ float: left;
     background-color: rgba(0,0,0,0);
 }
 
+
+#right {
+    width: 75%;
+    min-width: 500px;
+    float: right;
+}
 /*
 ************
-* =rightScreen
+* =mouseinstrustions
 ************
 */
 
 .mouseInstructions {
-
-	min-width: 500px;
-	width: 70%;
+        width: 100%;
 	height: 95px;
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
 	border-bottom-color: #3E3E3E;
         color: #3E3E3E;
-	float: right;
 }
 
 
 .mouseInstructions ul {
-    min-width: 500px;
-    width: 70%;
     margin: auto;
     text-align: center;
 }
@@ -473,18 +482,20 @@ float: left;
     margin-right: 15px;
 }
 
+/*
+************
+* =canvas
+***********
+*/
 #canvasWrap {
-        overflow: hidden;
-	min-width: 500px;
 	min-height: 500px;
 	height: 700px;
-	width: 70%;
+	width: 100%;
 	margin-top: 15px;
 	border-style: solid;
 	border-color: #3E3E3E;
 	border-width: 1px;
         position: relative;
-	float: right;
         z-index: 0;
 }
 #container {
@@ -493,10 +504,6 @@ float: left;
     left: 0;
     width: 100%;
     height: 100%;
-}
-#container canvas {
-    -webkit-tap-highlight-color: transparent;
-    
 }
 
 #axesContainer {
@@ -508,25 +515,17 @@ float: left;
     
 }
 
-#fullscreenButton {
-    width: 70px;
-    height: 50px;
-    z-index: 100;
-    bottom: 10px;
-    right: 10px;
-    position: absolute;
-    
-}
-
-
+/*
+************
+* =colorbar
+***********
+*/
 .colorBar {
 	overflow: hidden;
-	width: 70%;
-        z-index: 20;
+	width: 100%;
 	position: relative;
 	height: 95px;
 	margin-top: 20px;
-	float: right;
 }
 
 .colorBarText {
@@ -587,7 +586,7 @@ float: left;
 ***********
 */
 
- :-webkit-full-screen  .rightScreen,  :-webkit-full-screen  #canvasWrap, :-webkit-full-screen  body, :-webkit-full-screen  .container, :-webkit-full-screen  .main, :-webkit-full-screen  #renderingCanvas {
+ :-webkit-full-screen  #canvasWrap{
      
      position: fixed;
      top: 0;
@@ -598,7 +597,8 @@ float: left;
      width: 100%;
      height:100%;
      float: none;
-        
+    z-index: 2
+     
     }
 
 
@@ -610,28 +610,86 @@ float: left;
     bottom: 0;
     margin: auto;
     float: none;
-}    
+    width: 60%;
+    z-index: 2
+}   
 
-
-
-#fullscreenButton {
-    width: 70px;
-    height: 50px;
-    z-index: 100;
-    bottom: 10px;
-    right: 10px;
-    position: absolute;
+:-webkit-full-screen .header {
+    z-index: 0;
 }
 
-#fullscreenButton *.unselectable {
-   -moz-user-select: -moz-none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
+:-webkit-full-screen #fullscreenButton {
+    background: url('../img/minimizeBlue.png') no-repeat;
+    background-size: 60px 45px;
+    transform: scale(1,1);
+} 
 
-   /*
-     Introduced in IE 10.
-     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-   */
-   -ms-user-select: none;
-   user-select: none;
+:-webkit-full-screen #fullscreenButton:hover {
+    background: url('../img/minimizePink.png') no-repeat;
+    background-size: 60px 45px;
+    -webkit-animation: pulseBack 0.7s linear infinite;
+	animation: pulseBack 0.7s linear infinite;
+} 
+
+#fullscreenButton {
+    width: 80px;
+    height: 60px;
+    z-index: 2;
+    bottom: 10px;
+    right: 10px;
+    text-indent: -9999999px;
+    border: none;
+    background: url('../img/fullscreenBlue.png') no-repeat;
+    background-position: center; 
+    background-size: 60px 45px;
+    position: absolute;
+    transform: scale(0.9,0.9);
+}
+
+@-webkit-keyframes pulseBack {
+ 0% {
+ -webkit-transform: scale(1, 1);
+}
+ 50% {
+ -webkit-transform: scale(0.9, 0.9);
+}
+ 100% {
+ -webkit-transform: scale(1, 1);
+}
+}
+
+@keyframes pulseBack {
+ 0% {
+ transform: scale(1, 1);
+}
+ 50% {
+ transform: scale(0.9, 0.9);
+}
+ 100% {
+transform: scale(1, 1);
+};
+}
+
+@-webkit-keyframes pulse {
+ 0% {
+ -webkit-transform: scale(0.9, 0.9);
+}
+ 50% {
+ -webkit-transform: scale(1, 1);
+}
+ 100% {
+ -webkit-transform: scale(0.9, 0.9);
+}
+}
+
+@keyframes pulse {
+ 0% {
+ transform: scale(0.9, 0.9);
+}
+ 50% {
+ transform: scale(1, 1);
+}
+ 100% {
+transform: scale(0.9, 0.9);
+};
 }
