@@ -1,12 +1,12 @@
 /*
   =Global variables
 */
-var windowWidth=$(window).width();
+
+$(function() {
+    var windowWidth=$(window).width();
 var windowHeight=$(window).height();
 var loadingOverlay = $("#loadingOverlay");
 var pointUrl = "data/transformed_points.txt";
-
-$(function() {
   var body = $("body"); 
   
   document.oncontextmenu = function() {return false;};
@@ -221,8 +221,6 @@ $(function() {
             
      
     
-        var histogramDiv = $("#histogram");
-        var histogramHeight = windowHeight/2.5;
         var histogram;
         
         //filling the histogram with the sorted data
@@ -274,7 +272,6 @@ $(function() {
         /*
           histogram style attributes
         */  
-        histogramDiv.css('height', histogramHeight + 30);
         
    
             
@@ -293,7 +290,6 @@ $(function() {
         /*
           slider variables
         */
-        var sliderHeight=windowHeight/2.5;
         var slider = $("#slider");
         var sliderAverageValue = (maxDeviation + minDeviation) / 2;
 
@@ -302,7 +298,6 @@ $(function() {
         /*
           slider style attributes
         */  
-        slider.css('height', sliderHeight);
 
 
         slider.removeClass('ui-widget').slider({
@@ -442,69 +437,32 @@ $(function() {
     /*
       glcanvas variables
     */
-   
+    
+           var left = $("#left");
+           var right = $("#right");
+           var fullscreenBtn = $("#fullscreenButton");
     var canvasWrap = $("#canvasWrap");
     var canvasWidth = canvasWrap.width();
     var canvasHeight = canvasWrap.height();
+    var rightHeight = right.height();
+    var leftWidth = left.height();
     var container = $("#container");
     var axesContainer = $("#axesContainer");
+    var instructions = $("#instructions");
+    
     
     
     /*
       canvas full screen
     */
    
-           var left = $("left");
-           var mouseInstructions = $(".mouseInstructions");
-           var header = $("header");
-           var fullscreenBtn = $("#fullscreenButton");
-        
-    function toggleFullScreen() {
-        if (!document.fullscreenElement &&    // alternative standard method
-            !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) { 
-          
-           fullscreenBool = true;
-          if (document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen();
-          } else if (document.documentElement.msRequestFullscreen) {
-            document.documentElement.msRequestFullscreen();
-          } else if (document.documentElement.mozRequestFullScreen) {
-            document.documentElement.mozRequestFullScreen();
-          } else if (document.documentElement.webkitRequestFullscreen) {
-            document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-          }
-        } else {
-            
-           fullscreenBool = false;
-            if (document.exitFullscreen) {
-              document.exitFullscreen();
-            } else if (document.msExitFullscreen) {
-              document.msExitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-              document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) {
-              document.webkitExitFullscreen();
-            }
-        }
-    }
+    instructions.hide();
     
-        fullscreenBtn.click(function(){
-           toggleFullScreen();
-        });
-        
-        var headerClicked = false;
-        $("header button").click(function(){
-            
-           if(headerClicked === false) {
-           $("#console").animate({left: "15px"});
-           headerClicked = true;
-            }
-            else {
-                $("#console").animate({left: "-300px"});
-                headerClicked = false;
-            }
-        }); 
-           
+        $("#leftWrap").hover(function(){
+$("#leftWrap").animate({left: "0"});
+$("#rightWrap").animate({width: "83%"});
+});
+
         
         
             console.log(fullscreenBool);
@@ -627,13 +585,12 @@ $(function() {
 
             camera.aspect = $("#canvasWrap").width() / $("#canvasWrap").height();
             camera.updateProjectionMatrix();
-            renderer.setSize( $("#canvasWrap").width(), $("#canvasWrap").height());
+            
       
     }
     
     //call on windowresize when the screen gets resized;
     window.addEventListener( 'resize', onWindowResize, false );
-    $(".main").css("height", "windowHeight");
 
     
     init();
