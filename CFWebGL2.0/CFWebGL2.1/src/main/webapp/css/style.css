@@ -1,0 +1,462 @@
+html,body, #container {
+	min-height: 100%;
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+	background: white;
+	font-family: helvetica, arial;
+
+}
+
+/*
+************
+* =header
+************
+*/
+header {
+	z-index:3;
+	height: 70px;
+    padding-left: 50px;
+    padding-right: 50px;
+	background-color: black;
+}
+
+header h1{
+	background: url(../img/sintefLogo.png) no-repeat;
+	text-indent: -99999px;
+	margin-top: 22.5px;
+	height: 25px;
+	width: 123px;
+	float: left;
+}
+
+header button{
+	position: relative;
+	width: 100px;
+	height: 40px;
+	font-size: 18px;
+	margin-top: 15px;
+	float: right;
+	border-style: none;
+	background-color: #D8D0C7;
+
+}
+
+/*
+************
+* =hover
+************
+*/
+header button:hover{
+	cursor: pointer;
+	color: rgb(236,0,140);
+}
+
+
+#loadingOverlay {
+	display: none;
+}
+
+#rightWrap {
+	position: absolute;
+	height: 100%;
+	width: 85%;
+	background: white;
+	right: 0;
+	display: inline-block;
+}
+
+#leftWrap {
+	position: absolute;
+	height: 100%;
+	left: 0;
+	width: 15%;
+	background: rgba(0,0,0,0.8);
+	float: right;
+	color: white;
+	display: inline-block;
+}
+
+#left {
+	height: 100%;
+	width: 90%;
+}
+#menuToggle{
+
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-color: white;
+	height: 100%;
+	width: 10%;
+	right: 0;
+	float: right;
+
+}
+#consoleWrap {
+	height: 160px;
+	color: white;
+	border-color: white;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	padding: auto;
+	font-size: 11px; 
+        margin: auto;
+        
+}
+#consoleInfoWrap {
+        min-width: 220px;
+        height: 160px;
+        margin: auto;
+        display: table;
+}
+#consoleWrap ul{
+	list-style: none;
+	padding-top: 45px;
+}
+
+#consoleWrap ul li {
+	margin-bottom: 7px;
+}
+
+#consoleStaticInfo {
+	
+	margin-right: 10px;
+        margin-left: 5px;
+        display: table-cell;
+}
+
+#consoleVarInfo {
+        margin-right: 5px;
+        display: table-cell;
+}
+
+ul {
+	list-style: none;
+}
+
+
+/*
+************
+* =instructions
+************
+*/
+#instructions {
+    width: 100%;
+	height: 95px;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-left-color: white;
+    background: rgba(0,0,0,0.8);
+    color: white;
+}
+
+
+#instructions ul {
+    margin: auto;
+    text-align: center;
+}
+#instructions ul li{
+
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    line-height: 25px;
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#checkboxWrap {
+    border-color: white;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+       
+	padding-bottom: 20px;
+	overflow: hidden;
+	position: relative;
+	left: 0;
+	right:0;
+	margin: auto;
+}
+
+#checkboxWrap ul{
+    width: 220px;
+	margin: auto;
+	background: green;
+}
+
+.buttonStandard {
+	float: left;
+	height: 40px;
+	width: 130px;
+    color: white;
+	margin-top: 8px;
+	text-align: center;
+	line-height: 39px;
+	font-size: 17px;
+
+}
+
+.checkbox {
+    float: right;
+    margin: 0;
+    margin-top: 8px;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    border-style: none;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: #00ADEF;
+    display: inline-block;
+    position: relative;
+}
+
+.checkbox:checked:after {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    content:'\2714';
+    font-size: 30px;
+    top: 3px;
+    left: 7px;
+    border-style: none;
+    position: absolute;
+    color: #00ADEF;
+}
+
+
+#histogramWrap {
+	height: 300px;
+}
+
+/*
+************
+* =dropdown
+************
+*/
+
+.dropdown dd { 
+    position:relative;
+    z-index: 201;
+}
+.dropdown dt a {
+    background: url('../img/dropdownArrow.png') no-repeat right white;
+    display:block; 
+    border-width: 1px; 
+    border-style: solid; 
+    border-color: #00ADEF;
+    text-decoration: none;
+    color: #3E3E3E;
+    width:218px; 
+    margin-top: 0;
+    height: 40px
+}
+
+.dropdown dt a span {
+    cursor:pointer; 
+    display:block; 
+    padding-top: 13px;
+    padding-left: 33px;
+}
+
+.dropdown dd ul { 
+    background:white none repeat scroll 0 0; 
+    display:none;
+    list-style:none; 
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00ADEF;
+    padding:5px 0px; 
+    position:absolute; 
+    left:0px; 
+    top:2px; 
+    width:auto; 
+    min-width:218px;
+}
+
+.dropdown dd ul li a:hover {
+    background: #00ADEF;
+    color: white;
+}
+.dropdown span.value { 
+    display:none;
+}
+
+.dropdown dd ul li a { 
+    padding:5px; 
+    display:block;
+    text-decoration: none;
+    color: #3E3E3E;
+    padding-left: 33px;
+}
+
+.dropdown {
+        width: 220px;
+        z-index: 120;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+}
+
+#dropdownWrap {
+    position: relative;
+}
+
+.infoButton{
+    background: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00ADEF;
+    position: relative;
+    left: 5px;
+    margin-right: 15px;
+    top: 3px;
+    width: 22px;
+    line-height: 18px;
+    bottom: 0;
+    height: 18px;
+    text-align: center;
+    font-size: 11px;
+    float: left;
+}
+
+#dropdownInfoDiv {
+    position: absolute;
+    height: 120px;
+    top: 0;
+    border-style: solid;
+    border-color: rgb(236,0,140);
+    border-width: 1px;
+    box-shadow: 5px 5px 5px #E3E3E3;
+    left: 190px;
+    right:0;
+    background: white;
+    margin: auto;
+    display: table;
+}
+
+#dropdownInfoDiv p {
+    padding: 20px;
+    font-size: 13px;
+    text-align: left;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+#dropdownInfoDiv:after 
+{
+content: "";
+position: absolute;
+top: 50%;
+left: -15px;
+border-style: solid;
+border-width: 3px;
+border-color: rgb(236,0,140);
+display: block;
+width: 0;
+}
+
+/*
+************
+* =canvas
+***********
+*/
+
+#canvasWrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: blue;
+        z-index: 0;
+}
+#canvasContainer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background: green;
+}
+
+#axesContainer {
+    position: absolute;
+    left: 40px;
+    bottom: 100px;
+    width: 200px;
+    height: 200px;
+    background: purple;
+    
+}
+
+/*
+************
+* =colorbar
+***********
+*/
+.colorBar {
+	overflow: hidden;
+	width: 60%;
+	position: absolute;
+	height: 95px;
+	bottom: 60px;
+        left: 0;
+        right: 0;
+        margin: auto;
+}
+
+.colorBarText {
+	width: 70%;
+	margin-top: 2px;
+	position: absolute;
+	float: right;
+}
+
+
+.colorBarIMG {
+	float: right;	
+	height: 50px;
+	width: 100%;
+}
+
+.colorBarInfoMax {
+	position: absolute;
+	color: #3E3E3E;
+	text-align: center;
+	border: none;
+	width: 100px;
+	right: 5px;
+	bottom: 15px;
+        background-color: rgba(0,0,0,0);
+}
+
+.colorBarInfoMin {
+	position: absolute;
+	color: #3E3E3E;
+	text-align: center;
+	border: none;
+	width: 100px;
+	left: 5px;
+	bottom: 15px;
+        background-color: rgba(0,0,0,0); 
+	
+}
+
+.colorBarInfoMid {
+	position: absolute;
+	left: 0;
+	right: 0;
+	border: none;
+	width: 100px;
+	bottom: 15px;
+	text-align: center;
+	color: #3E3E3E;
+	margin: auto;
+        background-color: rgba(0,0,0,0);
+}
