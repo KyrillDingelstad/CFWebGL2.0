@@ -46,10 +46,23 @@ header button{
 ************
 * =hover
 ************
+*//*
+************
+* =hover
+************
 */
 header button:hover{
 	cursor: pointer;
 	color: rgb(236,0,140);
+}
+
+.checkbox:hover, .dropdown a:hover, .infoButton:hover, .dropdown dt a:hover{
+	cursor: pointer;
+	border-color: rgb(236,0,140);
+}
+
+#canvasWrap:hover{
+    cursor: crosshair;
 }
 
 
@@ -231,6 +244,66 @@ ul {
     color: #00ADEF;
 }
 
+/*
+************
+* =slider
+************
+*/
+
+#slider {
+	margin-left: 10px;
+	margin-bottom: 50px;
+        margin-top: 29px;
+        
+height: 500px;
+	border-radius: 0px;
+	border-color: #3E3E3E;
+	background-color: white;
+	float: left;
+}
+
+.ui-slider-range {
+	background-color: #00ADEF;
+}
+
+.ui-slider-handle, .updated-handle, .ui-state-default {
+	background-color: black;
+	border-width: 10px;
+}
+
+.ui-slider-vertical .ui-slider-handle {
+    margin-left: -1px;
+    width: 25px;
+    height: 25px;
+    border-radius: 0;
+    background-color: white;
+    border-color: #00ADEF;
+}
+
+.ui-slider-vertical .ui-slider-handle:hover {
+    cursor: pointer;
+    border-color: rgb(236,0,140);
+}
+
+/*
+************
+* =histogram
+***********
+*/
+
+#histogram {
+margin-top: 20px;
+margin-left: 15px;
+width: 210px;
+height: 530px;
+padding: 0;
+float: left;
+}
+
+.jqplot-event-canvas {
+    background-color: rgba(0,0,0,0);
+}
+
 
 #histogramWrap {
 	height: 300px;
@@ -325,6 +398,7 @@ ul {
     text-align: center;
     font-size: 11px;
     float: left;
+    color: black;
 }
 
 #dropdownInfoDiv {
@@ -346,6 +420,7 @@ ul {
     padding: 20px;
     font-size: 13px;
     text-align: left;
+    color: black;
     vertical-align: middle;
     display: table-cell;
 }
@@ -373,7 +448,6 @@ width: 0;
         width: 100%;
         height: 100%;
         position: relative;
-        background: blue;
         z-index: 0;
 }
 #canvasContainer {
@@ -382,7 +456,6 @@ width: 0;
     right: 0;
     height: 100%;
     width: 100%;
-    background: green;
 }
 
 #axesContainer {
@@ -391,7 +464,7 @@ width: 0;
     bottom: 100px;
     width: 200px;
     height: 200px;
-    background: purple;
+    background: rgba(0,0,0,0);
     
 }
 
