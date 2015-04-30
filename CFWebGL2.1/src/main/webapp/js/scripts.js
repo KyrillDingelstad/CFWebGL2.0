@@ -1,15 +1,9 @@
-/*
-  =Global variables
-*/
 
-$(function() {
-    var windowWidth=$(window).width();
-var windowHeight=$(window).height();
-var loadingOverlay = $("#loadingOverlay");
-var pointUrl = "data/transformed_points.txt";
+ 
+    var loadingOverlay = $("#loadingOverlay");
   var body = $("body"); 
-  
-  document.oncontextmenu = function() {return false;};
+ 
+ document.oncontextmenu = function() {return false;};
   body.children().css({userSelect: 'none'});
   /*
     =data
@@ -36,9 +30,11 @@ var pointUrl = "data/transformed_points.txt";
     
     //list of points pulled out of the txt into array
 
-    function downloadPoints(){
+function downloadPoints(){
+    
+    
         $.ajax({
-           url: "data/autoAlign.txt", // path to file
+           url: "js/autoAlign.txt", // path to file
            type: "GET",
            dataType: 'text', // type of file (text, json, xml, etc)
            success: function(d) { // callback for successful completion
@@ -47,9 +43,9 @@ var pointUrl = "data/transformed_points.txt";
                
            }
          });
-         
+         console.log("downloading");
          $.ajax({
-           url: "data/transformed_points.txt", // path to file
+           url:  "js/transformed_points.txt", // path to file
            type: "GET",
            dataType: 'text', // type of file (text, json, xml, etc)
            success: function(p) { // callback for successful completion
@@ -61,8 +57,8 @@ var pointUrl = "data/transformed_points.txt";
     }
 
     downloadPoints();
-    
-    function setPointData() {
+
+ function setPointData() {
         
         points = points.trim();
         points = points.split(/\s+/g);
@@ -272,11 +268,7 @@ var pointUrl = "data/transformed_points.txt";
         /*
           histogram style attributes
         */  
-        
-   
-            
-        
-
+       
         //Filling the histogram with the data set above (location, data, visualisationOptions);
         
         histogram = $.jqplot('histogram', histogramArray, histogramOptions);
@@ -319,12 +311,32 @@ var pointUrl = "data/transformed_points.txt";
         $( ".colorBarInfoMid" ).val( sliderAverageValue);
 
         doneLoading();
-    } 
+    }
+
+/*
+    =menu
+*/
+
+var menu = true;
+
+$("#menuToggle").click(function() {
+	if(menu===false) {
+	$("#leftWrap").animate({left: "0"});
+	$("#rightWrap").animate({width: "85%"},function(){onWindowResize();});
+	menu = true;
+	} else {
+	$("#leftWrap").animate({left: "-13.5%"});
+	$("#rightWrap").animate({width: "98.5%"},function(){onWindowResize();});
+	menu = false;
+        
+	}
+});
+$("#instructions").hide();
+
 
 /*
     =dropdown
 */
-    
     
         /*
             dropdown variables
@@ -332,20 +344,20 @@ var pointUrl = "data/transformed_points.txt";
         
         
         //clickable options
-        allPointsButton = $("#allPoints");
-        onlyInsideButton = $("#onlyInside");
-        onlyOutsideButton = $("#onlyOutside");
-        signedDistButton = $("#signedDist");
+        var allPointsButton = $("#allPoints");
+        var onlyInsideButton = $("#onlyInside");
+        var onlyOutsideButton = $("#onlyOutside");
+        var signedDistButton = $("#signedDist");
         
         //hover options
-        hoverInfoDiv = $("#dropdownInfoDiv");
-        hoverInfo1 = $("#dropdownInfo1");
-        hoverInfo2 = $("#dropdownInfo2");
-        hoverInfo3 = $("#dropdownInfo3");
-        hoverInfo4 = $("#dropdownInfo4");
-        infoButton = $(".infoButton");
-        hoverInfoDiv = $("#dropdownInfoDiv");
-        hoverInfoDivP = $("#dropdownInfoDiv p");
+        var hoverInfoDiv = $("#dropdownInfoDiv");
+        var hoverInfo1 = $("#dropdownInfo1");
+        var hoverInfo2 = $("#dropdownInfo2");
+        var hoverInfo3 = $("#dropdownInfo3");
+        var hoverInfo4 = $("#dropdownInfo4");
+        var infoButton = $(".infoButton");
+        var hoverInfoDiv = $("#dropdownInfoDiv");
+        var hoverInfoDivP = $("#dropdownInfoDiv p");
         
         /*
             dropdown functions
@@ -425,59 +437,24 @@ var pointUrl = "data/transformed_points.txt";
         infoButton.mouseleave(function(){
             hoverInfoDiv.hide();
         });
-        
-            
-        
-              
-            
-  /*
+
+
+/*
     =canvas
   */
-    var fullscreenBool = false;
+ 
     /*
       glcanvas variables
     */
     
-           var left = $("#left");
-           var right = $("#right");
-           var fullscreenBtn = $("#fullscreenButton");
-    var canvasWrap = $("#canvasWrap");
-    var canvasWidth = canvasWrap.width();
-    var canvasHeight = canvasWrap.height();
-    var rightHeight = right.height();
-    var leftWidth = left.height();
-    var container = $("#container");
+    var left = $("#left");
+    var right = $("#right");
+    var fullscreenBtn = $("#fullscreenButton");
+    var canvasContainer = $("#canvasContainer");
+    var canvasWidth = $("#canvasWrap").width();
+    var canvasHeight = $("#canvasWrap").height();
     var axesContainer = $("#axesContainer");
     var instructions = $("#instructions");
-    
-    
-    
-    /*
-      canvas full screen
-    */
-   
-    instructions.hide();
-    
-        $("#leftWrap").hover(function(){
-$("#leftWrap").animate({left: "0"});
-$("#rightWrap").animate({width: "83%"});
-});
-
-        
-        
-            console.log(fullscreenBool);
-            
-        
-        
-        
-        
-        
-        
-       
-    /*
-      glcanvas WebGL
-    */
-   
     var renderer, axesRenderer, camera, controls, scene, light, clock, cube, bbox, axesScene, axesCamera, axesHelper;
     
     function init() {
@@ -487,7 +464,7 @@ $("#rightWrap").animate({width: "83%"});
     renderer = new THREE.WebGLRenderer({antialias: true });
     renderer.setSize(canvasWidth, canvasHeight);
     renderer.setClearColor( 0xffffffff);
-    container.append(renderer.domElement);
+    canvasContainer.append(renderer.domElement);
     
     camera = new THREE.PerspectiveCamera(45, canvasWidth / canvasHeight, 0.1, 10000);
     camera.position.y = 160;
@@ -531,7 +508,7 @@ $("#rightWrap").animate({width: "83%"});
             scene.add( mesh );
 
     } );
-    loader.load( 'img/dolphins_le.ply' );
+    loader.load( 'img/points_1000_transformed_signed_dists.ply' );
     
     clock = new THREE.Clock;
  
@@ -575,6 +552,7 @@ $("#rightWrap").animate({width: "83%"});
         
             renderer.render(scene, camera);
             axesRenderer.render(axesScene, axesCamera);
+            renderer.setSize(canvasWidth, canvasHeight);
     }
     
     function setCamera() {
@@ -582,9 +560,12 @@ $("#rightWrap").animate({width: "83%"});
     }
     //changing the size of the canvas when the window gets rescaled;
     function onWindowResize() {
-
-            camera.aspect = $("#canvasWrap").width() / $("#canvasWrap").height();
+        canvasWidth = $("#canvasWrap").width();
+     canvasHeight = $("#canvasWrap").height();
+            camera.aspect = canvasWidth / canvasHeight;
+            renderer.setSize(canvasWidth, canvasHeight);
             camera.updateProjectionMatrix();
+            console.log("resizing window");
             
       
     }
@@ -596,5 +577,3 @@ $("#rightWrap").animate({width: "83%"});
     init();
     render();
     animate();
-    
-}); //end bracket
