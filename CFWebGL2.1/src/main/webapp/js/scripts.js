@@ -508,7 +508,7 @@ $("#instructions").hide();
             scene.add( mesh );
 
     } );
-    loader.load( 'img/points_1000_transformed_signed_dists.ply' );
+    loader.load( 'img/kaplan_rhino_15.ply' );
     
     clock = new THREE.Clock;
  
