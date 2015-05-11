@@ -499,7 +499,7 @@ $("#instructions").hide();
     loader.addEventListener( 'load', function ( event ) {
 
             var geometry = event.content;
-            var material = new THREE.MeshPhongMaterial( { color: 0x0055ff, specular: 0x111111, shininess: 200 } );
+            var material = new THREE.MeshPhongMaterial( { color: 0x0055ff, specular: 0x0000000, shininess: 200 } );
             var mesh = new THREE.Mesh( geometry, material );
 
             mesh.scale.set( 0.1, 0.1, 0.1 );
@@ -508,9 +508,26 @@ $("#instructions").hide();
             scene.add( mesh );
 
     } );
-    loader.load( 'img/kaplan_rhino_15.ply' );
+   loader.load( 'img/kaplan_rhino_15.ply' );
     
-    clock = new THREE.Clock;
+    
+    
+    
+    var loader2 = new THREE.PLYLoader();
+    loader2.addEventListener( 'load', function ( event ) {
+            
+            var pointSize = 1;
+            var particles;
+            var geometry = event.content;
+            var material = new THREE.PointCloudMaterial( { size: pointSize, vertexColors: THREE.VertexColors } );
+            particles = new THREE.PointCloud( geometry, material );
+            particles.scale.set( 0.1, 0.1, 0.1 );
+            
+
+            scene.add( particles );
+
+    } );
+    loader2.load( 'img/points_1000_transformed_signed_dists.ply' );
  
  
     //AxisScene
