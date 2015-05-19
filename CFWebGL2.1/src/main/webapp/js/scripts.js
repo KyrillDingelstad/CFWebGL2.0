@@ -1,10 +1,11 @@
 
  
-    var loadingOverlay = $("#loadingOverlay");
+  var loadingOverlay = $("#loadingOverlay");
   var body = $("body"); 
- 
+  var header = $("#headerMain");
  document.oncontextmenu = function() {return false;};
   body.children().css({userSelect: 'none'});
+  header.zIndex("2");
   /*
     =data
   */
@@ -322,16 +323,17 @@ var menu = true;
 $("#menuToggle").click(function() {
 	if(menu===false) {
 	$("#leftWrap").animate({left: "0"});
-	$("#rightWrap").animate({width: "85%"},function(){onWindowResize();});
+	$("#rightWrap").animate({width: "80%"},function(){onWindowResize();});
+        
 	menu = true;
 	} else {
-	$("#leftWrap").animate({left: "-13.5%"});
+	$("#leftWrap").animate({left: "-18.5%"});
 	$("#rightWrap").animate({width: "98.5%"},function(){onWindowResize();});
 	menu = false;
         
 	}
 });
-$("#instructions").hide();
+
 
 
 /*
@@ -455,7 +457,7 @@ $("#instructions").hide();
     var canvasHeight = $("#canvasWrap").height();
     var axesContainer = $("#axesContainer");
     var instructions = $("#instructions");
-    var renderer, axesRenderer, camera, controls, scene, light, clock, cube, bbox, axesScene, axesCamera, axesHelper;
+    var renderer, axesRenderer, camera, controls, scene, light, clock, cube, bbox, axesScene, axesCamera, axesHelper, cadModel, pointScan;
     
     function init() {
      
@@ -500,11 +502,11 @@ $("#instructions").hide();
 
             var geometry = event.content;
             var material = new THREE.MeshPhongMaterial( { color: 0x111111, transparent: true, opacity: 0.5, specular: 0x111111 , shininess: 200 } );
-            var mesh = new THREE.Mesh( geometry, material );
-            mesh.scale.set( 0.1, 0.1, 0.1 );
+            cadModel = new THREE.Mesh( geometry, material );
+            cadModel.scale.set( 0.1, 0.1, 0.1 );
 
 
-            scene.add( mesh );
+            scene.add( cadModel );
 
     } );
    loader.load( 'img/kaplan_rhino_15.ply' );
@@ -513,14 +515,13 @@ $("#instructions").hide();
     loader2.addEventListener( 'load', function ( event ) {
             
             var pointSize = 1;
-            var particles;
             var geometry = event.content;
             var material = new THREE.PointCloudMaterial( { size: pointSize, vertexColors: THREE.VertexColors } );
-            particles = new THREE.PointCloud( geometry, material );
-            particles.scale.set( 0.1, 0.1, 0.1 );
+            pointScan = new THREE.PointCloud( geometry, material );
+            pointScan.scale.set( 0.1, 0.1, 0.1 );
             
 
-            scene.add( particles );
+            scene.add( pointScan );
 
     } );
     loader2.load( 'img/points_1000_transformed_signed_dists.ply' );
@@ -589,3 +590,33 @@ $("#instructions").hide();
     init();
     render();
     animate();
+    
+    
+/*
+    =checkbox
+*/
+
+
+$('#checkBoxCAD:checkbox').on('change', function(){
+    
+    if($('#checkBoxCAD').prop("checked")===true) {
+        console.log("CAD Checked");
+        cadModel.visible = true; 
+    }   
+    else {
+        console.log("unchecked");
+        cadModel.visible = false; 
+    }
+});
+
+$('#checkBoxPoint:checkbox').on('change', function(){
+    
+    if($('#checkBoxPoint').prop("checked")===true) {
+        console.log("Point Checked");
+        pointScan.visible = true; 
+    }   
+    else {
+        console.log("unchecked");
+        pointScan.visible = false; 
+    }
+});

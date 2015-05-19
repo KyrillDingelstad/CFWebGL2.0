@@ -12,114 +12,118 @@
 	<body>
 		<div id="container">
 			
-			<header>
-				<div id="headerMain">
-                                   <a href="http://www.sintef.no" target="_blank"> <h1>Sintef</h1></a>
-					<button type="button">Done</button>
-				</div>
-			</header>
+                    <header>
+                            <div id="headerMain">
+                               <a href="http://www.sintef.no" target="_blank"> <h1>Sintef</h1></a>
+                                    <button type="button">Done</button>
+                            </div>
+                    </header>
 		
                     <div id="loadingOverlay"> <div id="loading"><p> Loading...</p></div> </div>
-                                    <div id="leftWrap">
+                <div id="leftWrap">
 
-                                    		<div id="menuToggle"></div> 
-                                    		<div id="left">
-		                                        <div id="consoleWrap">
-		                                            <ul id="consoleStaticInfo">
-		                                                    <li>#Points:</li>
-		                                                    <li>Max deviation:</li>
-		                                                    <li>Mean L1 error:</li>
-		                                                    <li>Mean L2 error:</li>
-		                                            </ul>
+                            <div id="menuToggle"></div> 
+                            <div id="left">
+                                    <div id="consoleWrap">
+                                        <div id="consoleInfoWrap">
+                                            <ul id="consoleStaticInfo">
+                                                    <li>#Points:</li>
+                                                    <li>Max deviation:</li>
+                                                    <li>Mean L1 error:</li>
+                                                    <li>Mean L2 error:</li>
+                                            </ul>
 
-		                                            <ul id="consoleVarInfo">
-		                                                    <li id="consolePoints">loading</li>
-		                                                    <li id="consoleDeviation">loading</li>
-		                                                    <li id="LOneNorm">loading</li>
-		                                                    <li id="LTwoNorm">loading</li>
-		                                            </ul>
-		                                        </div>
+                                            <ul id="consoleVarInfo">
+                                                    <li id="consolePoints">loading</li>
+                                                    <li id="consoleDeviation">loading</li>
+                                                    <li id="LOneNorm">loading</li>
+                                                    <li id="LTwoNorm">loading</li>
+                                            </ul>
+                                        </div>    
+                                    </div>
 
 
-		                                            <div id="checkboxWrap">
-		                                                
-		                                                <ul>
-		                                                    <li>
-		                                                        <label class="buttonStandard"> CAD model</label> 
-		                                                        <input type="checkbox" class="checkbox">
-		                                                    </li>
-		                                                    <li>
-		                                                        <label class="buttonStandard"> Point scan:</label>
-		                                                        <input type="checkbox" class="checkbox">
-		                                                    </li>
-		                                                </ul>     
-		                                            </div>
-		                                            
-		                                    
-		                                            <div id="histogramWrap">
-		                                            	
-		                                            	<div id="dropdownWrap">
-			                                                <div id="dropdownInfoDiv">
-			                                                    <p>text</p>
-			                                                </div>
-		                                            
-			                                                <dl class="dropdown">
-			                                                    
-			                                                                <dt><a href="#"><span>All points</span></a></dt>
-			                                                                <dd>
-			                                                                    <ul>
-			                                                                        <li><p class="infoButton" id="dropdownInfo1">i</p><a id="allPoints" href="#">All points<span></span></a></li>
-			                                                                        <li><p class="infoButton" id="dropdownInfo2">i</p><a id="onlyInside" href="#">Only inside<span></span></a></li>
-			                                                                        <li><p class="infoButton" id="dropdownInfo3">i</p><a id="onlyOutside" href="#">Only outside<span></span></a></li>
-			                                                                        <li><p class="infoButton" id="dropdownInfo4">i</p><a id="signedDist" href="#">Signed dist.<span></span></a></li>
-			                                                                    </ul>
-			                                                                </dd>
-			                                                </dl>
-		                                        		</div>
+                                        <div id="checkboxWrap">
 
-		                                                <div id="slider"></div>
+                                            <ul>
+                                                <li>
+                                                    <label class="buttonStandard"> CAD model:</label> 
+                                                    <input type="checkbox" class="checkbox" id="checkBoxCAD" checked="checked">
+                                                    <label></label>
+                                                </li>
+                                                <li>
+                                                    <label class="buttonStandard"> Point scan:</label>
+                                                    <input type="checkbox" class="checkbox" id="checkBoxPoint" checked="checked">
+                                                    <label></label>
+                                                </li>
+                                            </ul>     
+                                        </div>
 
-		                                                <div id="histogram"></div>
-		                                        	</div>	
-		                                        </div>
 
-                            			</div>
+                                        <div id="histogramWrap">
 
-		                                <div id="rightWrap">
-		                                        <div id="canvasWrap">
-		                                            <div id="instructions">  
-		                                                <ul>
-		                                                    <li> <strong>Rotate:</strong> <br> Left-click and drag </li>
-		                                                    <li> <strong>Zoom: </strong> <br> Scroll &nbsp</li>
-		                                                    <li> <strong>Move:</strong> <br> Right-click and drag </li>
-		                                                </ul>
-		                                            </div>
-		                                            <div id="canvasContainer"></div>
-		                                            <div id="axesContainer"></div>
+                                            <div id="dropdownWrap">
+                                                    <div id="dropdownInfoDiv">
+                                                        <p>text</p>
+                                                    </div>
 
-		                                        </div>
-		                                         
-		                                    
-		                                        
-		                                        <div class="colorBar">
-		                                                <img src="img/colorBar.png" class="colorBarIMG"/>  
-		                                               
-		                                                <p>
-		                                                    <input type="text" class="colorBarInfoMin" readonly>
-		                                                    
-		                                                </p>
+                                                    <dl class="dropdown">
 
-		                                                <p>
-		                                                    <input type="text" class="colorBarInfoMid" readonly>
-		                                                    
-		                                                </p>
+                                                                    <dt><a href="#"><span>All points</span></a></dt>
+                                                                    <dd>
+                                                                        <ul>
+                                                                            <li><p class="infoButton" id="dropdownInfo1">i</p><a id="allPoints" href="#">All points<span></span></a></li>
+                                                                            <li><p class="infoButton" id="dropdownInfo2">i</p><a id="onlyInside" href="#">Only inside<span></span></a></li>
+                                                                            <li><p class="infoButton" id="dropdownInfo3">i</p><a id="onlyOutside" href="#">Only outside<span></span></a></li>
+                                                                            <li><p class="infoButton" id="dropdownInfo4">i</p><a id="signedDist" href="#">Signed dist.<span></span></a></li>
+                                                                        </ul>
+                                                                    </dd>
+                                                    </dl>
+                                                    </div>
 
-		                                                <p>
-		                                                    <input type="text" class="colorBarInfoMax" readonly>
-		                                                    
-		                                                </p>
-		                                        </div>
-		                                </div>
+                                            <div id="slider"></div>
+
+                                            <div id="histogram"></div>
+                                            </div>	
+                                    </div>
+
+                            </div>
+
+                            <div id="rightWrap">
+                                    <div id="canvasWrap">
+                                        <div id="instructions">  
+                                            <ul>
+                                                <li> <strong>Rotate:</strong> <br> Left-click and drag </li>
+                                                <li> <strong>Zoom: </strong> <br> Scroll &nbsp</li>
+                                                <li> <strong>Move:</strong> <br> Right-click and drag </li>
+                                            </ul>
+                                        </div>
+                                        <div id="canvasContainer"></div>
+                                        <div id="axesContainer"></div>
+
+                                    </div>
+
+
+
+                                    <div class="colorBar">
+                                            <img src="img/colorBar.png" class="colorBarIMG"/>  
+
+                                            <p>
+                                                <input type="text" class="colorBarInfoMin" readonly>
+
+                                            </p>
+
+                                            <p>
+                                                <input type="text" class="colorBarInfoMid" readonly>
+
+                                            </p>
+
+                                            <p>
+                                                <input type="text" class="colorBarInfoMax" readonly>
+
+                                            </p>
+                                    </div>
+                            </div>
                     
 		</div> 
 
